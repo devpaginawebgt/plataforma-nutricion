@@ -20,7 +20,7 @@ $width = match ($width) {
         {{ $trigger }}
     </div>
 
-    <div id="{{ $dropdownId }}" class="z-50 hidden {{ $width }} rounded-default shadow-lg">
+    <div id="{{ $dropdownId }}" class="z-30 hidden {{ $width }} rounded-default shadow-lg">
         <div class="rounded-default ring-1 ring-black/5 dark:ring-white/10 {{ $contentClasses }}">
             {{ $content }}
         </div>

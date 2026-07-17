@@ -29,7 +29,7 @@
         <div class="lg:ml-64 min-h-screen flex flex-col">
             @include('layouts.topbar')
 
-            <main class="flex-1 p-4 md:p-6">
+            <main class="flex-1 px-4 py-2 md:px-6">
                 {{ $slot }}
             </main>
         </div>

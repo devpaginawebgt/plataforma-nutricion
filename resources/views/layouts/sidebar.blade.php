@@ -1,6 +1,6 @@
 <aside
     id="app-sidebar"
-    class="fixed top-0 left-0 z-40 h-screen w-64 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 -translate-x-full lg:translate-x-0 transition-transform duration-200"
+    class="fixed top-0 left-0 z-50 h-screen w-64 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 -translate-x-full lg:translate-x-0 transition-transform duration-200"
     aria-label="Sidebar"
 >
     <div class="flex flex-col h-full">
@@ -42,6 +42,6 @@
 <!-- Backdrop mobile -->
 <div
     id="app-sidebar-backdrop"
-    class="fixed inset-0 z-30 bg-gray-900/50 hidden lg:hidden"
+    class="fixed inset-0 z-40 bg-gray-900/50 hidden lg:hidden"
     aria-hidden="true"
 ></div>
