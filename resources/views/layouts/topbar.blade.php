@@ -1,11 +1,11 @@
-<header class="sticky top-0 z-30 bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<header class="sticky top-0 z-30">
     <div class="flex items-center justify-between px-4 md:px-6 py-3">
         <!-- Izquierda: hamburger (mobile) + título -->
         <div class="flex items-center gap-3">
             <button
                 id="app-sidebar-toggle"
                 type="button"
-                class="flex lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition"
+                class="flex lg:hidden p-2 rounded-default text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 transition"
                 aria-label="Toggle sidebar"
                 aria-controls="app-sidebar"
                 aria-expanded="false"

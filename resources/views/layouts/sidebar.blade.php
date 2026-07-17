@@ -5,13 +5,13 @@
 >
     <div class="flex flex-col h-full">
         <!-- Logo -->
-        <div class="px-6 py-5 flex items-center gap-2 border-b border-gray-100 dark:border-gray-700">
+        <div class="px-6 py-5 flex items-center gap-4 dark:border-gray-700">
             <x-application-logo class="w-8 h-8 fill-current text-primary-600 dark:text-primary-400" />
-            <span class="text-lg font-semibold text-gray-900 dark:text-white">NutriVida</span>
+            <span class="text-lg font-semibold text-gray-900 dark:text-white">Nutrición</span>
         </div>
 
         <!-- Usuario -->
-        <div class="px-6 py-5 flex flex-col items-center border-b border-gray-100 dark:border-gray-700">
+        <div class="px-6 py-5 flex flex-col items-center dark:border-gray-700">
             <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center">
                 <span class="text-2xl font-semibold text-primary-700 dark:text-primary-300">
                     {{ mb_strtoupper(mb_substr(Auth::user()->name, 0, 1)) }}

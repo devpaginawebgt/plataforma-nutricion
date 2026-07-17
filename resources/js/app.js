@@ -34,8 +34,8 @@ function applyTheme(theme) {
 }
 
 window.toggleTheme = function () {
-    const current = localStorage.getItem('theme') ?? 'system';
-    const next = current === 'dark' ? 'light' : current === 'light' ? 'system' : 'dark';
+    const isDark = document.documentElement.classList.contains('dark');
+    const next = isDark ? 'light' : 'dark';
     localStorage.setItem('theme', next);
     applyTheme(next);
     return next;

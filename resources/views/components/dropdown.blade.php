@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-800'])
 
 @php
 $dropdownId = 'dropdown-' . \Illuminate\Support\Str::random(10);
@@ -20,8 +20,8 @@ $width = match ($width) {
         {{ $trigger }}
     </div>
 
-    <div id="{{ $dropdownId }}" class="z-50 hidden {{ $width }} rounded-md shadow-lg">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+    <div id="{{ $dropdownId }}" class="z-50 hidden {{ $width }} rounded-default shadow-lg">
+        <div class="rounded-default ring-1 ring-black/5 dark:ring-white/10 {{ $contentClasses }}">
             {{ $content }}
         </div>
     </div>

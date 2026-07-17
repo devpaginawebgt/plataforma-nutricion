@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="bg-white dark:bg-gray-800 shadow-sm rounded-lg p-6 text-gray-900 dark:text-gray-100">
+    <div class="bg-white dark:bg-gray-800 shadow-sm rounded-default p-6 text-gray-900 dark:text-gray-100">
         {{ __("You're logged in!") }}
     </div>
 </x-app-layout>

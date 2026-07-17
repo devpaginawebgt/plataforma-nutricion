@@ -21,7 +21,7 @@ $maxWidth = [
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-start w-full md:inset-0 h-modal md:h-full"
 >
     <div class="relative w-full {{ $maxWidth }} mx-auto my-8 px-4">
-        <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+        <div class="relative bg-white dark:bg-gray-800 rounded-modal shadow-xl">
             {{ $slot }}
         </div>
     </div>

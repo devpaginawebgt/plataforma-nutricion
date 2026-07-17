@@ -11,10 +11,19 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+@source inline("icon-[lucide--{house,users,calendar,clipboard-list,lightbulb,activity,file-text,settings,bell,menu,sun,moon,user,log-out}]");
+
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Radios semánticos — cambiar aquí para ajustar toda la app */
+    --radius-default: 0.25rem;   /* 4px  — general (cards, contenedores, sidebar items) */
+    --radius-button:  0.25rem;   /* 4px  — botones */
+    --radius-input:   0.25rem;   /* 4px  — inputs, selects, textareas */
+    --radius-card:    0.375rem;  /* 6px  — cards destacadas (opcional, más suave) */
+    --radius-modal:   0.5rem;    /* 8px  — modales, drawers */
 
     /* Paleta primaria (Teal — nutrición clínica) */
     --color-primary-50:  oklch(0.984 0.014 180.72);
@@ -29,3 +38,4 @@
     --color-primary-900: oklch(0.386 0.063 188.416);
     --color-primary-950: oklch(0.277 0.046 192.524);
 }
+
