@@ -8,6 +8,15 @@ window.Modal = Modal;
 window.Dropdown = Dropdown;
 window.Collapse = Collapse;
 
+// Gráficas
+import ApexCharts from 'apexcharts';
+window.ApexCharts = ApexCharts;
+
+// DataTables (adjunta $.fn.DataTable a jQuery al importar)
+import DataTable from 'datatables.net-dt';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
+window.DataTable = DataTable;
+
 document.addEventListener('DOMContentLoaded', () => initFlowbite());
 
 // Toggle hamburger/close icons cuando Flowbite abre/cierra el menú móvil.
