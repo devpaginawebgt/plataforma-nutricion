@@ -1,5 +1,5 @@
-<div class="bg-white dark:bg-gray-800 rounded-default p-5 shadow-sm border border-gray-100 dark:border-gray-700">
-    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Gráfica general de avances</h3>
+<div class="bg-surface rounded-default p-5 shadow-card border-card">
+    <h3 class="text-lg font-semibold text-strong mb-4">Gráfica general de avances</h3>
     <div id="dashboard-progress-chart"></div>
 </div>
 

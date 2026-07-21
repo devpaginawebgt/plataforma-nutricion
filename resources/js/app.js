@@ -85,3 +85,24 @@ $(function () {
         if (e.key === 'Escape') closeSidebar();
     });
 });
+
+// Helper global de DataTables — defaults + i18n español.
+// Uso: initDataTable('#mi-tabla', { pageLength: 25, ... })
+window.initDataTable = function (selector, options = {}) {
+    return new DataTable(selector, Object.assign({
+        pageLength: 10,
+        language: {
+            search: 'Buscar:',
+            lengthMenu: 'Mostrar _MENU_ registros',
+            info: 'Mostrando _START_ a _END_ de _TOTAL_',
+            infoEmpty: 'Sin registros',
+            infoFiltered: '(filtrado de _MAX_ totales)',
+            paginate: { previous: 'Anterior', next: 'Siguiente' },
+            zeroRecords: 'Sin coincidencias',
+            emptyTable: 'Sin datos',
+            loadingRecords: 'Cargando...',
+            processing: 'Procesando...',
+        },
+        columnDefs: [{ orderable: false, targets: 'no-sort' }],
+    }, options));
+};

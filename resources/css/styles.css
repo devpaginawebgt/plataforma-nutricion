@@ -1,0 +1,136 @@
+
+div.dt-container select.dt-input {
+    width: auto;
+    min-width: 64px;
+    margin-right: 6px !important;
+    padding: 0.1rem 0.5rem !important;
+}
+
+div.dt-container input.dt-input {
+    width: auto;
+    min-height: 12px;
+    height: auto;
+    padding: 0.1rem 0.5rem !important;
+    margin-left: 12px !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+    width: auto;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc,
+table.dataTable thead > tr > th.dt-orderable-desc {
+    padding-right: 12px;
+}
+
+/* Selector "entries per page" */
+div.dt-container .dt-length {
+    font-size: 0.875rem;
+}
+
+div.dt-container .dt-length select.dt-input {
+    font-size: 0.875rem;
+}
+
+/* Buscador */
+div.dt-container .dt-search {
+    font-size: 0.875rem;
+}
+
+div.dt-container .dt-search input.dt-input {
+    font-size: 0.875rem;
+}
+
+/* Texto "Showing 1 to..." */
+div.dt-container .dt-info {
+    font-size: 0.875rem;
+}
+
+/* Paginación */
+div.dt-container .dt-paging {
+    font-size: 0.875rem;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+    font-size: 0.875rem;
+    width: auto;
+    min-height: 12px;
+    height: auto;
+    padding: 0.2rem 0.6rem !important;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+/* Inputs (buscador + selector "Mostrar X") */
+.dark div.dt-container select.dt-input,
+.dark div.dt-container input.dt-input {
+    background-color: var(--color-gray-700);
+    color: var(--color-gray-100);
+    border-color: var(--color-gray-600);
+}
+
+.dark div.dt-container input.dt-input::placeholder {
+    color: var(--color-gray-400);
+}
+
+/* Textos alrededor de inputs y de "Showing" */
+.dark div.dt-container .dt-length,
+.dark div.dt-container .dt-search,
+.dark div.dt-container .dt-info {
+    color: var(--color-gray-300);
+}
+
+/* Paginación */
+.dark div.dt-container .dt-paging .dt-paging-button {
+    color: var(--color-gray-300);
+    background: transparent;
+    border-color: var(--color-gray-600);
+}
+
+.dark div.dt-container .dt-paging .dt-paging-button:hover:not(.disabled) {
+    background-color: var(--color-gray-700);
+    color: white;
+}
+
+.dark div.dt-container .dt-paging .dt-paging-button.current,
+.dark div.dt-container .dt-paging .dt-paging-button.current:hover {
+    background: var(--color-primary-700);
+    color: white;
+    border-color: var(--color-primary-700);
+}
+
+.dark div.dt-container .dt-paging .dt-paging-button.disabled {
+    color: var(--color-gray-600);
+}
+
+/* Tabla */
+.dark table.dataTable thead > tr > th {
+    color: var(--color-gray-200);
+    border-color: var(--color-gray-700);
+}
+
+.dark table.dataTable thead > tr > th.dt-orderable-asc:hover,
+.dark table.dataTable thead > tr > th.dt-orderable-desc:hover {
+    background-color: var(--color-gray-700);
+}
+
+.dark table.dataTable tbody > tr {
+    background-color: var(--color-gray-800);
+    color: var(--color-gray-200);
+    border-color: var(--color-gray-700);
+}
+
+.dark table.dataTable tbody > tr:hover {
+    background-color: var(--color-gray-700);
+}
+
+.dark table.dataTable tbody > tr > td {
+    border-color: var(--color-gray-700);
+}
+
+.dark table.dataTable.stripe > tbody > tr.odd > *,
+.dark table.dataTable.display > tbody > tr.odd > * {
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.02);
+}

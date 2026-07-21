@@ -21,5 +21,5 @@ $iconMap = [
     <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 {{ $iconMap[$color] ?? $iconMap['red'] }}">
         <span class="icon-[lucide--{{ $icon }}] w-5 h-5"></span>
     </div>
-    <div class="text-sm text-gray-800 dark:text-gray-200">{{ $message }}</div>
+    <div class="text-sm text-soft">{{ $message }}</div>
 </div>

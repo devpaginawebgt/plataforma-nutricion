@@ -28,7 +28,9 @@
             <x-sidebar-link :href="route('dashboard')" icon="house" :active="request()->routeIs('dashboard')">
                 Inicio
             </x-sidebar-link>
-            <x-sidebar-link href="#" icon="users" disabled>Pacientes</x-sidebar-link>
+            <x-sidebar-link :href="route('patients.index')" icon="users" :active="request()->routeIs('patients.index')">
+                Pacientes
+            </x-sidebar-link>
             <x-sidebar-link href="#" icon="calendar" disabled>Citas</x-sidebar-link>
             <x-sidebar-link href="#" icon="clipboard-list" disabled>Dietas / Planes</x-sidebar-link>
             <x-sidebar-link href="#" icon="lightbulb" disabled>Recomendaciones</x-sidebar-link>
