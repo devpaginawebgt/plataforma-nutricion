@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
     ->prefix('dietas')
-    ->name('dietas.')
+    ->name('diets.')
     ->group(function () {
-        // Route::get('/', [\App\Http\Controllers\Diets\DietController::class, 'index'])->name('index');
+        Route::get('/', fn () => view('modules.diets.views.index'))->name('index');
     });

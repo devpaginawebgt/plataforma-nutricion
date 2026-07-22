@@ -6,9 +6,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('pacientes')
     ->name('patients.')
     ->group(function () {
-        Route::get('', function () {
-            return view('modules.patients.views.index');
-        })->name('index');
+        Route::get('', fn () => view('modules.patients.views.index'))->name('index');
 
         // Route::get('/', [\App\Http\Controllers\Patients\PatientController::class, 'index'])->name('index');
         // Route::get('/crear', [\App\Http\Controllers\Patients\PatientController::class, 'create'])->name('create');

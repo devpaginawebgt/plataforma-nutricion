@@ -31,12 +31,24 @@
             <x-sidebar-link :href="route('patients.index')" icon="users" :active="request()->routeIs('patients.index')">
                 Pacientes
             </x-sidebar-link>
-            <x-sidebar-link href="#" icon="calendar" disabled>Citas</x-sidebar-link>
-            <x-sidebar-link href="#" icon="clipboard-list" disabled>Dietas / Planes</x-sidebar-link>
-            <x-sidebar-link href="#" icon="lightbulb" disabled>Recomendaciones</x-sidebar-link>
-            <x-sidebar-link href="#" icon="activity" disabled>Seguimiento</x-sidebar-link>
-            <x-sidebar-link href="#" icon="file-text" disabled>Reportes</x-sidebar-link>
-            <x-sidebar-link href="#" icon="settings" disabled>Configuración</x-sidebar-link>
+            <x-sidebar-link :href="route('appointments.index')" icon="calendar" :active="request()->routeIs('appointments.index')">
+                Citas
+            </x-sidebar-link>
+            <x-sidebar-link :href="route('diets.index')" icon="clipboard-list" :active="request()->routeIs('diets.index')">
+                Dietas / Planes
+            </x-sidebar-link>
+            <x-sidebar-link :href="route('recommendations.index')" icon="lightbulb" :active="request()->routeIs('recommendations.index')">
+                Recomendaciones
+            </x-sidebar-link>
+            <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
+                Seguimiento
+            </x-sidebar-link>
+            <x-sidebar-link :href="route('reports.index')" icon="file-text" :active="request()->routeIs('reports.index')">
+                Reportes
+            </x-sidebar-link>
+            <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.index')">
+                Configuración
+            </x-sidebar-link>
         </nav>
     </div>
 </aside>
