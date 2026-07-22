@@ -64,7 +64,9 @@ $pacientes = [
                             </td>
                             <td>
                                 <div class="flex items-center gap-2">
-                                    <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver paciente" />
+                                    <a href="{{ route('show') }}">
+                                        <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver paciente" />
+                                    </a>
                                     <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar paciente" />
                                     <x-button variant="soft" color="success" size="sm" icon="calendar-plus" iconOnly title="Agendar cita" />
                                 </div>
