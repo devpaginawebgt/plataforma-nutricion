@@ -51,8 +51,7 @@ $styles = [
 
 $sizes = [
     'sm' => $iconOnly ? 'p-1.5' : 'text-xs px-3 py-2 gap-1.5',
-    'md' => $iconOnly ? 'p-2.5' : 'text-sm px-5 py-2.5 gap-2',
-    'lg' => $iconOnly ? 'p-3'   : 'text-base px-6 py-3 gap-2.5',
+    'md' => $iconOnly ? 'p-2.5' : 'text-sm px-4 py-2.5 gap-2',
 ];
 
 $iconSizes = [

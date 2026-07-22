@@ -17,13 +17,15 @@ $pacientes = [
 
     <div class="space-y-6">
         {{-- Encabezado --}}
-        <div class="flex items-start justify-between gap-4">
+        <div class="flex items-end justify-between gap-4">
             <div>
                 <h1 class="text-2xl font-bold text-strong">Pacientes</h1>
                 <p class="text-sm text-muted mt-1">
                     Este es el listado de pacientes registrados en tu consultorio.
                 </p>
             </div>
+
+            <x-button color="primary" icon="plus" size="sm" label="Nuevo paciente" />
         </div>
 
         {{-- Tabla --}}
