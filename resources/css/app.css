@@ -12,7 +12,7 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
-@source inline("icon-[lucide--{house,users,calendar,clipboard-list,lightbulb,activity,file-text,settings,bell,menu,sun,moon,user,log-out,clock,user-x,calendar-check,eye,pencil,calendar-plus,plus}]");
+@source inline("icon-[lucide--{house,users,calendar,clipboard-list,lightbulb,activity,file-text,settings,bell,menu,sun,moon,user,log-out,clock,user-x,calendar-check,eye,pencil,calendar-plus,plus,arrow-right}]");
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',

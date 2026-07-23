@@ -66,7 +66,7 @@ $pacientes = [
                             </td>
                             <td>
                                 <div class="flex items-center gap-2">
-                                    <a href="{{ route('show') }}">
+                                    <a href="{{ route('patients.show') }}">
                                         <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver paciente" />
                                     </a>
                                     <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar paciente" />

@@ -32,7 +32,9 @@
                 Pacientes
             </x-sidebar-link>
             <x-sidebar-link href="#" icon="calendar" disabled>Citas</x-sidebar-link>
-            <x-sidebar-link href="#" icon="clipboard-list" disabled>Dietas / Planes</x-sidebar-link>
+            <x-sidebar-link :href="route('dietas.index')" icon="clipboard-list" :active="request()->routeIs('dietas.index')">
+                Dietas / Planes
+            </x-sidebar-link>
             <x-sidebar-link href="#" icon="lightbulb" disabled>Recomendaciones</x-sidebar-link>
             <x-sidebar-link href="#" icon="activity" disabled>Seguimiento</x-sidebar-link>
             <x-sidebar-link href="#" icon="file-text" disabled>Reportes</x-sidebar-link>
