@@ -46,14 +46,14 @@
 
                     <a href="{{ route('profile.edit') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
                         <span class="icon-[lucide--user] w-4 h-4"></span>
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
                     </a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="w-full text-left flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
                             <span class="icon-[lucide--log-out] w-4 h-4"></span>
-                            {{ __('Log Out') }}
+                            {{ __('Cerrar sesión') }}
                         </button>
                     </form>
                 </x-slot>
