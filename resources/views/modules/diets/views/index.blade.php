@@ -25,7 +25,7 @@
             'duracion' => '8 semanas',
             'kcal' => '1,650 kcal',
             'descripcion' => 'Estructura con proteínas adecuadas, control de porciones y opción de recetas sencillas.',
-            'estado' => 'En revisión',
+            'estado' => 'Desactivada',
         ],
         [
             'titulo' => 'Dieta para mejorar digestión',
@@ -77,7 +77,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             @foreach ($dietas as $dieta)
                 <article class="group flex min-h-[340px] flex-col rounded-2xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-white p-5 shadow-sm ring-1 ring-black/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-                    <div class="flex items-start justify-between gap-3">
+                    <div class="flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3 min-w-0">
                             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-100 text-primary-700 shadow-sm dark:bg-primary-900/40 dark:text-primary-300">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -94,7 +94,14 @@
                             </div>
                         </div>
 
-                        <span class="inline-flex items-center justify-center rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                        @php
+                            $estadoColors = [
+                                'Activa' => 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
+                                'En revisión' => 'bg-amber-50 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+                                'Desactivada' => 'bg-red-50 text-red-700 dark:bg-red-900/40 dark:text-red-300',
+                            ];
+                        @endphp
+                        <span class="inline-flex shrink-0 items-center justify-center rounded-full px-2.5 py-1 text-[11px] font-semibold {{ $estadoColors[$dieta['estado']] ?? $estadoColors['Activa'] }}">
                             {{ $dieta['estado'] }}
                         </span>
                     </div>
@@ -121,8 +128,10 @@
 
                     <div class="mt-auto pt-4">
                         <div class="flex items-center justify-between border-t border-slate-200 pt-4 dark:border-slate-700">
-                            <span class="text-xs font-semibold text-primary-700 dark:text-primary-300">Ver detalle</span>
-                            <x-button variant="soft" color="primary" size="sm" icon="arrow-right" iconOnly title="Abrir dieta" />
+                            <a href="#" class="text-xs font-semibold text-primary-700 hover:underline dark:text-primary-300">Ver detalle</a>
+                            <div class="flex items-center gap-2">
+                                <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar dieta" />
+                            </div>
                         </div>
                     </div>
                 </article>
