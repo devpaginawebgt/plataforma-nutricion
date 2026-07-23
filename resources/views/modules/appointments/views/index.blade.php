@@ -220,7 +220,7 @@ $stateBadges = [
                                     </div>
 
                                     <div class="grid grid-cols-2 gap-1.5 shrink-0">
-                                        <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver cita" />
+                                        <x-button variant="soft" color="info" size="sm" icon="user" iconOnly title="Ver paciente" />
                                         <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar cita" />
                                         <x-button variant="soft" color="success" size="sm" icon="check" iconOnly title="Marcar como completada" />
                                         <x-button variant="soft" color="danger" size="sm" icon="x" iconOnly title="Cancelar cita" />
