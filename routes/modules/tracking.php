@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified'])
+Route::middleware(['auth', 'verified', 'role:nutritionist'])
     ->prefix('seguimiento')
     ->name('tracking.')
     ->group(function () {

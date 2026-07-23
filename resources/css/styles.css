@@ -1,9 +1,26 @@
+/* ============================================
+   DataTables — integración con estilos de la app
+   ============================================ */
+
+/* Controles: tamaño de fuente y padding compacto */
+div.dt-container .dt-length,
+div.dt-container .dt-search,
+div.dt-container .dt-info,
+div.dt-container .dt-paging {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
 
 div.dt-container select.dt-input {
     width: auto;
     min-width: 64px;
     margin-right: 6px !important;
     padding: 0.1rem 0.5rem !important;
+    font-size: 0.875rem;
+    background-color: var(--bg-surface);
+    color: var(--text-strong);
+    border-color: var(--border-muted);
+    border-radius: var(--radius-input);
 }
 
 div.dt-container input.dt-input {
@@ -12,125 +29,91 @@ div.dt-container input.dt-input {
     height: auto;
     padding: 0.1rem 0.5rem !important;
     margin-left: 12px !important;
-}
-
-div.dt-container .dt-paging .dt-paging-button {
-    width: auto;
-}
-
-table.dataTable thead > tr > th.dt-orderable-asc,
-table.dataTable thead > tr > th.dt-orderable-desc {
-    padding-right: 12px;
-}
-
-/* Selector "entries per page" */
-div.dt-container .dt-length {
     font-size: 0.875rem;
+    background-color: var(--bg-surface);
+    color: var(--text-strong);
+    border-color: var(--border-muted);
+    border-radius: var(--radius-input);
 }
 
-div.dt-container .dt-length select.dt-input {
-    font-size: 0.875rem;
-}
-
-/* Buscador */
-div.dt-container .dt-search {
-    font-size: 0.875rem;
-}
-
-div.dt-container .dt-search input.dt-input {
-    font-size: 0.875rem;
-}
-
-/* Texto "Showing 1 to..." */
-div.dt-container .dt-info {
-    font-size: 0.875rem;
+div.dt-container input.dt-input::placeholder {
+    color: var(--text-muted);
 }
 
 /* Paginación */
-div.dt-container .dt-paging {
-    font-size: 0.875rem;
-}
-
 div.dt-container .dt-paging .dt-paging-button {
-    font-size: 0.875rem;
     width: auto;
     min-height: 12px;
     height: auto;
     padding: 0.2rem 0.6rem !important;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border-color: var(--border-muted);
+    border-radius: var(--radius-input);
 }
 
-/* ============================================
-   DARK MODE
-   ============================================ */
-
-/* Inputs (buscador + selector "Mostrar X") */
-.dark div.dt-container select.dt-input,
-.dark div.dt-container input.dt-input {
-    background-color: var(--color-gray-700);
-    color: var(--color-gray-100);
-    border-color: var(--color-gray-600);
+div.dt-container .dt-paging .dt-paging-button:hover:not(.disabled) {
+    background-color: var(--border-muted);
+    color: var(--text-strong);
 }
 
-.dark div.dt-container input.dt-input::placeholder {
-    color: var(--color-gray-400);
-}
-
-/* Textos alrededor de inputs y de "Showing" */
-.dark div.dt-container .dt-length,
-.dark div.dt-container .dt-search,
-.dark div.dt-container .dt-info {
-    color: var(--color-gray-300);
-}
-
-/* Paginación */
-.dark div.dt-container .dt-paging .dt-paging-button {
-    color: var(--color-gray-300);
-    background: transparent;
-    border-color: var(--color-gray-600);
-}
-
-.dark div.dt-container .dt-paging .dt-paging-button:hover:not(.disabled) {
-    background-color: var(--color-gray-700);
-    color: white;
-}
-
-.dark div.dt-container .dt-paging .dt-paging-button.current,
-.dark div.dt-container .dt-paging .dt-paging-button.current:hover {
+div.dt-container .dt-paging .dt-paging-button.current,
+div.dt-container .dt-paging .dt-paging-button.current:hover {
     background: var(--color-primary-700);
     color: white;
     border-color: var(--color-primary-700);
 }
 
-.dark div.dt-container .dt-paging .dt-paging-button.disabled {
-    color: var(--color-gray-600);
+/* Headers: patrón de la app (text-xs uppercase tracking-wider, text-strong) */
+table.dataTable thead > tr > th {
+    font-size: 0.75rem;                     /* text-xs */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;                 /* tracking-wider */
+    color: var(--text-strong);
+    border-bottom-color: var(--border-muted);
+    padding: 0.75rem 0.75rem;
 }
 
-/* Tabla */
-.dark table.dataTable thead > tr > th {
-    color: var(--color-gray-200);
-    border-color: var(--color-gray-700);
+table.dataTable thead > tr > th.dt-orderable-asc,
+table.dataTable thead > tr > th.dt-orderable-desc {
+    padding-right: 1.25rem;
 }
 
-.dark table.dataTable thead > tr > th.dt-orderable-asc:hover,
-.dark table.dataTable thead > tr > th.dt-orderable-desc:hover {
-    background-color: var(--color-gray-700);
+table.dataTable thead > tr > th.dt-orderable-asc:hover,
+table.dataTable thead > tr > th.dt-orderable-desc:hover {
+    background-color: var(--border-muted);
 }
 
-.dark table.dataTable tbody > tr {
-    background-color: var(--color-gray-800);
-    color: var(--color-gray-200);
-    border-color: var(--color-gray-700);
+/* Cuerpo de la tabla */
+table.dataTable tbody > tr {
+    background-color: transparent;
+    color: var(--text-soft);
+    border-color: var(--border-muted);
+    transition: background-color 0.15s ease;
 }
 
-.dark table.dataTable tbody > tr:hover {
-    background-color: var(--color-gray-700);
+table.dataTable tbody > tr:hover {
+    background-color: var(--border-muted);
 }
 
-.dark table.dataTable tbody > tr > td {
-    border-color: var(--color-gray-700);
+table.dataTable tbody > tr > td {
+    border-color: var(--border-muted);
+    padding: 0.75rem 0.75rem;
+    font-size: 0.875rem;                    /* text-sm */
+}
+
+table.dataTable tbody > tr:last-child > td {
+    border-bottom-width: 0;
+}
+
+/* Striping sutil (opcional; usa el mismo color muted) */
+table.dataTable.stripe > tbody > tr.odd > *,
+table.dataTable.display > tbody > tr.odd > * {
+    box-shadow: inset 0 0 0 9999px rgb(0 0 0 / 0.02);
 }
 
 .dark table.dataTable.stripe > tbody > tr.odd > *,
 .dark table.dataTable.display > tbody > tr.odd > * {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 0 0 9999px rgb(255 255 255 / 0.02);
 }
