@@ -14,6 +14,7 @@ $citas = [
             'diagnostico' => 'Hipertensión arterial',
             'patient_register_date' => '2026-05-10 14:00:00',
             'appointment_date' => $today.' 09:30:00',
+            'state' => 'completed',
         ],
         [
             'id' => 2,
@@ -23,6 +24,7 @@ $citas = [
             'diagnostico' => 'Diabetes tipo 2',
             'patient_register_date' => '2026-03-22 10:15:00',
             'appointment_date' => $today.' 15:45:00',
+            'state' => 'pending',
         ],
     ],
     $tomorrow => [
@@ -34,6 +36,7 @@ $citas = [
             'diagnostico' => 'Sobrepeso',
             'patient_register_date' => '2026-06-01 09:00:00',
             'appointment_date' => $tomorrow.' 08:15:00',
+            'state' => 'pending',
         ],
         [
             'id' => 4,
@@ -43,6 +46,7 @@ $citas = [
             'diagnostico' => 'Colesterol elevado',
             'patient_register_date' => '2026-04-18 11:20:00',
             'appointment_date' => $tomorrow.' 11:00:00',
+            'state' => 'canceled',
         ],
         [
             'id' => 5,
@@ -52,6 +56,7 @@ $citas = [
             'diagnostico' => 'Gastritis crónica',
             'patient_register_date' => '2026-02-05 16:40:00',
             'appointment_date' => $tomorrow.' 17:30:00',
+            'state' => 'pending',
         ],
     ],
     $two_days => [
@@ -63,8 +68,15 @@ $citas = [
             'diagnostico' => 'Anemia ferropénica',
             'patient_register_date' => '2026-06-14 08:45:00',
             'appointment_date' => $two_days.' 10:00:00',
+            'state' => 'pending',
         ],
         ],
+];
+
+$stateBadges = [
+    'pending'   => ['label' => 'Pendiente',  'classes' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300'],
+    'completed' => ['label' => 'Completada', 'classes' => 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300'],
+    'canceled'  => ['label' => 'Cancelada',  'classes' => 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300'],
 ];
 @endphp
 
@@ -82,7 +94,16 @@ $citas = [
             </p>
         </div>
 
-        <x-button color="primary" icon="plus" size="sm" label="Agendar cita" />
+        <x-button
+            color="primary"
+            icon="plus"
+            size="sm"
+            label="Agendar cita"
+            data-drawer-target="new-appointment-drawer"
+            data-drawer-show="new-appointment-drawer"
+            data-drawer-placement="right"
+            aria-controls="new-appointment-drawer"
+        />
     </div>
 
     {{-- Filtro de fechas --}}
@@ -112,9 +133,7 @@ $citas = [
         <div class="w-full sm:w-auto">
             <x-input-label for="appointments-state-filter" value="Estado" class="text-xs" />
             <x-select id="appointments-state-filter" class="mt-1 min-w-36 bg-white dark:bg-gray-800">
-                <option value="upcoming">Próximas</option>
                 <option value="pending">Pendientes</option>
-                <option value="rescheduled">Reagendadas</option>
                 <option value="completed">Completadas</option>
                 <option value="canceled">Canceladas</option>
             </x-select>
@@ -176,7 +195,13 @@ $citas = [
                             <div class="shadow-card border-card rounded-default bg-surface p-4">
                                 <div class="flex items-start justify-between gap-4">
                                     <div class="min-w-0 flex-1">
-                                        <h4 class="text-base font-semibold text-strong truncate">{{ $cita['patient'] }}</h4>
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <h4 class="text-base font-semibold text-strong truncate">{{ $cita['patient'] }}</h4>
+                                            @php $badge = $stateBadges[$cita['state']]; @endphp
+                                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium {{ $badge['classes'] }}">
+                                                {{ $badge['label'] }}
+                                            </span>
+                                        </div>
 
                                         <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
                                             <span class="inline-flex items-center gap-1.5">
@@ -194,10 +219,11 @@ $citas = [
                                         </div>
                                     </div>
 
-                                    <div class="flex items-center gap-2 shrink-0">
+                                    <div class="grid grid-cols-2 gap-1.5 shrink-0">
                                         <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver cita" />
                                         <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar cita" />
                                         <x-button variant="soft" color="success" size="sm" icon="check" iconOnly title="Marcar como completada" />
+                                        <x-button variant="soft" color="danger" size="sm" icon="x" iconOnly title="Cancelar cita" />
                                     </div>
                                 </div>
                             </div>
@@ -206,6 +232,8 @@ $citas = [
                 </div>
             </section>
         @endforeach
+
+        <x-shared::new-appointment id="new-appointment-drawer" />
     </div>
 
     <script type="module">

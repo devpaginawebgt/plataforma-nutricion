@@ -53,7 +53,7 @@
     --text-muted:   var(--color-gray-600);
     --text-soft:    var(--color-gray-800);
     --bg-surface:   var(--color-white);
-    --border-card:  var(--color-gray-100);
+    --border-muted: var(--color-gray-100);
 }
 
 .dark {
@@ -61,7 +61,7 @@
     --text-muted:   var(--color-gray-400);
     --text-soft:    var(--color-gray-200);
     --bg-surface:   var(--color-gray-800);
-    --border-card:  var(--color-gray-700);
+    --border-muted: var(--color-gray-700)
 }
 
 /* Clases que consumen los tokens */
@@ -69,4 +69,5 @@
 .text-muted   { color: var(--text-muted); }
 .text-soft    { color: var(--text-soft); }
 .bg-surface   { background-color: var(--bg-surface); }
-.border-card  { border: 1px solid var(--border-card); }
+.border-muted { border-color: var(--border-muted); }
+.border-card  { border: 1px solid var(--border-muted); }
