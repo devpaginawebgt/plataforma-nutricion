@@ -48,4 +48,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the dashboard route name based on the user's role.
+     */
+    public function dashboardRoute(): string
+    {
+        return match (true) {
+            $this->hasRole('nutritionist') => 'dashboard',
+            $this->hasRole('patient') => 'patient.dashboard',
+            default => 'dashboard',
+        };
+    }
 }

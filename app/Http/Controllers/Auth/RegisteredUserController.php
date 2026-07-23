@@ -42,16 +42,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user->assignRole('patient');
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        $routeName = match (true) {
-            $user->hasRole('nutritionist') => 'dashboard',
-            $user->hasRole('patient') => 'patient.dashboard',
-            default => 'dashboard',
-        };
-
-        return redirect(route($routeName, absolute: false));
+        return redirect(route($user->dashboardRoute(), absolute: false));
     }
 }

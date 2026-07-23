@@ -4,12 +4,12 @@ use App\Http\Controllers\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    if (auth()->check()) {
+        return redirect()->route(auth()->user()->dashboardRoute());
+    }
 
-Route::get('/dashboard', function () {
-    return view('modules.dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect()->route('login');
+})->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
