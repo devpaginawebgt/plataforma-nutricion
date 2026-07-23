@@ -6,5 +6,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('dietas')
     ->name('diets.')
     ->group(function () {
-        Route::get('/', fn () => view('modules.diets.views.index'))->name('index');
+        Route::get('', function () {
+            return view('modules.diets.views.index');
+        })->name('index');
     });
