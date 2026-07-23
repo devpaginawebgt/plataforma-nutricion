@@ -43,7 +43,7 @@
                 <x-sidebar-link :href="route('recommendations.index')" icon="lightbulb" :active="request()->routeIs('recommendations.index')">
                     Recomendaciones
                 </x-sidebar-link>
-                <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
+                {{-- <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
                     Seguimiento
                 </x-sidebar-link>
                 <x-sidebar-link :href="route('reports.index')" icon="file-text" :active="request()->routeIs('reports.index')">
@@ -51,7 +51,7 @@
                 </x-sidebar-link>
                 <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.index')">
                     Configuración
-                </x-sidebar-link>
+                </x-sidebar-link> --}}
             @endrole
 
             @role('patient')
