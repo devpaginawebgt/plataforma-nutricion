@@ -19,36 +19,46 @@
             </div>
             <div class="mt-3 text-center">
                 <div class="text-sm font-medium text-gray-900 dark:text-white">{{ Auth::user()->name }}</div>
-                <div class="text-xs text-gray-500 dark:text-gray-400">Nutricionista</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">
+                    {{ Auth::user()->hasRole('nutritionist') ? 'Nutricionista' : 'Paciente' }}
+                </div>
             </div>
         </div>
 
         <!-- Menú -->
         <nav class="flex-1 px-3 py-4 overflow-y-auto space-y-1">
-            <x-sidebar-link :href="route('dashboard')" icon="house" :active="request()->routeIs('dashboard')">
-                Inicio
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('patients.index')" icon="users" :active="request()->routeIs('patients.index')">
-                Pacientes
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('appointments.index')" icon="calendar" :active="request()->routeIs('appointments.index')">
-                Citas
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('diets.index')" icon="clipboard-list" :active="request()->routeIs('diets.index')">
-                Dietas / Planes
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('recommendations.index')" icon="lightbulb" :active="request()->routeIs('recommendations.index')">
-                Recomendaciones
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
-                Seguimiento
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('reports.index')" icon="file-text" :active="request()->routeIs('reports.index')">
-                Reportes
-            </x-sidebar-link>
-            <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.index')">
-                Configuración
-            </x-sidebar-link>
+            @role('nutritionist')
+                <x-sidebar-link :href="route('dashboard')" icon="house" :active="request()->routeIs('dashboard')">
+                    Inicio
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('patients.index')" icon="users" :active="request()->routeIs('patients.index')">
+                    Pacientes
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('appointments.index')" icon="calendar" :active="request()->routeIs('appointments.index')">
+                    Citas
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('diets.index')" icon="clipboard-list" :active="request()->routeIs('diets.index')">
+                    Dietas / Planes
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('recommendations.index')" icon="lightbulb" :active="request()->routeIs('recommendations.index')">
+                    Recomendaciones
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
+                    Seguimiento
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('reports.index')" icon="file-text" :active="request()->routeIs('reports.index')">
+                    Reportes
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.index')">
+                    Configuración
+                </x-sidebar-link>
+            @endrole
+
+            @role('patient')
+                <x-sidebar-link :href="route('patient.dashboard')" icon="house" :active="request()->routeIs('patient.dashboard')">
+                    Inicio
+                </x-sidebar-link>
+            @endrole
         </nav>
     </div>
 </aside>
