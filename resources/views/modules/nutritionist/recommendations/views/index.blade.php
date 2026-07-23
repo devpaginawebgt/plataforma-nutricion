@@ -129,5 +129,5 @@
     </div>
 
     {{-- Drawer para crear nueva recomendación --}}
-    <x-recommendations::new-recommendation />
+    <x-nutritionist-recommendations::new-recommendation />
 </x-app-layout>

@@ -196,3 +196,44 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - To filter on a particular test name: `php artisan test --compact --filter=testName` (recommended after making a change to a related file).
 
 </laravel-boost-guidelines>
+
+# Project conventions
+
+## Module structure — grouped by role
+
+Modules live under `resources/views/modules/{role}/{module}/` and `routes/modules/{role}/{module}.php`. Current roles: `nutritionist/`, `patient/`, `shared/`.
+
+```
+resources/views/modules/{role}/{module}/
+├── views/                  ← Pages
+│   └── index.blade.php     ← view('modules.{role}.{module}.views.index')
+├── components/             ← Anonymous Blade components
+│   └── card.blade.php      ← <x-{role}-{module}::card />
+└── partials/               ← @include chunks (optional)
+
+routes/modules/{role}/{module}.php
+```
+
+Cross-cutting UI reusable across roles lives at `resources/views/modules/shared/components/` and is used as `<x-shared::name />`.
+
+### Naming
+
+- Folder and code identifiers: **English** (`nutritionist`, `patient`, `dashboard`, `patients`, `appointments`, …).
+- URL prefixes: **Spanish** (`->prefix('pacientes')`, `->prefix('citas')`, …).
+- Route names: **English**, currently **without** role prefix (`dashboard`, `patients.index`, `patient.dashboard`, `profile.edit`). Keep this flat — a role-prefix rename is a separate refactor.
+
+### Auto-registration
+
+- `bootstrap/app.php` loads all `routes/modules/*/*.php` files under the `web` middleware. Auth is added per-route inside each file (`Route::middleware(['auth', 'verified', 'role:nutritionist'])`).
+- `AppServiceProvider::boot()` walks `views/modules/*` (role dirs) and registers Blade components:
+  - `{role}/components/` (if present) → namespace `{role}` (used by `shared`).
+  - `{role}/{module}/components/` → namespace `{role}-{module}` (e.g. `nutritionist-dashboard`, `patient-dashboard`, `shared-profile`).
+
+### Adding a new module
+
+1. Decide the role folder (`nutritionist`, `patient`, or `shared` for cross-role modules like `profile`).
+2. Create `resources/views/modules/{role}/{module}/{views,components}/`.
+3. Create `routes/modules/{role}/{module}.php` with the middleware group matching the role.
+4. Reference views as `view('modules.{role}.{module}.views.{page}')` and components as `<x-{role}-{module}::{name} />`.
+
+If a `shared` module later diverges per-role, split it into `nutritionist/{module}` and `patient/{module}`.

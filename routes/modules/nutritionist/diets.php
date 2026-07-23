@@ -7,6 +7,6 @@ Route::middleware(['auth', 'verified', 'role:nutritionist'])
     ->name('diets.')
     ->group(function () {
         Route::get('', function () {
-            return view('modules.diets.views.index');
+            return view('modules.nutritionist.diets.views.index');
         })->name('index');
     });

@@ -6,5 +6,5 @@ Route::middleware(['auth', 'verified', 'role:nutritionist'])
     ->prefix('configuracion')
     ->name('settings.')
     ->group(function () {
-        Route::get('/', fn () => view('modules.settings.views.index'))->name('index');
+        Route::get('/', fn () => view('modules.nutritionist.settings.views.index'))->name('index');
     });

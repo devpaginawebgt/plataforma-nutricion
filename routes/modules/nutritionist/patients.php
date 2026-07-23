@@ -7,10 +7,10 @@ Route::middleware(['auth', 'verified', 'role:nutritionist'])
     ->name('patients.')
     ->group(function () {
         Route::get('', function () {
-            return view('modules.patients.views.index');
+            return view('modules.nutritionist.patients.views.index');
         })->name('index');
 
         Route::get('/ver', function () {
-            return view('modules.patients.views.show');
+            return view('modules.nutritionist.patients.views.show');
         })->name('show');
     });

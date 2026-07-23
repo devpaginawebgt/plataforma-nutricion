@@ -6,5 +6,5 @@ Route::middleware(['auth', 'verified', 'role:nutritionist'])
     ->prefix('reportes')
     ->name('reports.')
     ->group(function () {
-        Route::get('/', fn () => view('modules.reports.views.index'))->name('index');
+        Route::get('/', fn () => view('modules.nutritionist.reports.views.index'))->name('index');
     });
