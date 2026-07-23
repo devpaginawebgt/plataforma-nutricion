@@ -28,7 +28,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $routeName = match (true) {
+            $request->user()->hasRole('nutritionist') => 'dashboard',
+            $request->user()->hasRole('patient') => 'patient.dashboard',
+            default => 'dashboard',
+        };
+
+        return redirect()->intended(route($routeName, absolute: false));
     }
 
     /**

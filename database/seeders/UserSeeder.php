@@ -26,5 +26,12 @@ class UserSeeder extends Seeder
             'password' => Hash::make('FScomunica2'),
         ]);
         $douglas->assignRole('nutritionist');
+
+        $patient = User::create([
+            'name' => 'Oliver Bonilla',
+            'email' => 'oliver@gmail.com',
+            'password' => Hash::make('FScomunica2'),
+        ]);
+        $patient->assignRole('patient');
     }
 }
