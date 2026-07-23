@@ -233,7 +233,7 @@ $stateBadges = [
             </section>
         @endforeach
 
-        <x-shared::new-appointment id="new-appointment-drawer" />
+        <x-nutritionist-shared::new-appointment id="new-appointment-drawer" />
     </div>
 
     <script type="module">
