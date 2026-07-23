@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
     ->prefix('reportes')
-    ->name('reportes.')
+    ->name('reports.')
     ->group(function () {
-        // Route::get('/', [\App\Http\Controllers\Reports\ReportController::class, 'index'])->name('index');
+        Route::get('/', fn () => view('modules.reports.views.index'))->name('index');
     });

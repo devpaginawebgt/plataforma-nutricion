@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
     ->prefix('recomendaciones')
-    ->name('recomendaciones.')
+    ->name('recommendations.')
     ->group(function () {
-        // Route::get('/', [\App\Http\Controllers\Recommendations\RecommendationController::class, 'index'])->name('index');
+        Route::get('/', fn () => view('modules.recommendations.views.index'))->name('index');
     });

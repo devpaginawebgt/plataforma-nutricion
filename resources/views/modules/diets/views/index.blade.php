@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @php
     $dietas = [
         [
@@ -130,3 +131,10 @@
         </div>
     </div>
 </x-app-layout>
+=======
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="text-lg font-semibold text-strong">Dietas / Listado</h2>
+    </x-slot>
+</x-app-layout>
+>>>>>>> 051684c9c5b7ef794fdbd6680e1122ab8be1248a

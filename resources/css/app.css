@@ -12,7 +12,11 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+<<<<<<< HEAD
 @source inline("icon-[lucide--{house,users,calendar,clipboard-list,lightbulb,activity,file-text,settings,bell,menu,sun,moon,user,log-out,clock,user-x,calendar-check,eye,pencil,calendar-plus,plus,arrow-right}]");
+=======
+@source inline("icon-[lucide--{house,users,calendar,clipboard-list,lightbulb,activity,file-text,settings,bell,menu,sun,moon,user,log-out,clock,user-x,calendar-check,eye,pencil,calendar-plus,calendar-clock,plus,stethoscope,phone,check,x,search,user-plus,trash-2,droplet,utensils,candy-off,wheat,dumbbell,heart-pulse,salad,refrigerator}]");
+>>>>>>> 051684c9c5b7ef794fdbd6680e1122ab8be1248a
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -53,7 +57,7 @@
     --text-muted:   var(--color-gray-600);
     --text-soft:    var(--color-gray-800);
     --bg-surface:   var(--color-white);
-    --border-card:  var(--color-gray-100);
+    --border-muted: var(--color-gray-100);
 }
 
 .dark {
@@ -61,7 +65,7 @@
     --text-muted:   var(--color-gray-400);
     --text-soft:    var(--color-gray-200);
     --bg-surface:   var(--color-gray-800);
-    --border-card:  var(--color-gray-700);
+    --border-muted: var(--color-gray-700);
 }
 
 /* Clases que consumen los tokens */
@@ -69,4 +73,5 @@
 .text-muted   { color: var(--text-muted); }
 .text-soft    { color: var(--text-soft); }
 .bg-surface   { background-color: var(--bg-surface); }
-.border-card  { border: 1px solid var(--border-card); }
+.border-muted { border-color: var(--border-muted); }
+.border-card  { border: 1px solid var(--border-muted); }

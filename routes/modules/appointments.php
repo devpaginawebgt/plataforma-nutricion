@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
     ->prefix('citas')
-    ->name('citas.')
+    ->name('appointments.')
     ->group(function () {
-        // Route::get('/', [\App\Http\Controllers\Appointments\AppointmentController::class, 'index'])->name('index');
+        Route::get('/', fn () => view('modules/appointments/views/index'))->name('index');
     });
