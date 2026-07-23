@@ -1,7 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Mi progreso</h2>
-    </x-slot>
+    <x-slot name="header">Mi progreso</x-slot>
 
     <div>
         <h1 class="text-2xl font-bold text-strong">Mi progreso</h1>

@@ -1,4 +1,8 @@
-<header class="sticky top-0 z-30">
+<header
+    id="app-topbar"
+    data-scrolled="false"
+    class="sticky top-0 z-30 border-b border-transparent transition-all duration-200"
+>
     <div class="flex items-center justify-between px-4 md:px-6 py-3">
         <!-- Izquierda: hamburger (mobile) + título -->
         <div class="flex items-center gap-3">
@@ -14,9 +18,7 @@
             </button>
 
             @isset($header)
-                <div class="text-gray-900 dark:text-white">
-                    {{ $header }}
-                </div>
+                <h2 class="text-sm sm:text-lg font-semibold text-muted">{{ $header }}</h2>
             @endisset
         </div>
 

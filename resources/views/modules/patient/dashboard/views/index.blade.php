@@ -1,7 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Inicio / Mi resumen</h2>
-    </x-slot>
+    <x-slot name="header">Inicio / Mi resumen</x-slot>
 
     <div class="space-y-6">
         {{-- Saludo --}}

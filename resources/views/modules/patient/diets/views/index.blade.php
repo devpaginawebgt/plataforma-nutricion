@@ -1,7 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Mi plan nutricional</h2>
-    </x-slot>
+    <x-slot name="header">Mi plan nutricional</x-slot>
 
     <div>
         <h1 class="text-2xl font-bold text-strong">Mi plan nutricional</h1>

@@ -86,6 +86,20 @@ $(function () {
     });
 });
 
+// Topbar: activar fondo + borde + sombra al hacer scroll para diferenciarlo del contenido.
+$(function () {
+    const topbar = document.getElementById('app-topbar');
+    if (!topbar) return;
+
+    const threshold = 8;
+    const update = () => {
+        topbar.dataset.scrolled = window.scrollY > threshold ? 'true' : 'false';
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+});
+
 // Helper global de DataTables — defaults + i18n español.
 // Uso: initDataTable('#mi-tabla', { pageLength: 25, ... })
 window.initDataTable = function (selector, options = {}) {

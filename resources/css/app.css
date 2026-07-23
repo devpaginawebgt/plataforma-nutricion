@@ -71,3 +71,10 @@
 .bg-surface   { background-color: var(--bg-surface); }
 .border-muted { border-color: var(--border-muted); }
 .border-card  { border: 1px solid var(--border-muted); }
+
+/* Topbar: fondo + borde + sombra al hacer scroll (activado por JS vía data-scrolled) */
+#app-topbar[data-scrolled="true"] {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-muted);
+    box-shadow: var(--shadow-card);
+}
