@@ -15,45 +15,47 @@
 
         <div class="flex items-center gap-2 shrink-0">
             <x-button variant="solid" color="success" size="sm" icon="calendar-plus" label="Programar cita" />
-            <x-button variant="soft" color="secondary" size="sm" icon="ellipsis" iconOnly title="Más opciones" />
         </div>
     </div>
 
     <div class="text-sm font-medium text-center text-body border-b border-default">
-        <ul class="flex flex-wrap -mb-px" id="patientTabs" data-tabs-toggle="#patientTabContent" role="tablist">
+        <ul class="flex flex-wrap -mb-px" id="patientTabs" data-tabs-toggle="#patientTabContent"
+            data-tabs-active-classes="text-primary-700 hover:text-primary-700 border-primary-700"
+            data-tabs-inactive-classes="border-transparent text-body hover:text-primary-700 border-soft hover:border-primary-700"
+            role="tablist">
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile"
                     aria-selected="false">Información Personal</button>
             </li>
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
                     aria-selected="false">Historial Clinico</button>
             </li>
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
                     aria-selected="false">Evaluación Nutricional</button>
             </li>
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts"
                     aria-selected="false">Plan Nutricional</button>
             </li>
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="seguimiento-tab" data-tabs-target="#seguimiento" type="button" role="tab" aria-controls="seguimiento"
                     aria-selected="false">Seguimiento</button>
             </li>
             <li class="me-2" role="presentation">
                 <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base hover:text-fg-brand hover:border-brand"
+                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="citas-tab" data-tabs-target="#citas" type="button" role="tab" aria-controls="citas"
                     aria-selected="false">Citas</button>
             </li>

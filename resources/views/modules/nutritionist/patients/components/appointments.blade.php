@@ -2,14 +2,25 @@
     'proximaFecha' => '29/07/2026',
     'proximaHora' => '10:30 AM',
     'proximoMotivo' => 'Control nutricional mensual',
-    'proximaModalidad' => 'Presencial · Consultorio 3',
+    'proximaModalidad' => 'Presencial',
     'historial' => [
-        ['fecha' => '01/07/2026', 'motivo' => 'Evaluación de seguimiento', 'estado' => 'asistio'],
-        ['fecha' => '10/06/2026', 'motivo' => 'Ajuste de plan nutricional', 'estado' => 'asistio'],
-        ['fecha' => '15/05/2026', 'motivo' => 'Consulta inicial', 'estado' => 'cancelada'],
-        ['fecha' => '02/08/2026', 'motivo' => 'Revisión trimestral', 'estado' => 'pendiente'],
+        ['fecha' => '01/07/2026', 'hora' => '09:00 AM', 'motivo' => 'Evaluación de seguimiento', 'modalidad' => 'Presencial', 'estado' => 'asistio'],
+        ['fecha' => '10/06/2026', 'hora' => '11:30 AM', 'motivo' => 'Ajuste de plan nutricional', 'modalidad' => 'Virtual', 'estado' => 'asistio'],
+        ['fecha' => '15/05/2026', 'hora' => '04:15 PM', 'motivo' => 'Consulta inicial', 'modalidad' => 'Presencial', 'estado' => 'cancelada'],
+        ['fecha' => '02/08/2026', 'hora' => '08:45 AM', 'motivo' => 'Revisión trimestral', 'modalidad' => 'Virtual', 'estado' => 'pendiente'],
     ],
 ])
+
+@php
+    $proximaCarbon = \Carbon\Carbon::createFromFormat('d/m/Y', $proximaFecha)->startOfDay();
+    $proximaDiffDays = today()->diffInDays($proximaCarbon);
+    $proximaDiaLabel = match (true) {
+        $proximaCarbon->isToday() => 'Hoy',
+        $proximaCarbon->isTomorrow() => 'Mañana',
+        default => "En {$proximaDiffDays} días",
+    };
+    $proximaDiaSemana = $proximaCarbon->locale('es')->isoFormat('dddd');
+@endphp
 
 <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
 
@@ -21,8 +32,9 @@
                 <span class="icon-[lucide--calendar-days] w-6 h-6"></span>
             </div>
             <div class="flex-1 min-w-0">
-                <p class="text-base font-bold text-strong">{{ $proximaFecha }} · {{ $proximaHora }}</p>
-                <p class="text-sm text-body">{{ $proximoMotivo }}</p>
+                <p class="text-base font-bold text-primary-700 dark:text-primary-300 capitalize">{{ $proximaDiaSemana }} · {{ $proximaDiaLabel }}</p>
+                <p class="text-xs text-muted">{{ $proximaFecha }} · {{ $proximaHora }}</p>
+                <p class="text-sm text-body mt-1">{{ $proximoMotivo }}</p>
                 <p class="text-xs text-muted flex items-center gap-1 mt-1">
                     <span class="icon-[lucide--map-pin] w-3.5 h-3.5"></span>
                     {{ $proximaModalidad }}
@@ -45,8 +57,12 @@
             @foreach ($historial as $cita)
                 <div class="flex items-center justify-between gap-3 px-4 py-3">
                     <div class="min-w-0">
-                        <p class="text-sm font-semibold text-strong">{{ $cita['fecha'] }}</p>
+                        <p class="text-sm font-semibold text-strong">{{ $cita['fecha'] }} · {{ $cita['hora'] }}</p>
                         <p class="text-xs text-muted truncate">{{ $cita['motivo'] }}</p>
+                        <p class="text-xs text-muted flex items-center gap-1 mt-0.5">
+                            <span class="icon-[lucide--map-pin] w-3 h-3"></span>
+                            {{ $cita['modalidad'] }}
+                        </p>
                     </div>
 
                     @if ($cita['estado'] === 'asistio')
