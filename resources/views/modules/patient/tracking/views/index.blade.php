@@ -129,7 +129,7 @@
 
                 <div class="flex flex-wrap gap-4">
                     <figure class="rounded-default border-card bg-surface overflow-hidden w-40">
-                        <img src="{{ asset('images/persona-1.png') }}" alt="Foto de progreso inicial" class="w-full h-48 object-contain">
+                        <img src="{{ asset('images/persona-1.png') }}" alt="Foto de progreso inicial" class="w-full h-48 object-contain bg-white">
                         <figcaption class="px-3 py-2 border-t border-default">
                             <div class="flex items-center justify-between gap-2 mb-1">
                                 <p class="text-xs font-semibold text-strong truncate">Foto inicial</p>
@@ -143,7 +143,7 @@
                     </figure>
 
                     <figure class="rounded-default border-card bg-surface overflow-hidden w-40">
-                        <img src="{{ asset('images/persona-2.jpg') }}" alt="Foto de progreso actual" class="w-full h-48 object-contain">
+                        <img src="{{ asset('images/persona-2.jpg') }}" alt="Foto de progreso actual" class="w-full h-48 object-contain bg-white">
                         <figcaption class="px-3 py-2 border-t border-default">
                             <div class="flex items-center justify-between gap-2 mb-1">
                                 <p class="text-xs font-semibold text-strong truncate">Foto actual</p>
