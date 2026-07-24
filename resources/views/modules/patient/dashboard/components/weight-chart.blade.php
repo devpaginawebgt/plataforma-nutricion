@@ -1,8 +1,8 @@
 @props([
-    'inicial' => 85,
-    'actual' => 78,
-    'meta' => 72,
-    'series' => [85, 83.5, 82, 80.5, 79, 78.2, 77],
+    'inicial' => 187,
+    'actual' => 172,
+    'meta' => 159,
+    'series' => [187, 184, 181, 177, 174, 172, 170],
     'categorias' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
 ])
 
@@ -13,13 +13,13 @@
         </div>
         <div class="flex flex-wrap items-center gap-3 text-xs">
             <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span> Inicial: {{ $inicial }} kg
+                <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span> Inicial: {{ $inicial }} lbs
             </span>
             <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-primary-600"></span> Actual: {{ $actual }} kg
+                <span class="w-2.5 h-2.5 rounded-full bg-primary-600"></span> Actual: {{ $actual }} lbs
             </span>
             <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Meta: {{ $meta }} kg
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Meta: {{ $meta }} lbs
             </span>
         </div>
     </div>
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     new ApexCharts(el, {
         chart: { type: 'area', height: 280, toolbar: { show: false }, foreColor: '#6b7280' },
-        series: [{ name: 'Peso (kg)', data: @json($series) }],
+        series: [{ name: 'Peso (lbs)', data: @json($series) }],
         stroke: { curve: 'smooth', width: 2 },
         colors: ['#0d9488'],
         markers: { size: 5 },
@@ -46,18 +46,18 @@ document.addEventListener('DOMContentLoaded', function () {
         yaxis: {
             min: Math.floor(meta - 3),
             max: Math.ceil(inicial + 3),
-            labels: { formatter: v => v.toFixed(1) + ' kg' },
+            labels: { formatter: v => v.toFixed(1) + ' lbs' },
         },
         grid: { borderColor: 'rgba(107,114,128,0.15)' },
         tooltip: { theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light' },
         annotations: {
             yaxis: [
                 { y: inicial, borderColor: '#9ca3af', strokeDashArray: 4,
-                  label: { text: 'Inicial ' + inicial + ' kg', style: { color: '#fff', background: '#9ca3af' } } },
+                  label: { text: 'Inicial ' + inicial + ' lbs', style: { color: '#fff', baclbsround: '#9ca3af' } } },
                 { y: actual, borderColor: '#0d9488', strokeDashArray: 4,
-                  label: { text: 'Actual ' + actual + ' kg', style: { color: '#fff', background: '#0d9488' } } },
+                  label: { text: 'Actual ' + actual + ' lbs', style: { color: '#fff', baclbsround: '#0d9488' } } },
                 { y: meta, borderColor: '#22c55e', strokeDashArray: 4,
-                  label: { text: 'Meta ' + meta + ' kg', style: { color: '#fff', background: '#22c55e' } } },
+                  label: { text: 'Meta ' + meta + ' lbs', style: { color: '#fff', baclbsround: '#22c55e' } } },
             ],
         },
     }).render();

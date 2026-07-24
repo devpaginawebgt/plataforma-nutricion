@@ -1,7 +1,7 @@
 @props([
-    'inicial' => 85,
-    'actual' => 78,
-    'meta' => 72,
+    'inicial' => 187,
+    'actual' => 172,
+    'meta' => 159,
 ])
 
 @php
@@ -14,7 +14,7 @@
 
     $restante = round(abs($actual - $meta), 1);
     $signo = $deltaTotal < 0 ? '-' : '+';
-    $totalKg = abs($deltaTotal);
+    $totalPeso = abs($deltaTotal);
 
     if ($porcentaje >= 100) {
         $mensaje = '¡Meta alcanzada! 🎉';
@@ -30,7 +30,7 @@
 @endphp
 
 <div class="bg-surface rounded-default p-5 shadow-card border-card flex flex-col items-center justify-center">
-    <p class="text-md font-bold text-strong">Meta: {{ $signo }}{{ $totalKg }} kg</p>
+    <p class="text-md font-bold text-strong">Meta: {{ $signo }}{{ $totalPeso }} lbs</p>
 
     <div id="patient-weight-goal-progress"
          data-value="{{ $porcentaje }}"
@@ -41,9 +41,9 @@
         <p class="text-sm text-body font-medium">{{ $mensaje }}</p>
         <p class="text-xs text-muted mt-1">
             @if ($porcentaje >= 100)
-                Has llegado a tu meta de {{ $meta }} kg
+                Has llegado a tu meta de {{ $meta }} lbs
             @else
-                Te faltan {{ $restante }} kg para tu meta
+                Te faltan {{ $restante }} lbs para tu meta
             @endif
         </p>
     </div>
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 startAngle: -110,
                 endAngle: 110,
                 hollow: { size: '62%' },
-                track: { background: '#e5e7eb', strokeWidth: '100%' },
+                track: { baclbsround: '#e5e7eb', strokeWidth: '100%' },
                 dataLabels: {
                     name: { show: false },
                     value: {

@@ -33,12 +33,15 @@
             </div>
             <div class="flex-1 min-w-0">
                 <p class="text-base font-bold text-primary-700 dark:text-primary-300 capitalize">{{ $proximaDiaSemana }} · {{ $proximaDiaLabel }}</p>
-                <p class="text-xs text-muted">{{ $proximaFecha }} · {{ $proximaHora }}</p>
-                <p class="text-sm text-body mt-1">{{ $proximoMotivo }}</p>
-                <p class="text-xs text-muted flex items-center gap-1 mt-1">
-                    <span class="icon-[lucide--map-pin] w-3.5 h-3.5"></span>
-                    {{ $proximaModalidad }}
+                <p class="text-xs text-muted flex items-center gap-1.5 flex-wrap">
+                    <span>{{ $proximaFecha }} · {{ $proximaHora }}</span>
+                    <span aria-hidden="true">·</span>
+                    <span class="inline-flex items-center gap-1">
+                        <span class="icon-[lucide--map-pin] w-3.5 h-3.5"></span>
+                        {{ $proximaModalidad }}
+                    </span>
                 </p>
+                <p class="text-sm text-body mt-1">{{ $proximoMotivo }}</p>
             </div>
             <span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 px-3 py-1 text-xs font-semibold shrink-0">
                 <span class="icon-[lucide--hourglass] w-3.5 h-3.5"></span>

@@ -16,21 +16,24 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <x-patient-dashboard::weight-card
                 label="Peso inicial"
-                value="85"
+                value="187"
+                unit="lbs"
                 date="15/01/2026"
                 icon="flag"
                 color="blue"
             />
             <x-patient-dashboard::weight-card
                 label="Peso actual"
-                value="78"
+                value="172"
+                unit="lbs"
                 date="20/07/2026"
                 icon="scale"
                 color="primary"
             />
             <x-patient-dashboard::weight-card
                 label="Meta de peso"
-                value="72"
+                value="159"
+                unit="lbs"
                 date="31/12/2026"
                 icon="target"
                 color="green"
@@ -41,16 +44,16 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div class="lg:col-span-2">
                 <x-patient-dashboard::weight-chart
-                    :inicial="85"
-                    :actual="78"
-                    :meta="72"
+                    :inicial="187"
+                    :actual="172"
+                    :meta="159"
                 />
             </div>
 
             <x-patient-dashboard::weight-goal-progress
-                :inicial="85"
-                :actual="78"
-                :meta="72"
+                :inicial="187"
+                :actual="172"
+                :meta="159"
             />
         </div>
 
