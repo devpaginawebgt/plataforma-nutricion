@@ -38,8 +38,15 @@ $pacientes = [
                     color="success"
                     size="sm"
                     icon="download"
-                    iconOnly
-                    title="Descargar pacientes"
+                    label="Descargar"
+                    title="Descargar registros filtrados"
+                />
+                <x-button
+                    color="secondary"
+                    size="sm"
+                    icon="download"
+                    label="Descargar todos"
+                    title="Descargar todos los pacientes"
                 />
             </div>
         </div>

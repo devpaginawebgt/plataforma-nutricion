@@ -6,7 +6,7 @@
      Trigger: <button data-drawer-target="{{ $id }}" data-drawer-show="{{ $id }}" data-drawer-placement="right" aria-controls="{{ $id }}">...</button> --}}
 <div
     id="{{ $id }}"
-    class="fixed top-0 right-0 z-40 h-screen w-96 max-w-full p-6 overflow-y-auto transition-transform translate-x-full bg-surface"
+    class="fixed top-0 right-0 z-50 h-screen w-96 max-w-full p-6 overflow-y-auto transition-transform translate-x-full bg-surface"
     tabindex="-1"
     aria-labelledby="{{ $id }}-label"
     aria-hidden="true"
