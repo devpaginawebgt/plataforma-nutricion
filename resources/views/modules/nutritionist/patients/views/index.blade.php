@@ -23,7 +23,16 @@ $pacientes = [
                 </p>
             </div>
 
-            <x-button color="primary" icon="plus" size="sm" label="Nuevo paciente" />
+            <x-button
+                color="primary"
+                icon="plus"
+                size="sm"
+                label="Nuevo paciente"
+                data-drawer-target="new-patient-drawer"
+                data-drawer-show="new-patient-drawer"
+                data-drawer-placement="right"
+                aria-controls="new-patient-drawer"
+            />
         </div>
 
         {{-- Tabla --}}
@@ -68,7 +77,18 @@ $pacientes = [
                                         <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver paciente" />
                                     </a>
                                     <x-button variant="soft" color="warning" size="sm" icon="pencil" iconOnly title="Editar paciente" />
-                                    <x-button variant="soft" color="success" size="sm" icon="calendar-plus" iconOnly title="Agendar cita" />
+                                    <x-button
+                                        variant="soft"
+                                        color="success"
+                                        size="sm"
+                                        icon="calendar-plus"
+                                        iconOnly
+                                        title="Agendar cita"
+                                        data-drawer-target="new-appointment-drawer"
+                                        data-drawer-show="new-appointment-drawer"
+                                        data-drawer-placement="right"
+                                        aria-controls="new-appointment-drawer"
+                                    />
                                 </div>
                             </td>
                         </tr>
@@ -77,6 +97,9 @@ $pacientes = [
             </table>
         </div>
     </div>
+
+    <x-nutritionist-shared::new-appointment id="new-appointment-drawer" />
+    <x-nutritionist-shared::new-patient id="new-patient-drawer" />
 
     <script type="module">
         $(function () {

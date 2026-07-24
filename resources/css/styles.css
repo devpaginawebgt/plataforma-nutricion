@@ -1,4 +1,13 @@
 /* ============================================
+   Flowbite Drawer — subir z-index del backdrop
+   El backdrop por defecto de Flowbite queda en z-30, debajo del sidebar (z-40).
+   Con esto queda en 45: encima del sidebar (z-40) y debajo del drawer (z-50).
+   ============================================ */
+[drawer-backdrop] {
+    z-index: 45;
+}
+
+/* ============================================
    DataTables — integración con estilos de la app
    ============================================ */
 

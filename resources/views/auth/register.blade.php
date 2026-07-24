@@ -7,13 +7,24 @@
     <form method="POST" action="{{ route('register') }}" class="space-y-4">
         @csrf
 
-        <div>
-            <x-input-label for="name" value="Nombre completo" />
-            <div class="relative mt-1">
-                <span class="icon-[lucide--user] w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"></span>
-                <x-text-input id="name" class="block w-full pl-10" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+                <x-input-label for="first_name" value="Nombre" />
+                <div class="relative mt-1">
+                    <span class="icon-[lucide--user] w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"></span>
+                    <x-text-input id="first_name" class="block w-full pl-10" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="given-name" />
+                </div>
+                <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
             </div>
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+            <div>
+                <x-input-label for="last_name" value="Apellido" />
+                <div class="relative mt-1">
+                    <span class="icon-[lucide--user] w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"></span>
+                    <x-text-input id="last_name" class="block w-full pl-10" type="text" name="last_name" :value="old('last_name')" required autocomplete="family-name" />
+                </div>
+                <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+            </div>
         </div>
 
         <div>

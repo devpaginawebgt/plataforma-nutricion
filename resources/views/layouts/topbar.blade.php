@@ -1,7 +1,7 @@
 <header
     id="app-topbar"
     data-scrolled="false"
-    class="sticky top-0 z-30 border-b border-transparent transition-all duration-200"
+    class="sticky top-0 z-20 border-b border-transparent transition-all duration-200"
 >
     <div class="flex items-center justify-between px-4 md:px-6 py-3">
         <!-- Izquierda: hamburger (mobile) + título -->
