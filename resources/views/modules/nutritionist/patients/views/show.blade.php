@@ -73,7 +73,7 @@
             <x-nutritionist-patients::nutritional-assessment />
         </div>
         <div class="hidden p-4" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-            <x-nutritionist-patients::nutrition-plan />
+            <x-shared::nutrition-plan />
         </div>
         <div class="hidden p-4" id="seguimiento" role="tabpanel" aria-labelledby="seguimiento-tab">
             <x-nutritionist-patients::follow-up />

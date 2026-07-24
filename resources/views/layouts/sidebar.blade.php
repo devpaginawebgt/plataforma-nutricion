@@ -58,6 +58,21 @@
                 <x-sidebar-link :href="route('patient.dashboard')" icon="house" :active="request()->routeIs('patient.dashboard')">
                     Inicio
                 </x-sidebar-link>
+                <x-sidebar-link :href="route('patient.diets.index')" icon="clipboard-list" :active="request()->routeIs('patient.diets.*')">
+                    Mi plan nutricional
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('patient.tracking.index')" icon="activity" :active="request()->routeIs('patient.tracking.*')">
+                    Mi progreso
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('patient.appointments.index')" icon="calendar" :active="request()->routeIs('patient.appointments.*')">
+                    Mis citas
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('patient.recommendations.index')" icon="lightbulb" :active="request()->routeIs('patient.recommendations.*')">
+                    Recomendaciones
+                </x-sidebar-link>
+                <x-sidebar-link :href="route('profile.edit')" icon="user" :active="request()->routeIs('profile.*')">
+                    Mi perfil
+                </x-sidebar-link>
             @endrole
         </nav>
     </div>
