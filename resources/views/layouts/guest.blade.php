@@ -30,7 +30,7 @@
             {{-- Overlay para legibilidad (más ligero en light, más denso en dark) --}}
             <div class="absolute inset-0 bg-gray-950/30 dark:bg-gray-950/60 backdrop-blur-[2px] dark:backdrop-blur-xs"></div>
 
-            <div class="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-default text-white [&_button]:text-white [&_button:hover]:bg-white/10">
+            <div class="absolute bottom-4 right-4 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-default text-white [&_button]:text-white [&_button:hover]:bg-white/10">
                 <x-theme-toggle />
             </div>
 
