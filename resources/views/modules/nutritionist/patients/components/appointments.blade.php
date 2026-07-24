@@ -2,12 +2,12 @@
     'proximaFecha' => '29/07/2026',
     'proximaHora' => '10:30 AM',
     'proximoMotivo' => 'Control nutricional mensual',
-    'proximaModalidad' => 'Presencial · Consultorio 3',
+    'proximaModalidad' => 'Presencial',
     'historial' => [
-        ['fecha' => '01/07/2026', 'motivo' => 'Evaluación de seguimiento', 'estado' => 'asistio'],
-        ['fecha' => '10/06/2026', 'motivo' => 'Ajuste de plan nutricional', 'estado' => 'asistio'],
-        ['fecha' => '15/05/2026', 'motivo' => 'Consulta inicial', 'estado' => 'cancelada'],
-        ['fecha' => '02/08/2026', 'motivo' => 'Revisión trimestral', 'estado' => 'pendiente'],
+        ['fecha' => '01/07/2026', 'motivo' => 'Evaluación de seguimiento', 'modalidad' => 'Presencial', 'estado' => 'asistio'],
+        ['fecha' => '10/06/2026', 'motivo' => 'Ajuste de plan nutricional', 'modalidad' => 'Virtual', 'estado' => 'asistio'],
+        ['fecha' => '15/05/2026', 'motivo' => 'Consulta inicial', 'modalidad' => 'Presencial', 'estado' => 'cancelada'],
+        ['fecha' => '02/08/2026', 'motivo' => 'Revisión trimestral', 'modalidad' => 'Virtual', 'estado' => 'pendiente'],
     ],
 ])
 
@@ -47,6 +47,10 @@
                     <div class="min-w-0">
                         <p class="text-sm font-semibold text-strong">{{ $cita['fecha'] }}</p>
                         <p class="text-xs text-muted truncate">{{ $cita['motivo'] }}</p>
+                        <p class="text-xs text-muted flex items-center gap-1 mt-0.5">
+                            <span class="icon-[lucide--map-pin] w-3 h-3"></span>
+                            {{ $cita['modalidad'] }}
+                        </p>
                     </div>
 
                     @if ($cita['estado'] === 'asistio')

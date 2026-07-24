@@ -55,6 +55,27 @@
             </x-select>
         </div>
 
+        {{-- Título --}}
+        <div>
+            <x-input-label for="{{ $id }}-motivo" value="Título" />
+            <x-text-input
+                id="{{ $id }}-motivo"
+                name="motivo"
+                type="text"
+                placeholder="Ej. Control nutricional mensual"
+                class="mt-1"
+            />
+        </div>
+
+        {{-- Modalidad --}}
+        <div>
+            <x-input-label for="{{ $id }}-modalidad" value="Modalidad" />
+            <x-select id="{{ $id }}-modalidad" name="modalidad" class="mt-1 bg-gray-50 dark:bg-gray-700">
+                <option value="presencial">Presencial</option>
+                <option value="virtual">Virtual</option>
+            </x-select>
+        </div>
+
         {{-- Estado --}}
         <div>
             <x-input-label for="{{ $id }}-state" value="Estado" />

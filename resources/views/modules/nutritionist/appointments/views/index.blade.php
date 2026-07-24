@@ -14,6 +14,8 @@ $citas = [
             'diagnostico' => 'Hipertensión arterial',
             'patient_register_date' => '2026-05-10 14:00:00',
             'appointment_date' => $today.' 09:30:00',
+            'motivo' => 'Control nutricional mensual',
+            'modalidad' => 'Presencial',
             'state' => 'completed',
         ],
         [
@@ -24,6 +26,8 @@ $citas = [
             'diagnostico' => 'Diabetes tipo 2',
             'patient_register_date' => '2026-03-22 10:15:00',
             'appointment_date' => $today.' 15:45:00',
+            'motivo' => 'Ajuste de plan nutricional',
+            'modalidad' => 'Virtual',
             'state' => 'pending',
         ],
     ],
@@ -36,6 +40,8 @@ $citas = [
             'diagnostico' => 'Sobrepeso',
             'patient_register_date' => '2026-06-01 09:00:00',
             'appointment_date' => $tomorrow.' 08:15:00',
+            'motivo' => 'Evaluación de seguimiento',
+            'modalidad' => 'Presencial',
             'state' => 'pending',
         ],
         [
@@ -46,6 +52,8 @@ $citas = [
             'diagnostico' => 'Colesterol elevado',
             'patient_register_date' => '2026-04-18 11:20:00',
             'appointment_date' => $tomorrow.' 11:00:00',
+            'motivo' => 'Revisión trimestral',
+            'modalidad' => 'Virtual',
             'state' => 'canceled',
         ],
         [
@@ -56,6 +64,8 @@ $citas = [
             'diagnostico' => 'Gastritis crónica',
             'patient_register_date' => '2026-02-05 16:40:00',
             'appointment_date' => $tomorrow.' 17:30:00',
+            'motivo' => 'Consulta inicial',
+            'modalidad' => 'Presencial',
             'state' => 'pending',
         ],
     ],
@@ -68,6 +78,8 @@ $citas = [
             'diagnostico' => 'Anemia ferropénica',
             'patient_register_date' => '2026-06-14 08:45:00',
             'appointment_date' => $two_days.' 10:00:00',
+            'motivo' => 'Control nutricional mensual',
+            'modalidad' => 'Virtual',
             'state' => 'pending',
         ],
         ],
@@ -203,6 +215,8 @@ $stateBadges = [
                                             </span>
                                         </div>
 
+                                        <p class="text-sm text-body mt-0.5">{{ $cita['motivo'] }}</p>
+
                                         <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
                                             <span class="inline-flex items-center gap-1.5">
                                                 <span class="icon-[lucide--user] w-4 h-4"></span>
@@ -215,6 +229,10 @@ $stateBadges = [
                                             <span class="inline-flex items-center gap-1.5">
                                                 <span class="icon-[lucide--phone] w-4 h-4"></span>
                                                 {{ $cita['phone_number'] }}
+                                            </span>
+                                            <span class="inline-flex items-center gap-1.5">
+                                                <span class="icon-[lucide--map-pin] w-4 h-4"></span>
+                                                {{ $cita['modalidad'] }}
                                             </span>
                                         </div>
                                     </div>
