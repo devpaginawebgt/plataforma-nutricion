@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
         annotations: {
             yaxis: [
                 { y: inicial, borderColor: '#9ca3af', strokeDashArray: 4,
-                  label: { text: 'Inicial ' + inicial + ' lbs', style: { color: '#fff', baclbsround: '#9ca3af' } } },
+                  label: { text: 'Inicial ' + inicial + ' lbs', style: { color: '#fff', background: '#9ca3af' } } },
                 { y: actual, borderColor: '#0d9488', strokeDashArray: 4,
-                  label: { text: 'Actual ' + actual + ' lbs', style: { color: '#fff', baclbsround: '#0d9488' } } },
+                  label: { text: 'Actual ' + actual + ' lbs', style: { color: '#fff', background: '#0d9488' } } },
                 { y: meta, borderColor: '#22c55e', strokeDashArray: 4,
-                  label: { text: 'Meta ' + meta + ' lbs', style: { color: '#fff', baclbsround: '#22c55e' } } },
+                  label: { text: 'Meta ' + meta + ' lbs', style: { color: '#fff', background: '#22c55e' } } },
             ],
         },
     }).render();
