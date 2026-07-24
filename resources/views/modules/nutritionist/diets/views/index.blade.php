@@ -59,14 +59,14 @@
 @endphp
 
 <x-app-layout>
-    <x-slot name="header">Dietas / Planes</x-slot>
+    <x-slot name="header">Planes Nutricionales</x-slot>
 
     <div class="space-y-6">
         <div class="flex items-end justify-between gap-4">
             <div>
                 <h1 class="text-2xl font-bold text-strong">Dietas y planes</h1>
                 <p class="text-sm text-muted mt-1">
-                    Administra los planes nutricionales de tus pacientes con una vista rápida por cards.
+                    Administra los planes nutricionales para asignar a tus pacientes.
                 </p>
             </div>
 
@@ -144,7 +144,7 @@
                                     <dd class="text-xs text-muted mt-0.5 leading-relaxed">
                                         {{ implode(' · ', $visible) }}
                                         @if ($extra > 0)
-                                            <span class="ml-1 inline-flex items-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-1.5 py-0.5 text-[10px] font-semibold align-middle">
+                                            <span class="ml-1 inline-flex items-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 px-1.5 py-0.5 text-2xs font-semibold align-middle">
                                                 +{{ $extra }}
                                             </span>
                                         @endif

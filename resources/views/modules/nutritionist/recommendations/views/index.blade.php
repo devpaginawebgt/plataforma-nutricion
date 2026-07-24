@@ -66,7 +66,7 @@
         <div class="text-center sm:text-left">
             <h1 class="text-xl font-bold text-strong sm:text-2xl">Recomendaciones</h1>
             <p class="text-sm text-muted mt-1">
-                Listado de recomendaciones preexistentes que puedes asignar a cada paciente.
+                Listado de recomendaciones que puedes brindar a varios paciente.
             </p>
         </div>
 
