@@ -21,6 +21,14 @@ class UserSeeder extends Seeder
         ]);
         $dennis->assignRole('nutritionist');
 
+        $erick = User::create([
+            'name'     => 'Erick',
+            'lastname' => 'M',
+            'email'    => 'emunoz@paginawebguatemala.com',
+            'password' => Hash::make('FScomunica2'),
+        ]);
+        $erick->assignRole('nutritionist');
+
         $douglas = User::create([
             'name'     => 'Douglas',
             'lastname' => 'Alvarado',
