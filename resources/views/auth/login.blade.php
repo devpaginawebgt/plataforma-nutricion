@@ -6,7 +6,7 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}" class="space-y-4">
+    <form id="login-form" method="POST" action="{{ route('login') }}" class="space-y-4">
         @csrf
 
         <div>
@@ -46,10 +46,37 @@
             @endif
         </div>
 
-        <x-primary-button class="w-full justify-center">
-            Ingresar
+        <x-primary-button id="login-submit" class="w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed">
+            <span data-label>Ingresar</span>
+            <span data-loading class="hidden items-center gap-2">
+                <span class="icon-[lucide--loader-circle] w-4 h-4 animate-spin"></span>
+                Ingresando...
+            </span>
         </x-primary-button>
     </form>
+
+    <script>
+        (function () {
+            const form = document.getElementById('login-form');
+            const button = document.getElementById('login-submit');
+            if (!form || !button) {
+                return;
+            }
+
+            form.addEventListener('submit', function () {
+                if (button.disabled) {
+                    return;
+                }
+                button.disabled = true;
+                button.querySelector('[data-label]')?.classList.add('hidden');
+                const loading = button.querySelector('[data-loading]');
+                if (loading) {
+                    loading.classList.remove('hidden');
+                    loading.classList.add('inline-flex');
+                }
+            });
+        })();
+    </script>
 
     @if (Route::has('register'))
         <p class="text-sm text-muted text-center mt-6">
