@@ -99,7 +99,7 @@
     {{-- Grid de recomendaciones --}}
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($recommendations as $rec)
-            <article class="flex flex-col shadow-card border-card rounded-default bg-surface p-4">
+            <article class="flex flex-col shadow-card border-card rounded-default bg-surface p-4 hover-lift">
                 {{-- Header: icono + título + acciones --}}
                 <div class="flex items-start justify-between gap-3">
                     <div class="flex items-center gap-3 min-w-0 flex-1">

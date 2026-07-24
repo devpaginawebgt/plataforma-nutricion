@@ -72,6 +72,18 @@
 .border-muted { border-color: var(--border-muted); }
 .border-card  { border: 1px solid var(--border-muted); }
 
+/* Efecto de levantamiento leve al pasar el cursor (cards interactivas) */
+.hover-lift {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);
+}
+.dark .hover-lift:hover {
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.4);
+}
+
 /* Topbar: fondo + borde + sombra al hacer scroll (activado por JS vía data-scrolled) */
 #app-topbar[data-scrolled="true"] {
     background-color: var(--bg-surface);

@@ -217,7 +217,7 @@ $stateBadges = [
                             <div class="hidden absolute -left-1.5 top-2 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-gray-50 dark:ring-gray-900 sm:block"></div>
 
                             {{-- Card --}}
-                            <div class="shadow-card border-card rounded-default bg-surface p-4">
+                            <div class="shadow-card border-card rounded-default bg-surface p-4 hover-lift">
                                 <div class="flex items-start justify-between gap-4">
                                     <div class="min-w-0 flex-1">
                                         <div class="flex items-center gap-2 flex-wrap">
