@@ -1,12 +1,12 @@
 @php
 $pacientes = [
-    ['id' => 1, 'nombre' => 'Ana Morales',     'edad' => 34, 'diagnostico' => 'Hipertensión arterial',           'ultima_cita' => '05/07/2026', 'proxima_cita' => '22/07/2026', 'estado' => 'active'],
-    ['id' => 2, 'nombre' => 'Carlos Mendoza',  'edad' => 57, 'diagnostico' => 'Diabetes tipo 2',                 'ultima_cita' => '01/07/2026', 'proxima_cita' => '18/07/2026', 'estado' => 'active'],
-    ['id' => 3, 'nombre' => 'Elena Ramírez',   'edad' => 42, 'diagnostico' => 'Migraña crónica',                 'ultima_cita' => '28/06/2026', 'proxima_cita' => '25/07/2026', 'estado' => 'active'],
-    ['id' => 4, 'nombre' => 'José Castillo',   'edad' => 29, 'diagnostico' => 'Gastritis',                        'ultima_cita' => '08/07/2026', 'proxima_cita' => '29/07/2026', 'estado' => 'inactive'],
-    ['id' => 5, 'nombre' => 'Patricia Flores', 'edad' => 63, 'diagnostico' => 'Artritis reumatoide',              'ultima_cita' => '03/07/2026', 'proxima_cita' => '20/07/2026', 'estado' => 'active'],
-    ['id' => 6, 'nombre' => 'Miguel Herrera',  'edad' => 48, 'diagnostico' => 'Dislipidemia',                     'ultima_cita' => '10/07/2026', 'proxima_cita' => '30/07/2026', 'estado' => 'active'],
-    ['id' => 7, 'nombre' => 'Sofía Aguilar',   'edad' => 31, 'diagnostico' => 'Síndrome de ovario poliquístico', 'ultima_cita' => '12/07/2026', 'proxima_cita' => '02/08/2026', 'estado' => 'active'],
+    ['id' => 1, 'nombre' => 'Ana María',       'apellido' => 'Morales Cruz',      'edad' => 34, 'diagnostico' => 'Hipertensión arterial',           'ultima_cita' => '05/07/2026', 'proxima_cita' => '22/07/2026', 'estado' => 'active'],
+    ['id' => 2, 'nombre' => 'Carlos Alberto',  'apellido' => 'Mendoza Rivera',    'edad' => 57, 'diagnostico' => 'Diabetes tipo 2',                 'ultima_cita' => '01/07/2026', 'proxima_cita' => '18/07/2026', 'estado' => 'active'],
+    ['id' => 3, 'nombre' => 'Elena Beatriz',   'apellido' => 'Ramírez Solís',     'edad' => 42, 'diagnostico' => 'Migraña crónica',                 'ultima_cita' => '28/06/2026', 'proxima_cita' => '25/07/2026', 'estado' => 'active'],
+    ['id' => 4, 'nombre' => 'José Antonio',    'apellido' => 'Castillo Fuentes',  'edad' => 29, 'diagnostico' => 'Gastritis',                       'ultima_cita' => '08/07/2026', 'proxima_cita' => '29/07/2026', 'estado' => 'inactive'],
+    ['id' => 5, 'nombre' => 'Patricia Isabel', 'apellido' => 'Flores Ortega',     'edad' => 63, 'diagnostico' => 'Artritis reumatoide',             'ultima_cita' => '03/07/2026', 'proxima_cita' => '20/07/2026', 'estado' => 'active'],
+    ['id' => 6, 'nombre' => 'Miguel Ángel',    'apellido' => 'Herrera Navarro',   'edad' => 48, 'diagnostico' => 'Dislipidemia',                    'ultima_cita' => '10/07/2026', 'proxima_cita' => '30/07/2026', 'estado' => 'active'],
+    ['id' => 7, 'nombre' => 'Sofía Lucía',     'apellido' => 'Aguilar Vargas',    'edad' => 31, 'diagnostico' => 'Síndrome de ovario poliquístico', 'ultima_cita' => '12/07/2026', 'proxima_cita' => '02/08/2026', 'estado' => 'active'],
 ];
 @endphp
 
@@ -23,16 +23,25 @@ $pacientes = [
                 </p>
             </div>
 
-            <x-button
-                color="primary"
-                icon="plus"
-                size="sm"
-                label="Nuevo paciente"
-                data-drawer-target="new-patient-drawer"
-                data-drawer-show="new-patient-drawer"
-                data-drawer-placement="right"
-                aria-controls="new-patient-drawer"
-            />
+            <div class="flex gap-2">
+                <x-button
+                    color="primary"
+                    icon="plus"
+                    size="sm"
+                    label="Nuevo paciente"
+                    data-drawer-target="new-patient-drawer"
+                    data-drawer-show="new-patient-drawer"
+                    data-drawer-placement="right"
+                    aria-controls="new-patient-drawer"
+                />
+                <x-button
+                    color="success"
+                    size="sm"
+                    icon="download"
+                    iconOnly
+                    title="Descargar pacientes"
+                />
+            </div>
         </div>
 
         {{-- Tabla --}}
@@ -41,6 +50,7 @@ $pacientes = [
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>Apellido</th>
                         <th>Edad</th>
                         <th>Diagnóstico</th>
                         <th>Última cita</th>
@@ -49,11 +59,12 @@ $pacientes = [
                         <th class="no-sort">Acciones</th>
                     </tr>
                 </thead>
-    
+
                 <tbody>
                     @foreach ($pacientes as $paciente)
                         <tr>
                             <td class="font-medium">{{ $paciente['nombre'] }}</td>
+                            <td class="font-medium">{{ $paciente['apellido'] }}</td>
                             <td>{{ $paciente['edad'] }}</td>
                             <td>{{ $paciente['diagnostico'] }}</td>
                             <td>{{ $paciente['ultima_cita'] }}</td>
