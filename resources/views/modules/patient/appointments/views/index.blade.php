@@ -7,7 +7,7 @@ $citas = [
     $two_days => [
         [
             'id' => 1,
-            'nutricionista' => 'Dra. Ana María Castillo',
+            'nutricionista' => 'Dra. Andrea Dieguez',
             'appointment_date' => $two_days.' 10:30:00',
             'motivo' => 'Control nutricional mensual',
             'modalidad' => 'Presencial',
@@ -17,7 +17,7 @@ $citas = [
     $past_date => [
         [
             'id' => 2,
-            'nutricionista' => 'Dra. Ana María Castillo',
+            'nutricionista' => 'Dra. Andrea Dieguez',
             'appointment_date' => $past_date.' 09:00:00',
             'motivo' => 'Consulta inicial y evaluación',
             'modalidad' => 'Presencial',
