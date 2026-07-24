@@ -72,6 +72,32 @@
             <x-button color="primary" icon="plus" size="sm" label="Nuevo plan" />
         </div>
 
+        {{-- Filtro --}}
+        <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
+            <div class="w-full sm:w-72">
+                <x-input-label for="diets-search" value="Buscar" class="text-xs" />
+                <div class="relative mt-1">
+                    <span class="icon-[lucide--search] w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"></span>
+                    <x-text-input
+                        id="diets-search"
+                        type="search"
+                        placeholder="Título o paciente..."
+                        class="block w-full pl-9 text-sm bg-white dark:bg-gray-800"
+                    />
+                </div>
+            </div>
+
+            <div class="w-full sm:w-auto">
+                <x-input-label for="diets-state-filter" value="Estado" class="text-xs" />
+                <x-select id="diets-state-filter" class="mt-1 min-w-36 bg-white dark:bg-gray-800">
+                    <option value="active">Activas</option>
+                    <option value="inactive">Desactivadas</option>
+                </x-select>
+            </div>
+
+            <x-button color="primary" icon="filter" iconOnly title="Filtrar" class="mb-1" />
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             @foreach ($dietas as $dieta)
                 <article class="group flex min-h-[340px] flex-col rounded-2xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-white p-5 shadow-sm ring-1 ring-black/5 transition duration-200 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">

@@ -118,6 +118,19 @@ $stateBadges = [
 
     {{-- Filtro de fechas --}}
     <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
+        <div class="w-full sm:w-72">
+            <x-input-label for="appointments-search" value="Buscar" class="text-xs" />
+            <div class="relative mt-1">
+                <span class="icon-[lucide--search] w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"></span>
+                <x-text-input
+                    id="appointments-search"
+                    type="search"
+                    placeholder="Nombre del paciente..."
+                    class="block w-full pl-9 text-sm bg-white dark:bg-gray-800"
+                />
+            </div>
+        </div>
+
         <div class="w-full sm:w-auto">
             <x-input-label for="appointments-date-filter" value="Período" class="text-xs" />
             <x-select id="appointments-date-filter" class="mt-1 min-w-36 bg-white dark:bg-gray-800">
@@ -148,6 +161,8 @@ $stateBadges = [
                 <option value="canceled">Canceladas</option>
             </x-select>
         </div>
+
+        <x-button color="primary" icon="filter" iconOnly title="Filtrar" class="mb-1" />
     </div>
 
     {{-- Listado de citas (timeline) --}}

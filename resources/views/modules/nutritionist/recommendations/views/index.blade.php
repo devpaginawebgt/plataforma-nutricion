@@ -92,6 +92,8 @@
                 <x-text-input id="recommendations-search" type="search" placeholder="Buscar por título..." class="ps-10 text-sm bg-white dark:bg-gray-800" />
             </div>
         </div>
+
+        <x-button color="primary" icon="filter" iconOnly title="Filtrar" class="mb-1" />
     </div>
 
     {{-- Grid de recomendaciones --}}
