@@ -1,7 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Paciente / Detalle</h2>
-    </x-slot>
+    <x-slot name="header">Paciente / Detalle</x-slot>
 
 
     <div class="flex items-center justify-between gap-4 rounded-default p-4">

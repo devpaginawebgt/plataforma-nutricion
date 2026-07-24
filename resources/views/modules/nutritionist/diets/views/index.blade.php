@@ -58,9 +58,7 @@
 @endphp
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Dietas / Planes</h2>
-    </x-slot>
+    <x-slot name="header">Dietas / Planes</x-slot>
 
     <div class="space-y-6">
         <div class="flex items-end justify-between gap-4">

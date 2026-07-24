@@ -59,9 +59,7 @@
 @endphp
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-lg font-semibold text-strong">Recomendaciones / Listado</h2>
-    </x-slot>
+    <x-slot name="header">Recomendaciones / Listado</x-slot>
 
     {{-- Encabezado --}}
     <div class="flex flex-col items-center gap-3 mb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
