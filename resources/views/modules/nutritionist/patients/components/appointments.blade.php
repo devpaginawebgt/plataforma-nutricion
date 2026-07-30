@@ -1,5 +1,5 @@
 @props([
-    'proximaFecha' => '29/07/2026',
+    'proximaFecha' => today()->addDays(2)->format('d/m/Y'),
     'proximaHora' => '10:30 AM',
     'proximoMotivo' => 'Control nutricional mensual',
     'proximaModalidad' => 'Presencial',
