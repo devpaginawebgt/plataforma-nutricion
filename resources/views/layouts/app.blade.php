@@ -26,7 +26,7 @@
     <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         @include('layouts.sidebar')
 
-        <div class="lg:ml-64 min-h-screen flex flex-col">
+        <div class="lg:ml-64 min-h-screen max-w-screen overflow-x-hidden flex flex-col">
             @include('layouts.topbar')
 
             <main class="flex-1 px-4 pb-2 md:px-6">

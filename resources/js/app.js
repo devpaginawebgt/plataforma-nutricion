@@ -108,9 +108,9 @@ window.initDataTable = function (selector, options = {}) {
         language: {
             search: 'Buscar:',
             lengthMenu: 'Mostrar _MENU_ registros',
-            info: 'Mostrando _START_ a _END_ de _TOTAL_',
+            info: 'Mostrando _START_ a _END_ de _TOTAL_ registros',
             infoEmpty: 'Sin registros',
-            infoFiltered: '(filtrado de _MAX_ totales)',
+            infoFiltered: '(filtrado de _MAX_ registros)',
             paginate: { previous: 'Anterior', next: 'Siguiente' },
             zeroRecords: 'Sin coincidencias',
             emptyTable: 'Sin datos',

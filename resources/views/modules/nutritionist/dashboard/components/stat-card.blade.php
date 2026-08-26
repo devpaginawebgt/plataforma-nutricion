@@ -3,6 +3,7 @@
     'value',
     'icon' => 'circle',
     'color' => 'primary',
+    'href' => null,
 ])
 
 @php
@@ -13,9 +14,16 @@ $colorMap = [
     'purple'  => 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300',
 ];
 $iconClasses = $colorMap[$color] ?? $colorMap['primary'];
+
+$tag = $href ? 'a' : 'div';
+$baseClasses = 'bg-surface rounded-default p-5 shadow-card border-card flex items-center gap-4';
+$hoverClasses = $href ? ' transition duration-200 hover:-translate-y-1 hover:shadow-md' : '';
 @endphp
 
-<div class="bg-surface rounded-default p-5 shadow-card border-card flex items-center gap-4">
+<{{ $tag }}
+    @if ($href) href="{{ $href }}" @endif
+    class="{{ $baseClasses }}{{ $hoverClasses }}"
+>
     <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 {{ $iconClasses }}">
         <span class="icon-[lucide--{{ $icon }}] w-6 h-6"></span>
     </div>
@@ -23,4 +31,4 @@ $iconClasses = $colorMap[$color] ?? $colorMap['primary'];
         <div class="text-2xl font-bold text-strong">{{ $value }}</div>
         <div class="text-sm text-muted">{{ $label }}</div>
     </div>
-</div>
+</{{ $tag }}>
