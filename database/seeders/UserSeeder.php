@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         $dennis = User::create([
             'name'     => 'Dennis',
-            'lastname' => 'Herrera',
+            'lastname' => 'PWG',
             'email'    => 'dev@paginawebguatemala.com',
             'password' => Hash::make('FScomunica2'),
         ]);
@@ -29,18 +29,10 @@ class UserSeeder extends Seeder
         ]);
         $erick->assignRole('nutritionist');
 
-        $douglas = User::create([
-            'name'     => 'Douglas',
-            'lastname' => 'Alvarado',
-            'email'    => 'soporte@paginawebguatemala.com',
-            'password' => Hash::make('FScomunica2'),
-        ]);
-        $douglas->assignRole('nutritionist');
-
         $andrea = User::create([
-            'name'     => 'Andrea',
-            'lastname' => 'Dieguez',
-            'email'    => 'andreadieguez@gmail.com',
+            'name'     => 'Paola',
+            'lastname' => 'D',
+            'email'    => 'paola@email.com',
             'password' => Hash::make('pwg502'),
         ]);
         $andrea->assignRole('nutritionist');
@@ -48,7 +40,7 @@ class UserSeeder extends Seeder
         $patient = User::create([
             'name'     => 'Oliver',
             'lastname' => 'Bonilla',
-            'email'    => 'oliver@gmail.com',
+            'email'    => 'oliver@email.com',
             'password' => Hash::make('pwg502'),
         ]);
         $patient->assignRole('patient');
