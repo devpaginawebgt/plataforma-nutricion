@@ -17,7 +17,44 @@ import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 window.DataTable = DataTable;
 
-document.addEventListener('DOMContentLoaded', () => initFlowbite());
+// Flatpickr — date/time picker con locale español.
+// Reemplaza automáticamente inputs type="date", "datetime-local" y "time".
+import flatpickr from 'flatpickr';
+import { Spanish } from 'flatpickr/dist/l10n/es.js';
+import 'flatpickr/dist/flatpickr.min.css';
+flatpickr.localize(Spanish);
+window.flatpickr = flatpickr;
+
+document.addEventListener('DOMContentLoaded', () => {
+    initFlowbite();
+
+    // Solo fecha — muestra "d/m/Y" al usuario, guarda "Y-m-d".
+    flatpickr('input[type="date"]', {
+        altInput: true,
+        altFormat: 'd/m/Y',
+        dateFormat: 'Y-m-d',
+        allowInput: true,
+    });
+
+    // Fecha + hora — muestra "d/m/Y H:i", guarda "Y-m-d H:i".
+    flatpickr('input[type="datetime-local"]', {
+        enableTime: true,
+        time_24hr: true,
+        altInput: true,
+        altFormat: 'd/m/Y H:i',
+        dateFormat: 'Y-m-d H:i',
+        allowInput: true,
+    });
+
+    // Solo hora.
+    flatpickr('input[type="time"]', {
+        enableTime: true,
+        noCalendar: true,
+        time_24hr: true,
+        dateFormat: 'H:i',
+        allowInput: true,
+    });
+});
 
 // Toggle hamburger/close icons cuando Flowbite abre/cierra el menú móvil.
 $(document).on('click', '[data-collapse-toggle]', function () {

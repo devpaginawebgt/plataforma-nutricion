@@ -6,7 +6,7 @@
      Trigger: <button data-drawer-target="{{ $id }}" data-drawer-show="{{ $id }}" data-drawer-placement="right" aria-controls="{{ $id }}">...</button> --}}
 <div
     id="{{ $id }}"
-    class="fixed top-0 right-0 z-50 h-screen w-96 max-w-full p-6 overflow-y-auto transition-transform translate-x-full bg-surface"
+    class="fixed top-0 right-0 z-50 h-screen w-full max-w-96 sm:max-w-2xl p-6 overflow-y-auto transition-transform translate-x-full bg-surface"
     tabindex="-1"
     aria-labelledby="{{ $id }}-label"
     aria-hidden="true"
@@ -31,11 +31,11 @@
     </div>
 
     {{-- Formulario --}}
-    <form class="space-y-5">
+    <form class="gap-4 grid grid-cols-1 sm:grid-cols-2">
         {{-- Nombre --}}
         <div>
             <x-input-label for="{{ $id }}-first-name">
-                Nombre <span class="text-red-500">*</span>
+                Nombres <span class="text-red-500">*</span>
             </x-input-label>
             <x-text-input
                 id="{{ $id }}-first-name"
@@ -49,11 +49,14 @@
 
         {{-- Apellido --}}
         <div>
-            <x-input-label for="{{ $id }}-last-name" value="Apellido" />
+            <x-input-label for="{{ $id }}-last-name">
+                Apellidos <span class="text-red-500">*</span>
+            </x-input-label>
             <x-text-input
                 id="{{ $id }}-last-name"
                 name="last_name"
                 type="text"
+                required
                 placeholder="Ej. López"
                 class="mt-1"
             />
@@ -96,6 +99,78 @@
             </div>
         </div>
 
+        {{-- Género --}}
+        <div>
+            <x-input-label for="{{ $id }}-gender">
+                Género <span class="text-red-500">*</span>
+            </x-input-label>
+            <x-select id="{{ $id }}-gender" name="gender" required class="mt-1 bg-gray-50 dark:bg-gray-700">
+                <option value="">Seleccionar...</option>
+                <option value="female">Femenino</option>
+                <option value="male">Masculino</option>
+                <option value="other">Otro</option>
+            </x-select>
+        </div>
+
+        {{-- Fecha de nacimiento --}}
+        <div>
+            <x-input-label for="{{ $id }}-birth-date" value="Fecha de nacimiento" />
+            <div class="relative mt-1">
+                <div class="absolute inset-y-0 inset-s-0 flex items-center ps-3 pointer-events-none text-muted">
+                    <span class="icon-[lucide--calendar] w-4 h-4"></span>
+                </div>
+                <x-text-input
+                    id="{{ $id }}-birth-date"
+                    name="birth_date"
+                    type="date"
+                    class="ps-10"
+                />
+            </div>
+        </div>
+
+        {{-- Departamento --}}
+        <div>
+            <x-input-label for="{{ $id }}-division">
+                Departamento
+            </x-input-label>
+            <x-select id="{{ $id }}-division" name="division" class="mt-1 bg-gray-50 dark:bg-gray-700">
+                <option value="">Seleccionar...</option>
+                @php
+                    $divisions = \App\Models\Division::all();
+                @endphp
+
+                @foreach ($divisions as $division)
+                    <option value="{{ $division->id }}">{{ $division->name}}</option>
+                @endforeach
+            </x-select>
+        </div>
+
+        {{-- Zona --}}
+        <div>
+            <x-input-label for="{{ $id }}-zone" value="Zona de domicilio" />
+            <x-text-input
+                id="{{ $id }}-zone"
+                name="zone"
+                type="text"
+                placeholder="Zona 5, Ciudad de Guatemala"
+                class="mt-1"
+                maxlength="40"
+            />
+        </div>
+
+        {{-- Ocupación --}}
+        <div>
+            <x-input-label for="{{ $id }}-occupation" value="Ocupación" />
+            <x-text-input
+                id="{{ $id }}-occupation"
+                name="occupation"
+                type="text"
+                placeholder="Ej. Docente"
+                class="mt-1"
+                maxlength="32"
+            />
+        </div>
+
         {{-- Contraseña --}}
         <div>
             <x-input-label for="{{ $id }}-password" value="Contraseña" />
@@ -117,33 +192,8 @@
             </p>
         </div>
 
-        {{-- Género --}}
-        <div>
-            <x-input-label for="{{ $id }}-gender">
-                Género <span class="text-red-500">*</span>
-            </x-input-label>
-            <x-select id="{{ $id }}-gender" name="gender" required class="mt-1 bg-gray-50 dark:bg-gray-700">
-                <option value="">Selecciona...</option>
-                <option value="female">Femenino</option>
-                <option value="male">Masculino</option>
-                <option value="other">Otro</option>
-            </x-select>
-        </div>
-
-        {{-- Ocupación --}}
-        <div>
-            <x-input-label for="{{ $id }}-occupation" value="Ocupación" />
-            <x-text-input
-                id="{{ $id }}-occupation"
-                name="occupation"
-                type="text"
-                placeholder="Ej. Docente"
-                class="mt-1"
-            />
-        </div>
-
         {{-- Notas --}}
-        <div>
+        <div class="col-span-2">
             <x-input-label for="{{ $id }}-notes" value="Notas" />
             <textarea
                 id="{{ $id }}-notes"
