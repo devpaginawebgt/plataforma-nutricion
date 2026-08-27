@@ -20,6 +20,8 @@
         "apexcharts": "^6.5.0",
         "datatables.net": "^2.3.8",
         "datatables.net-dt": "^2.3.8",
+        "datatables.net-responsive": "^3.0.8",
+        "datatables.net-responsive-dt": "^3.0.8",
         "flatpickr": "^4.6.13",
         "flowbite": "^4.0.2",
         "jquery": "^4.0.0"

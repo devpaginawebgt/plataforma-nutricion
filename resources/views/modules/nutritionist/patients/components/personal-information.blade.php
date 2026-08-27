@@ -1,5 +1,6 @@
 @props([
-    'nombre' => 'María López',
+    'nombres' => 'María',
+    'apellidos' => 'López Estrada',
     'edad' => '45 años',
     'sexo' => 'Femenino',
     'gestacion' => 'N/A',
@@ -7,18 +8,39 @@
     'correo' => 'maria.lopez@gmail.com',
     'ocupacion' => 'Contadora',
     'fechaNacimiento' => '15/03/1981',
+    'fechaInicio' => '20/05/2026',
 ])
 
 <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 divide-y divide-default md:divide-y-0">
+    <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 divide-y divide-default md:divide-y-0">
         <div class="flex items-center gap-3 px-5 py-4 md:border-r md:border-default">
             <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                 <span class="icon-[lucide--user] w-4 h-4"></span>
             </div>
             <div class="min-w-0">
-                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Nombre</p>
-                <p class="text-sm font-medium text-strong truncate">{{ $nombre }}</p>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Nombres</p>
+                <p class="text-sm font-medium text-strong truncate">{{ $nombres }}</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 px-5 py-4 md:border-r md:border-default">
+            <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
+                <span class="icon-[lucide--user] w-4 h-4"></span>
+            </div>
+            <div class="min-w-0">
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Apellidos</p>
+                <p class="text-sm font-medium text-strong truncate">{{ $apellidos }}</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 px-5 py-4">
+            <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
+                <span class="icon-[lucide--phone] w-4 h-4"></span>
+            </div>
+            <div class="min-w-0">
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Teléfono</p>
+                <p class="text-sm font-medium text-strong truncate">{{ $telefono }}</p>
             </div>
         </div>
 
@@ -29,6 +51,16 @@
             <div class="min-w-0">
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Correo</p>
                 <p class="text-sm font-medium text-strong truncate">{{ $correo }}</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 px-5 py-4">
+            <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
+                <span class="icon-[lucide--calendar] w-4 h-4"></span>
+            </div>
+            <div class="min-w-0">
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Fecha de nacimiento</p>
+                <p class="text-sm font-medium text-strong truncate">{{ $fechaNacimiento }}</p>
             </div>
         </div>
 
@@ -67,8 +99,8 @@
                 <span class="icon-[lucide--calendar] w-4 h-4"></span>
             </div>
             <div class="min-w-0">
-                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Fecha de nacimiento</p>
-                <p class="text-sm font-medium text-strong truncate">{{ $fechaNacimiento }}</p>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Fecha de inicio en Fit Wod</p>
+                <p class="text-sm font-medium text-strong truncate">{{ $fechaInicio }}</p>
             </div>
         </div>
 
@@ -78,17 +110,7 @@
             </div>
             <div class="min-w-0">
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Meses de gestación</p>
-                <p class="text-sm font-medium text-strong truncate">{{ $gestacion }}</p>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-3 px-5 py-4">
-            <div class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
-                <span class="icon-[lucide--phone] w-4 h-4"></span>
-            </div>
-            <div class="min-w-0">
-                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Teléfono</p>
-                <p class="text-sm font-medium text-strong truncate">{{ $telefono }}</p>
+                <p class="text-sm font-medium text-strong truncate">3</p>
             </div>
         </div>
     </div>

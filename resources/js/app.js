@@ -12,9 +12,13 @@ window.Collapse = Collapse;
 import ApexCharts from 'apexcharts';
 window.ApexCharts = ApexCharts;
 
-// DataTables (adjunta $.fn.DataTable a jQuery al importar)
+// DataTables — expone jQuery en window ANTES del import para que el plugin
+// se auto-registre en $.fn.DataTable como en un <script> tradicional.
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
+// Plugin Responsive — se registra vía side-effect del módulo base al importarlo.
+import 'datatables.net-responsive';
+import 'datatables.net-responsive-dt/css/responsive.dataTables.css';
 window.DataTable = DataTable;
 
 // Flatpickr — date/time picker con locale español.
@@ -142,6 +146,7 @@ $(function () {
 window.initDataTable = function (selector, options = {}) {
     return new DataTable(selector, Object.assign({
         pageLength: 10,
+        responsive: true,
         language: {
             search: 'Buscar:',
             lengthMenu: 'Mostrar _MENU_ registros',

@@ -51,7 +51,25 @@
             </div>
         </div>
 
-        <div>
+        <div class="col-span-2 border-b border-default mt-2">
+            <div class="flex items-center gap-2 mb-3">
+                <span class="icon-[lucide--flask-conical] w-4 h-4 text-green-700 dark:text-green-300"></span>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Documento CIE-11</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-stretch">
+                <label for="lab-pdf-upload" class="flex items-center justify-center gap-3 rounded-default border-2 border-dashed border-default hover:border-primary-400 dark:hover:border-primary-600 bg-primary-50/40 dark:bg-gray-900/50 px-4 py-6 cursor-pointer transition">
+                    <span class="icon-[lucide--file-up] w-6 h-6 text-primary-700 dark:text-primary-300 shrink-0"></span>
+                    <div>
+                        <p class="text-sm font-semibold text-strong">Adjuntar CIE-11</p>
+                        <p class="text-xs text-muted">Formato PDF · arrastra el archivo o haz clic para seleccionarlo</p>
+                    </div>
+                    <input id="lab-pdf-upload" type="file" accept="application/pdf" class="hidden">
+                </label>
+            </div>
+        </div>
+
+        {{-- <div>
             <div class="flex items-center gap-2 mb-3">
                 <span class="icon-[lucide--users] w-4 h-4 text-gray-600 dark:text-gray-300"></span>
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Antecedentes familiares</p>
@@ -63,9 +81,9 @@
                     <span class="text-sm text-muted">Sin registros</span>
                 @endforelse
             </div>
-        </div>
+        </div> --}}
 
-        <div class="md:col-span-2">
+        {{-- <div class="md:col-span-2">
             <div class="flex items-center gap-2 mb-3">
                 <span class="icon-[lucide--activity] w-4 h-4 text-purple-700 dark:text-purple-300"></span>
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Síntomas</p>
@@ -77,36 +95,7 @@
                     <span class="text-sm text-muted">Sin registros</span>
                 @endforelse
             </div>
-        </div>
-    </div>
-    
-    <div class="border-t border-default px-5 py-4">
-        <div class="flex items-center gap-2 mb-3">
-            <span class="icon-[lucide--flask-conical] w-4 h-4 text-green-700 dark:text-green-300"></span>
-            <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Laboratorios</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-stretch">
-            <label for="lab-pdf-upload" class="flex items-center justify-center gap-3 rounded-default border-2 border-dashed border-default hover:border-primary-400 dark:hover:border-primary-600 bg-primary-50/40 dark:bg-primary-900/10 px-4 py-6 cursor-pointer transition">
-                <span class="icon-[lucide--file-up] w-6 h-6 text-primary-700 dark:text-primary-300 shrink-0"></span>
-                <div>
-                    <p class="text-sm font-semibold text-strong">Subir resultado de laboratorio</p>
-                    <p class="text-xs text-muted">Formato PDF · arrastra el archivo o haz clic para seleccionarlo</p>
-                </div>
-                <input id="lab-pdf-upload" type="file" accept="application/pdf" class="hidden">
-            </label>
-            <!--
-            <div class="flex items-center gap-3 rounded-default border-card bg-surface px-4 py-3">
-                <div class="w-14 h-14 rounded-default bg-gray-100 dark:bg-gray-700 flex items-center justify-center shrink-0">
-                    <span class="icon-[lucide--qr-code] w-8 h-8 text-strong"></span>
-                </div>
-                <div>
-                    <p class="text-sm font-semibold text-strong">Código QR</p>
-                    <p class="text-xs text-muted">Escanea para ver el<br>expediente en línea</p>
-                </div>
-            </div>
-            -->
-        </div>
+        </div> --}}
     </div>
 
 </div>

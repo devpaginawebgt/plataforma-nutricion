@@ -126,3 +126,54 @@ table.dataTable.display > tbody > tr.odd > * {
 .dark table.dataTable.display > tbody > tr.odd > * {
     box-shadow: inset 0 0 0 9999px rgb(255 255 255 / 0.02);
 }
+
+/* ============================================
+   DataTables Responsive — color del botón +/- y fila expandida
+   ============================================ */
+
+/* Botón +/- transparente, solo el icono con color primario */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control::before,
+table.dataTable.dtr-column > tbody > tr > td.dtr-control::before {
+    background-color: transparent;
+    border-color: var(--color-primary-700);
+    color: var(--color-primary-700);
+    box-shadow: none;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control::before,
+table.dataTable.dtr-column > tbody > tr.parent > td.dtr-control::before {
+    background-color: transparent;
+    border-color: var(--color-primary-600);
+    color: var(--color-primary-600);
+}
+
+/* Fila expandida ("child row") — quita el hover heredado y usa tokens semánticos */
+table.dataTable > tbody > tr.child,
+table.dataTable > tbody > tr.child:hover {
+    background-color: transparent !important;
+}
+
+table.dataTable > tbody > tr.child > td {
+    border-bottom-color: var(--border-muted);
+    padding: 0.5rem 0.75rem 0.75rem;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+    border-bottom-color: var(--border-muted);
+    padding: 0.4rem 0;
+    font-size: 0.875rem;
+    color: var(--text-soft);
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
+    border-bottom: 0;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li .dtr-title {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    min-width: 7rem;
+}

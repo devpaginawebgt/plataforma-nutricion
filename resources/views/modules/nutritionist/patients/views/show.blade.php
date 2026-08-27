@@ -8,7 +8,7 @@
                 ML
             </div>
             <div class="min-w-0">
-                <h3 class="text-base font-bold text-strong truncate">María López</h3>
+                <h3 class="text-base font-bold text-strong truncate">María López Estrada</h3>
                 <p class="text-sm text-muted">Expediente clínico</p>
             </div>
         </div>
@@ -63,22 +63,22 @@
     </div>
 
     <div id="patientTabContent">
-        <div class="hidden p-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="hidden py-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <x-nutritionist-patients::personal-information />
         </div>
-        <div class="hidden p-4" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+        <div class="hidden py-4" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
             <x-nutritionist-patients::medical-history />
         </div>
-        <div class="hidden p-4" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+        <div class="hidden py-4" id="settings" role="tabpanel" aria-labelledby="settings-tab">
             <x-nutritionist-patients::nutritional-assessment />
         </div>
-        <div class="hidden p-4" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+        <div class="hidden py-4" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
             <x-shared::nutrition-plan />
         </div>
-        <div class="hidden p-4" id="seguimiento" role="tabpanel" aria-labelledby="seguimiento-tab">
+        <div class="hidden py-4" id="seguimiento" role="tabpanel" aria-labelledby="seguimiento-tab">
             <x-nutritionist-patients::follow-up />
         </div>
-        <div class="hidden p-4" id="citas" role="tabpanel" aria-labelledby="citas-tab">
+        <div class="hidden py-4" id="citas" role="tabpanel" aria-labelledby="citas-tab">
             <x-nutritionist-patients::appointments />
         </div>
     </div>
