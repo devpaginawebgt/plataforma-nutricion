@@ -13,4 +13,8 @@ Route::middleware(['auth', 'verified', 'role:nutritionist'])
         Route::get('/ver', function () {
             return view('modules.nutritionist.patients.views.show');
         })->name('show');
+
+        Route::get('/plan-nutricional', function () {
+            return view('modules.nutritionist.patients.views.nutrition-plan');
+        })->name('nutrition-plan');
     });
