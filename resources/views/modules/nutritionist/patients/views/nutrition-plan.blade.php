@@ -43,6 +43,7 @@
             ['id' => 'menu',           'label' => 'Menú nutricional'],
             ['id' => 'habitos',        'label' => 'Hábitos y recomendaciones'],
             ['id' => 'recetas',        'label' => 'Recetas'],
+            ['id' => 'ejercicios',     'label' => 'Ejercicios'],
             ['id' => 'transformacion', 'label' => 'Módulo de Transformación'],
         ];
     @endphp
@@ -66,12 +67,18 @@
     <div id="planTabContent">
         @foreach ($planTabs as $tab)
             <div class="hidden py-4" id="{{ $tab['id'] }}" role="tabpanel" aria-labelledby="{{ $tab['id'] }}-tab">
-                @if ($tab['id'] === 'diagnosis')
+                @if ($tab['id'] === 'antropometrico')
+                    <x-nutritionist-patients::anthropometric />
+                @elseif ($tab['id'] === 'diagnosis')
                     <x-nutritionist-patients::diagnosis-goals />
                 @elseif ($tab['id'] === 'portions')
                     <x-nutritionist-patients::portions />
                 @elseif ($tab['id'] === 'menu')
                     <x-nutritionist-patients::menu />
+                @elseif ($tab['id'] === 'habitos')
+                    <x-nutritionist-patients::habits />
+                @elseif ($tab['id'] === 'ejercicios')
+                    <x-nutritionist-patients::exercises />
                 @endif
             </div>
         @endforeach

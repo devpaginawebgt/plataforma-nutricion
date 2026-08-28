@@ -16,6 +16,7 @@
         ['icon' => 'utensils',       'label' => 'Menú nutricional',           'color' => 'emerald',   'slug' => 'menu'],
         ['icon' => 'list-checks',    'label' => 'Hábitos y recomendaciones',  'color' => 'cyan',      'slug' => 'habitos'],
         ['icon' => 'chef-hat',       'label' => 'Recetas',                    'color' => 'teal',      'slug' => 'recetas'],
+        ['icon' => 'dumbbell',       'label' => 'Ejercicios',                 'color' => 'emerald',   'slug' => 'ejercicios'],
         ['icon' => 'play',           'label' => 'Módulo de Transformación',   'color' => 'teal-dark', 'slug' => 'transformacion'],
     ];
 @endphp

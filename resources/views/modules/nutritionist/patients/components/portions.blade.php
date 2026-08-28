@@ -112,7 +112,7 @@
                         <span class="icon-[{{ $meal['icon'] }}] w-6 h-6"></span>
                     </div>
                     <p class="text-sm font-bold uppercase tracking-wide text-strong">{{ $meal['label'] }}</p>
-                    <ul class="mt-2 space-y-1">
+                    <ul class="mt-2 space-y-1 list-disc list-inside text-left inline-block marker:text-primary-500">
                         @foreach ($meal['items'] as $item)
                             <li class="text-xs text-body">{{ $item }}</li>
                         @endforeach
