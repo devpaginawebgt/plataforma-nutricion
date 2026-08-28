@@ -70,6 +70,8 @@
                     <x-nutritionist-patients::diagnosis-goals />
                 @elseif ($tab['id'] === 'portions')
                     <x-nutritionist-patients::portions />
+                @elseif ($tab['id'] === 'menu')
+                    <x-nutritionist-patients::menu />
                 @endif
             </div>
         @endforeach
