@@ -1,5 +1,10 @@
 @props([
     'agua' => 6,
+    'ejercicio' => [
+        'minutos' => 45,
+        'frecuencia' => '4 veces/sem',
+    ],
+    'ejercicioFrecuenciaOpciones' => ['3 veces/sem', '4 veces/sem', '5+ veces/sem'],
     'sueno' => [
         'horas' => 7,
         'calidad' => 'Regular',
@@ -71,6 +76,33 @@
                 <div class="flex flex-col items-start md:items-end gap-1 shrink-0">
                     <span class="{{ $valueBadge }}">{{ $agua }}</span>
                     <span class="text-[11px] text-muted">Vasos (250 ml)</span>
+                </div>
+            </div>
+
+            {{-- Ejercicio --}}
+            <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
+                <div class="flex items-start gap-3 md:w-64 shrink-0">
+                    <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
+                        <span class="icon-[lucide--dumbbell] w-4 h-4"></span>
+                    </span>
+                    <div class="min-w-0">
+                        <p class="text-sm font-semibold text-strong">Ejercicio</p>
+                        <p class="text-xs text-muted">Realizar ejercicio aeróbico y de fuerza.</p>
+                    </div>
+                </div>
+                <div class="flex-1 space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <p class="text-xs text-muted">Minutos por sesión</p>
+                        <span class="{{ $valueBadge }}">{{ $ejercicio['minutos'] }} min</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <p class="text-xs text-muted">Días a la semana</p>
+                        <div class="flex flex-wrap gap-2">
+                            @foreach ($ejercicioFrecuenciaOpciones as $opt)
+                                <span class="{{ $pill($opt, $ejercicio['frecuencia']) }}">{{ $opt }}</span>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
 
