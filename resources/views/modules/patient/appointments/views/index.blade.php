@@ -10,7 +10,7 @@ $citas = [
             'nutricionista' => 'Dra. Andrea Dieguez',
             'appointment_date' => $two_days.' 10:30:00',
             'motivo' => 'Control nutricional mensual',
-            'modalidad' => 'Presencial',
+            'modalidad' => 'Presencial - Maranatha Majadas',
             'state' => 'pending',
         ],
     ],
@@ -20,7 +20,7 @@ $citas = [
             'nutricionista' => 'Dra. Andrea Dieguez',
             'appointment_date' => $past_date.' 09:00:00',
             'motivo' => 'Consulta inicial y evaluación',
-            'modalidad' => 'Presencial',
+            'modalidad' => 'Presencial - Maranatha Majadas',
             'state' => 'completed',
         ],
     ],
@@ -157,6 +157,7 @@ $stateBadges = [
                                     <div class="flex gap-1.5 shrink-0">
                                         {{-- <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver detalles" /> --}}
                                         @if ($isPending)
+                                            <x-button variant="soft" color="info" size="sm" icon="calendar-clock" iconOnly title="Reagendar cita" />
                                             <x-button variant="soft" color="danger" size="sm" icon="x" iconOnly title="Cancelar cita" />
                                         @endif
                                     </div>
