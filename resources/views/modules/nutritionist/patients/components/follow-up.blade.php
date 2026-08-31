@@ -8,13 +8,54 @@
     'metaLabel' => 'Tomar 8 vasos de agua al día',
     'metaCompletados' => 5,
     'metaTotal' => 8,
+    'progresoCharts' => [
+        [
+            'id' => 'follow-up-weight-chart',
+            'titulo' => 'Avance de peso',
+            'unidad' => 'lbs',
+            'inicial' => 190,
+            'actual' => 181,
+            'meta' => 175,
+            'series' => [190, 188, 186, 184, 183, 182, 181],
+            'categorias' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+            'goalDirection' => 'down',
+        ],
+        [
+            'id' => 'follow-up-fat-chart',
+            'titulo' => 'Avance de grasa',
+            'unidad' => '%',
+            'inicial' => 30,
+            'actual' => 26,
+            'meta' => 22,
+            'series' => [30, 29, 28, 27.5, 27, 26.5, 26],
+            'categorias' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+            'goalDirection' => 'down',
+        ],
+        [
+            'id' => 'follow-up-muscle-chart',
+            'titulo' => 'Avance de músculo',
+            'unidad' => '%',
+            'inicial' => 22,
+            'actual' => 24,
+            'meta' => 28,
+            'series' => [22, 22.5, 23, 23.5, 23.8, 24, 24],
+            'categorias' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+            'goalDirection' => 'up',
+        ],
+    ],
 ])
 
 <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
 
-    <div class="p-5 border-b border-default">
-        <p class="text-[11px] font-semibold uppercase tracking-wide text-muted mb-3">Evolución de peso (lb)</p>
-        <div id="follow-up-weight-chart"></div>
+    <div class="p-5 border-b border-default space-y-4 grid grid-cols-1 2xl:grid-cols-2">
+        @foreach ($progresoCharts as $chart)
+            <div class="bg-surface">
+                <div class="flex items-start justify-between mb-4 gap-3">
+                    <h3 class="text-lg font-semibold text-strong">{{ $chart['titulo'] }}</h3>
+                </div>
+                <div id="{{ $chart['id'] }}"></div>
+            </div>
+        @endforeach
     </div>
 
     <div class="p-5 border-b border-default">
@@ -81,18 +122,47 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const el = document.querySelector('#follow-up-weight-chart');
-    if (!el || typeof ApexCharts === 'undefined') return;
-    new ApexCharts(el, {
-        chart: { type: 'line', height: 260, toolbar: { show: false }, foreColor: '#6b7280' },
-        series: [{ name: 'Peso (lb)', data: [154, 152.5, 151, 150, 148.5, 147, 145.5] }],
-        stroke: { curve: 'smooth', width: 3 },
-        colors: ['#0d9488'],
-        markers: { size: 5 },
-        xaxis: { categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'] },
-        yaxis: { labels: { formatter: (v) => v + ' lb' } },
-        grid: { borderColor: 'rgba(107,114,128,0.15)' },
-        tooltip: { theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light', y: { formatter: (v) => v + ' lb' } },
-    }).render();
+    if (typeof ApexCharts === 'undefined') return;
+
+    const charts = @json($progresoCharts);
+
+    charts.forEach((cfg) => {
+        const el = document.querySelector('#' + cfg.id);
+        if (!el) return;
+
+        const values = [cfg.inicial, cfg.actual, cfg.meta];
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const pad = Math.max(1, (max - min) * 0.2);
+
+        new ApexCharts(el, {
+            chart: { type: 'area', height: 280, toolbar: { show: false }, foreColor: '#6b7280' },
+            series: [{ name: cfg.titulo + ' (' + cfg.unidad + ')', data: cfg.series }],
+            stroke: { curve: 'smooth', width: 2 },
+            colors: ['#0d9488'],
+            markers: { size: 5 },
+            xaxis: { categories: cfg.categorias },
+            yaxis: {
+                min: Math.floor(min - pad),
+                max: Math.ceil(max + pad),
+                labels: { formatter: (v) => v.toFixed(1) + ' ' + cfg.unidad },
+            },
+            grid: { borderColor: 'rgba(107,114,128,0.15)' },
+            tooltip: {
+                theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+                y: { formatter: (v) => v + ' ' + cfg.unidad },
+            },
+            annotations: {
+                yaxis: [
+                    { y: cfg.inicial, borderColor: '#9ca3af', strokeDashArray: 4,
+                      label: { text: 'Inicial ' + cfg.inicial + ' ' + cfg.unidad, style: { color: '#fff', background: '#9ca3af' } } },
+                    { y: cfg.actual, borderColor: '#0d9488', strokeDashArray: 4,
+                      label: { text: 'Actual ' + cfg.actual + ' ' + cfg.unidad, style: { color: '#fff', background: '#0d9488' } } },
+                    { y: cfg.meta, borderColor: '#22c55e', strokeDashArray: 4,
+                      label: { text: 'Meta ' + cfg.meta + ' ' + cfg.unidad, style: { color: '#fff', background: '#22c55e' } } },
+                ],
+            },
+        }).render();
+    });
 });
 </script>

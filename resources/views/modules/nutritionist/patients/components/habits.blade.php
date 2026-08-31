@@ -22,6 +22,16 @@
     'calidadOpciones' => ['Buena', 'Regular', 'Mala'],
     'tiemposOpciones' => [1, 2, 3, 4, 5, 6],
     'frecuenciaOpciones' => ['Diario', 'Semanal', 'Mensual'],
+    'recomendaciones' => [
+        'Aumentar el consumo de verduras en cada tiempo de comida.',
+        'Priorizar alimentos naturales y minimizar los ultraprocesados.',
+        'Mantener una hidratación adecuada durante todo el día.',
+        'Realizar actividad física de forma constante.',
+        'Dormir lo suficiente y mantener una buena higiene del sueño.',
+        'Reducir el consumo de azúcares añadidos y grasas saturadas.',
+        'Planificar tus comidas para evitar saltarte tiempos de comida.',
+        'Manejar el estrés con técnicas de relajación y respiración.',
+    ],
 ])
 
 @php
@@ -213,6 +223,41 @@
                     <span class="{{ $valueBadge }}">{{ $adherencia }} %</span>
                 </div>
             </div>
+        </div>
+
+        <div class="mx-5 mt-2 mb-5 flex items-start gap-3 rounded-default border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-900/20 px-4 py-3">
+            <span class="w-9 h-9 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 flex items-center justify-center shrink-0">
+                <span class="icon-[lucide--alert-triangle] w-4 h-4"></span>
+            </span>
+            <div class="min-w-0">
+                <p class="text-sm font-semibold text-rose-700 dark:text-rose-300">Recordatorio</p>
+                <p class="text-xs text-body">El alcohol y el tabaco son perjudiciales para tu salud. Reduce o evita su consumo para mejorar tu bienestar.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
+        <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
+            <span class="icon-[lucide--star] w-5 h-5 text-primary-700 dark:text-primary-300 mr-1 mt-1"></span>
+            <div>
+                <h3 class="text-xl font-semibold text-strong">Recomendaciones</h3>
+                <p class="text-xs text-muted">Recomendaciones personalizadas para mejorar tu salud.</p>
+            </div>
+        </div>
+
+        <div class="divide-y divide-default">
+            @foreach ($recomendaciones as $i => $recomendacion)
+                <div class="flex items-start gap-3 px-5 py-3">
+                    <span class="w-7 h-7 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center text-xs font-bold shrink-0">
+                        {{ $i + 1 }}
+                    </span>
+                    <p class="text-sm text-body pt-1">{{ $recomendacion }}</p>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="px-5 py-4 border-t border-default text-center">
+            <p class="text-xs text-muted italic">Pequeños cambios generan grandes resultados.</p>
         </div>
     </div>
 </div>

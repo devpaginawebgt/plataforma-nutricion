@@ -14,6 +14,16 @@
         </div>
 
         <div class="flex items-center gap-2 shrink-0">
+            <a href="{{ route('patients.nutrition-plan') }}">
+                <x-button
+                    variant="solid"
+                    color="success"
+                    size="sm"
+                    icon="external-link"
+                    label="Ir al Plan Nutricional"
+                    type="div"
+                />
+            </a>
             <x-button variant="solid" color="success" size="sm" icon="calendar-plus" label="Programar cita" />
         </div>
     </div>

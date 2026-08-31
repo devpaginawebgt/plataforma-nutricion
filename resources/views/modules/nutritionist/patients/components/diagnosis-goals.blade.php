@@ -7,6 +7,29 @@
         'Reducir el consumo de bebidas azucaradas a máximo 1 vez por semana',
         'Realizar actividad física al menos 4 veces por semana',
     ],
+    'metasCuantitativas' => [
+        [
+            'label' => 'Meta de peso',
+            'value' => '175',
+            'unit' => 'lbs',
+            'date' => '31/12/2026',
+            'icon' => 'target',
+        ],
+        [
+            'label' => 'Meta de grasa',
+            'value' => '22',
+            'unit' => '%',
+            'date' => '31/12/2026',
+            'icon' => 'droplet',
+        ],
+        [
+            'label' => 'Meta de músculo',
+            'value' => '28',
+            'unit' => '%',
+            'date' => '31/12/2026',
+            'icon' => 'dumbbell',
+        ],
+    ],
 ])
 
 <div class="space-y-4">
@@ -60,5 +83,27 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        @foreach ($metasCuantitativas as $meta)
+            <div class="bg-surface rounded-default p-5 shadow-card border-card flex items-center gap-4">
+                <div class="w-12 h-12 rounded-default flex items-center justify-center shrink-0 bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                    <span class="icon-[lucide--{{ $meta['icon'] }}] w-6 h-6"></span>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">{{ $meta['label'] }}</p>
+                    <p class="text-2xl font-bold text-strong leading-tight">
+                        {{ $meta['value'] }} <span class="text-sm font-medium text-muted">{{ $meta['unit'] }}</span>
+                    </p>
+                    @if (!empty($meta['date']))
+                        <p class="text-xs text-muted mt-0.5 flex items-center gap-1">
+                            <span class="icon-[lucide--calendar] w-3.5 h-3.5"></span>
+                            {{ $meta['date'] }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+        @endforeach
     </div>
 </div>

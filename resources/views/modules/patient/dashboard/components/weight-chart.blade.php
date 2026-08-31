@@ -10,18 +10,7 @@
     <div class="flex items-start justify-between mb-4 gap-3">
         <div>
             <h3 class="text-lg font-semibold text-strong">Avance de peso</h3>
-        </div>
-        <div class="flex flex-wrap items-center gap-3 text-xs">
-            <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-gray-400"></span> Inicial: {{ $inicial }} lbs
-            </span>
-            <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-primary-600"></span> Actual: {{ $actual }} lbs
-            </span>
-            <span class="flex items-center gap-1.5 text-muted">
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span> Meta: {{ $meta }} lbs
-            </span>
-        </div>
+        </div>        
     </div>
 
     <div id="patient-weight-chart"></div>

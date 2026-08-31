@@ -45,7 +45,7 @@
             <div class="lg:col-span-2">
                 <x-patient-dashboard::weight-chart
                     :inicial="187"
-                    :actual="172"
+                    :actual="170"
                     :meta="159"
                 />
             </div>

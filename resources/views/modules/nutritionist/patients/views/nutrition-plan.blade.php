@@ -9,7 +9,7 @@
             </div>
             <div class="min-w-0">
                 <h3 class="text-base font-bold text-strong truncate">María López Estrada</h3>
-                <p class="text-sm text-muted">Expediente clínico</p>
+                <p class="text-sm text-muted">Plan Nutricional</p>
             </div>
         </div>
 
