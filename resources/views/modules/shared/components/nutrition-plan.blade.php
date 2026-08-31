@@ -1,4 +1,7 @@
-@props(['showHeader' => true])
+@props([
+    'showHeader' => true,
+    'baseUrl' => route('patients.nutrition-plan'),
+])
 
 @php
     $palettes = [
@@ -15,7 +18,6 @@
         ['icon' => 'chart-pie',      'label' => 'Porciones',                  'color' => 'cyan',      'slug' => 'portions'],
         ['icon' => 'utensils',       'label' => 'Menú nutricional',           'color' => 'emerald',   'slug' => 'menu'],
         ['icon' => 'list-checks',    'label' => 'Hábitos y recomendaciones',  'color' => 'cyan',      'slug' => 'habitos'],
-        ['icon' => 'chef-hat',       'label' => 'Recetas',                    'color' => 'teal',      'slug' => 'recetas'],
         ['icon' => 'dumbbell',       'label' => 'Ejercicios',                 'color' => 'emerald',   'slug' => 'ejercicios'],
         ['icon' => 'play',           'label' => 'Módulo de Transformación',   'color' => 'teal-dark', 'slug' => 'transformacion'],
     ];
@@ -34,7 +36,7 @@
     <div class="p-5">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             @foreach ($items as $item)
-                <a href="{{ route('patients.nutrition-plan') }}#{{ $item['slug'] }}"
+                <a href="{{ $baseUrl }}#{{ $item['slug'] }}"
                    class="group flex flex-col items-center gap-3 p-5 text-center rounded-2xl bg-surface
                           border border-gray-100 dark:border-slate-600
                           shadow-sm transition duration-200

@@ -7,4 +7,6 @@ Route::middleware(['auth', 'verified', 'role:patient'])
     ->name('patient.diets.')
     ->group(function () {
         Route::get('/', fn () => view('modules.patient.diets.views.index'))->name('index');
+
+        Route::get('/detalle', fn () => view('modules.patient.diets.views.plan'))->name('plan');
     });

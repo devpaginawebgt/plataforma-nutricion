@@ -8,5 +8,5 @@
         </p>
     </div>
 
-    <x-shared::nutrition-plan :showHeader="false" />
+    <x-shared::nutrition-plan :showHeader="false" :baseUrl="route('patient.diets.plan')" />
 </x-app-layout>
