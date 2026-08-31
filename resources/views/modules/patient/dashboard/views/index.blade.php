@@ -7,7 +7,7 @@
             'inicial' => 187,
             'actual' => 172,
             'meta' => 159,
-            'series' => [187, 184, 181, 177, 174, 172, 170],
+            'series' => [187, 185, 182, 179, 176, 174, 172],
             'categorias' => ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
             'goalDirection' => 'down',
         ],
