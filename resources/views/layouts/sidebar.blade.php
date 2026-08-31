@@ -43,6 +43,9 @@
                 <x-sidebar-link :href="route('recommendations.index')" icon="lightbulb" :active="request()->routeIs('recommendations.index')">
                     Recomendaciones
                 </x-sidebar-link>
+                <x-sidebar-link :href="route('exercises.index')" icon="dumbbell" :active="request()->routeIs('exercises.index')">
+                    Ejercicios
+                </x-sidebar-link>
                 {{-- <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
                     Seguimiento
                 </x-sidebar-link>
