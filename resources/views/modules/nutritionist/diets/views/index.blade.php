@@ -68,7 +68,16 @@
 
             <div class="flex gap-2">
                 <x-button color="primary" icon="plus" size="sm" label="Nueva dieta" />
-                <x-button color="secondary" icon="plus" size="sm" label="Nueva receta" />
+                <x-button
+                    color="secondary"
+                    icon="plus"
+                    size="sm"
+                    label="Nueva receta"
+                    data-drawer-target="new-recipe-drawer"
+                    data-drawer-show="new-recipe-drawer"
+                    data-drawer-placement="right"
+                    aria-controls="new-recipe-drawer"
+                />
             </div>
         </div>
 
@@ -108,7 +117,9 @@
                                 <span class="icon-[lucide--clipboard-list] w-5 h-5"></span>
                             </div>
                             <div class="min-w-0">
-                                <h2 class="text-base font-bold text-strong leading-snug">{{ $dieta['titulo'] }}</h2>
+                                <a href="{{ route('diets.show') }}" class="text-base font-bold text-strong leading-snug hover:text-primary-700 dark:hover:text-primary-300">
+                                    {{ $dieta['titulo'] }}
+                                </a>
                                 <p class="text-xs text-muted mt-1 leading-relaxed">{{ $dieta['descripcion'] }}</p>
                             </div>
                         </div>
@@ -166,4 +177,7 @@
             @endforeach
         </div>
     </div>
+
+    {{-- Drawer para crear nueva receta --}}
+    <x-nutritionist-diets::new-recipe />
 </x-app-layout>

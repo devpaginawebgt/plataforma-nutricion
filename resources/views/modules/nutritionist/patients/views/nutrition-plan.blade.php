@@ -42,7 +42,6 @@
             ['id' => 'portions',       'label' => 'Porciones'],
             ['id' => 'menu',           'label' => 'Menú nutricional'],
             ['id' => 'habitos',        'label' => 'Hábitos y recomendaciones'],
-            ['id' => 'recetas',        'label' => 'Recetas'],
             ['id' => 'ejercicios',     'label' => 'Ejercicios'],
             ['id' => 'transformacion', 'label' => 'Módulo de Transformación'],
         ];
