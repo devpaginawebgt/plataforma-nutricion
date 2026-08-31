@@ -125,54 +125,40 @@
                 {{-- <p class="text-xs text-muted">Última actualización: 20/07/2026</p> --}}
             </div>
 
+            @php
+                $cinturaCm = 84;
+                $caderaCm = 102;
+                $relacionCinturaCadera = $caderaCm > 0 ? round($cinturaCm / $caderaCm, 2) : 0;
+
+                $mediciones = [
+                    ['label' => 'Talla',            'value' => '162 cm', 'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Cintura',          'value' => '84 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Cadera',           'value' => '102 cm', 'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Cintura / Cadera', 'value' => $relacionCinturaCadera, 'icon' => 'divide', 'accent' => 'teal'],
+                    ['label' => 'Pantorrilla Izq.', 'value' => '35 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Pantorrilla Der.', 'value' => '35 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Muslo Izq.',       'value' => '54 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'Muslo Der.',       'value' => '54 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'C. Brazo Izq.',    'value' => '28 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                    ['label' => 'C. Brazo Der.',    'value' => '28 cm',  'icon' => 'ruler',  'accent' => 'primary'],
+                ];
+
+                $accentClasses = [
+                    'primary' => 'bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300',
+                    'teal'    => 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300',
+                ];
+            @endphp
+
             <div class="flex flex-wrap justify-center gap-4 p-5">
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
+                @foreach ($mediciones as $medicion)
+                    <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
+                        <div class="w-10 h-10 mx-auto rounded-full flex items-center justify-center mb-2 {{ $accentClasses[$medicion['accent']] }}">
+                            <span class="icon-[lucide--{{ $medicion['icon'] }}] w-5 h-5"></span>
+                        </div>
+                        <p class="text-lg font-bold text-strong">{{ $medicion['value'] }}</p>
+                        <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">{{ $medicion['label'] }}</p>
                     </div>
-                    <p class="text-lg font-bold text-strong">162 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Talla</p>
-                </div>
-
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
-                    </div>
-                    <p class="text-lg font-bold text-strong">84 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Cintura</p>
-                </div>
-
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
-                    </div>
-                    <p class="text-lg font-bold text-strong">102 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Cadera</p>
-                </div>
-
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
-                    </div>
-                    <p class="text-lg font-bold text-strong">35 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Pantorrilla</p>
-                </div>
-
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
-                    </div>
-                    <p class="text-lg font-bold text-strong">54 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Muslo</p>
-                </div>
-
-                <div class="rounded-default border-card bg-surface p-4 text-center w-[calc(50%-0.5rem)] sm:w-[calc(25%-0.75rem)]">
-                    <div class="w-10 h-10 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center mb-2">
-                        <span class="icon-[lucide--ruler] w-5 h-5"></span>
-                    </div>
-                    <p class="text-lg font-bold text-strong">28 cm</p>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">C. Brazo</p>
-                </div>
+                @endforeach
             </div>
         </div>
 
