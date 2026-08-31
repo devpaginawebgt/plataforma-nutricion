@@ -2,7 +2,7 @@
     'fecha' => '29/07/2026',
     'hora' => '10:30 AM',
     'motivo' => 'Control nutricional mensual',
-    'modalidad' => 'Presencial',
+    'modalidad' => 'Presencial - Maranatha Majadas',
     'estado' => 'pendiente',
 ])
 
