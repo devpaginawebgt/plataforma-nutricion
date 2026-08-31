@@ -148,4 +148,7 @@
             </div>
         @endforeach
     </div>
+
+    {{-- Drawer para crear nuevo ejercicio --}}
+    <x-nutritionist-exercises::new-exercise />
 </x-app-layout>
