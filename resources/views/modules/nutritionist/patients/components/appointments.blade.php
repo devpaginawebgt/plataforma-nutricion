@@ -2,11 +2,11 @@
     'proximaFecha' => today()->addDays(2)->format('d/m/Y'),
     'proximaHora' => '10:30 AM',
     'proximoMotivo' => 'Control nutricional mensual',
-    'proximaModalidad' => 'Presencial',
+    'proximaModalidad' => 'Presencial - Maranatha Majadas',
     'historial' => [
-        ['fecha' => '01/07/2026', 'hora' => '09:00 AM', 'motivo' => 'Evaluación de seguimiento', 'modalidad' => 'Presencial', 'estado' => 'asistio'],
+        ['fecha' => '01/07/2026', 'hora' => '09:00 AM', 'motivo' => 'Evaluación de seguimiento', 'modalidad' => 'Presencial - Maranatha Majadas', 'estado' => 'asistio'],
         ['fecha' => '10/06/2026', 'hora' => '11:30 AM', 'motivo' => 'Ajuste de plan nutricional', 'modalidad' => 'Virtual', 'estado' => 'asistio'],
-        ['fecha' => '15/05/2026', 'hora' => '04:15 PM', 'motivo' => 'Consulta inicial', 'modalidad' => 'Presencial', 'estado' => 'cancelada'],
+        ['fecha' => '15/05/2026', 'hora' => '04:15 PM', 'motivo' => 'Consulta inicial', 'modalidad' => 'Presencial - Maranatha Majadas', 'estado' => 'cancelada'],
         ['fecha' => '02/08/2026', 'hora' => '08:45 AM', 'motivo' => 'Revisión trimestral', 'modalidad' => 'Virtual', 'estado' => 'pendiente'],
     ],
 ])
@@ -43,10 +43,13 @@
                 </p>
                 <p class="text-sm text-body mt-1">{{ $proximoMotivo }}</p>
             </div>
-            <span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 px-3 py-1 text-xs font-semibold shrink-0">
-                <span class="icon-[lucide--hourglass] w-3.5 h-3.5"></span>
-                Pendiente
-            </span>
+            <div class="flex flex-col items-start sm:items-end gap-2 shrink-0">
+                <span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 px-3 py-1 text-xs font-semibold">
+                    <span class="icon-[lucide--hourglass] w-3.5 h-3.5"></span>
+                    Pendiente
+                </span>
+                <x-button color="primary" size="sm" icon="calendar-clock" label="Reprogramar" />
+            </div>
         </div>
     </div>
 

@@ -88,13 +88,13 @@
                 </div>
             </div>
 
-            <div class="w-full sm:w-auto">
+            {{-- <div class="w-full sm:w-auto">
                 <x-input-label for="diets-state-filter" value="Estado" class="text-xs" />
                 <x-select id="diets-state-filter" class="mt-1 min-w-36 bg-white dark:bg-gray-800">
                     <option value="active">Activas</option>
                     <option value="inactive">Desactivadas</option>
                 </x-select>
-            </div>
+            </div> --}}
 
             <x-button color="primary" icon="filter" iconOnly title="Filtrar" class="mb-1" />
         </div>

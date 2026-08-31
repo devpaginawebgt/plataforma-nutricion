@@ -5,6 +5,7 @@ $tomorrow = today()->addDays(1)->format('Y-m-d');
 $two_days = today()->addDays(2)->format('Y-m-d');
 
 $citas = [
+    // TODO: Si tiene varios diagnósticos que sea el primero
     $today => [
         [
             'id' => 1,
@@ -15,7 +16,7 @@ $citas = [
             'patient_register_date' => '2026-05-10 14:00:00',
             'appointment_date' => $today.' 09:30:00',
             'motivo' => 'Control nutricional mensual',
-            'modalidad' => 'Presencial',
+            'modalidad' => 'Presencial - Maranatha Majadas',
             'state' => 'completed',
         ],
         [
@@ -41,7 +42,7 @@ $citas = [
             'patient_register_date' => '2026-06-01 09:00:00',
             'appointment_date' => $tomorrow.' 08:15:00',
             'motivo' => 'Evaluación de seguimiento',
-            'modalidad' => 'Presencial',
+            'modalidad' => 'Presencial - Maranatha Majadas',
             'state' => 'pending',
         ],
         [
@@ -65,7 +66,7 @@ $citas = [
             'patient_register_date' => '2026-02-05 16:40:00',
             'appointment_date' => $tomorrow.' 17:30:00',
             'motivo' => 'Consulta inicial',
-            'modalidad' => 'Presencial',
+            'modalidad' => 'Presencial - Maranatha Majadas',
             'state' => 'pending',
         ],
     ],

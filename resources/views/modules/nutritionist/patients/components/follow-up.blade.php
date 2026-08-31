@@ -308,7 +308,7 @@
             <span class="icon-[lucide--message-square-text] w-5 h-5 text-primary-700 dark:text-primary-300 mr-1 mt-1"></span>
             <div>
                 <h3 class="text-xl font-semibold text-strong">Observaciones</h3>
-                <p class="text-xs text-muted">Comparte con tu nutrióloga cómo te sientes con el plan.</p>
+                <p class="text-xs text-muted">Comentarios sobre el plan asignado.</p>
             </div>
         </div>
 
@@ -326,13 +326,13 @@
                 </div>
             @endforeach
 
-            <div>
+            {{-- <div>
                 <label for="nueva-observacion" class="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">Nueva observación</label>
                 <textarea id="nueva-observacion" rows="3" class="w-full rounded-default border-card bg-surface text-sm text-strong placeholder:text-muted focus:outline-none focus:border-primary-600 p-3" placeholder="Escribe una observación para tu nutrióloga..."></textarea>
                 <div class="mt-3 flex justify-end">
                     <x-button variant="solid" color="success" size="sm" icon="send" label="Enviar observación" />
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

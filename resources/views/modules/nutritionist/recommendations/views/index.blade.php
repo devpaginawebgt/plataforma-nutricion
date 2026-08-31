@@ -110,7 +110,8 @@
                     </div>
 
                     <div class="flex items-center gap-1 shrink-0">
-                        <x-button variant="ghost" color="warning" size="sm" icon="pencil" iconOnly title="Editar recomendación" />
+                        <x-button variant="ghost" color="primary" size="sm" icon="user-plus" iconOnly title="Asignar a paciente" />
+                        <x-button variant="ghost" color="secondary" size="sm" icon="pencil" iconOnly title="Editar recomendación" />
                         <x-button variant="ghost" color="danger" size="sm" icon="trash-2" iconOnly title="Eliminar recomendación" />
                     </div>
                 </div>
