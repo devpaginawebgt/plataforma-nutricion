@@ -157,7 +157,20 @@ $stateBadges = [
                                     <div class="flex gap-1.5 shrink-0">
                                         {{-- <x-button variant="soft" color="info" size="sm" icon="eye" iconOnly title="Ver detalles" /> --}}
                                         @if ($isPending)
-                                            <x-button variant="soft" color="info" size="sm" icon="calendar-clock" iconOnly title="Reagendar cita" />
+                                            <x-button
+                                                variant="soft"
+                                                color="info"
+                                                size="sm"
+                                                icon="calendar-clock"
+                                                iconOnly
+                                                title="Reagendar cita"
+                                                data-modal-target="reschedule-appointment-modal"
+                                                data-modal-toggle="reschedule-appointment-modal"
+                                                data-nutritionist="{{ $cita['nutricionista'] }}"
+                                                data-title="{{ $cita['motivo'] }}"
+                                                data-date="{{ $time->format('Y-m-d') }}"
+                                                data-time="{{ $time->format('H:i') }}"
+                                            />
                                             <x-button variant="soft" color="danger" size="sm" icon="x" iconOnly title="Cancelar cita" />
                                         @endif
                                     </div>
@@ -169,6 +182,9 @@ $stateBadges = [
             </section>
         @endforeach
     </div>
+
+    {{-- Modal para reagendar cita --}}
+    <x-patient-appointments::reschedule-appointment />
 
     <script type="module">
         $(function () {
