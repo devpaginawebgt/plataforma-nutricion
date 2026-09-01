@@ -304,7 +304,7 @@
         </div>
     </div>
 
-    <div class="px-5 pb-5">
+    <div class="p-5 md:pt-0">
         <div class="flex items-center gap-2 mb-4">
             <span class="icon-[lucide--target] w-4 h-4 text-primary-700 dark:text-primary-300"></span>
             <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Objetivos y cálculo de Kcal</p>

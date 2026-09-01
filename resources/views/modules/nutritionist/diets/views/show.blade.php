@@ -47,8 +47,8 @@
 
     <div class="space-y-6">
         {{-- Encabezado --}}
-        <div class="flex items-start justify-between gap-4">
-            <div class="flex items-start gap-3 min-w-0">
+        <div class="flex flex-col md:flex-row items-center justify-center text-start md:items-end md:justify-between gap-4">
+            <div class="flex items-start gap-4 md:gap-3 min-w-0">
                 <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-card bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                     <span class="icon-[lucide--clipboard-list] w-5 h-5"></span>
                 </div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="rounded-default border-card overflow-hidden bg-gray-100 dark:bg-gray-900">
-                        <object data="{{ $pdfUrl }}#view=FitH" type="application/pdf" class="w-full h-200">
+                        <object data="{{ $pdfUrl }}#view=FitH" type="application/pdf" class="w-full h-60 md:h-200">
                             <div class="flex flex-col items-center justify-center gap-2 p-8 text-center">
                                 <span class="icon-[lucide--file-warning] w-8 h-8 text-muted"></span>
                                 <p class="text-sm text-body">Tu navegador no puede mostrar el PDF integrado.</p>

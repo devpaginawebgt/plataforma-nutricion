@@ -58,7 +58,7 @@
     <x-slot name="header">Planes Nutricionales</x-slot>
 
     <div class="space-y-6">
-        <div class="flex items-end justify-between gap-4">
+        <div class="flex flex-col md:flex-row items-center justify-center text-center md:text-start md:items-end md:justify-between gap-4">
             <div>
                 <h1 class="text-2xl font-bold text-strong">Dietas y planes</h1>
                 <p class="text-sm text-muted mt-1">

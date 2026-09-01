@@ -2,7 +2,7 @@
     <x-slot name="header">Paciente / Plan Nutricional</x-slot>
 
 
-    <div class="flex items-center justify-between gap-4 rounded-default p-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-default p-4">
         <div class="flex items-center gap-3 min-w-0">
             <div class="w-12 h-12 rounded-full bg-primary-700 text-white flex items-center justify-center text-base font-semibold shrink-0">
                 ML

@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <div class="divide-y divide-default">
+        <div class="divide-y divide-1 md:divide-default">
             {{-- Agua pura --}}
             <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
                 <div class="flex items-start gap-3 md:flex-1 min-w-0">

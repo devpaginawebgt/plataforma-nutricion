@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="col-span-2 border-b border-default mt-2">
+        <div class="md:col-span-2 border-b border-default mt-2">
             <div class="flex items-center gap-2 mb-3">
                 <span class="icon-[lucide--flask-conical] w-4 h-4 text-green-700 dark:text-green-300"></span>
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Documento CIE-11</p>

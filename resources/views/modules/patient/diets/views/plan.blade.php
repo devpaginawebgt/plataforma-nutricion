@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">Mi plan nutricional / Detalle</x-slot>
 
-    <div class="mb-4 flex items-start justify-between gap-3">
+    <div class="mb-4 flex flex-col md:flex-row items-center justify-center text-center md:text-start md:items-start md:justify-between gap-3">
         <div>
             <h1 class="text-2xl font-bold text-strong">Mi plan nutricional</h1>
             <p class="text-sm text-muted mt-1">

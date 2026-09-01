@@ -85,9 +85,9 @@
 
 <div class="space-y-4">
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
-        <div class="p-5 grid grid-cols-1 2xl:grid-cols-2 gap-5">
+        <div class="p-5 grid grid-cols-1 xl:grid-cols-2 gap-5">
             @foreach ($progresoCharts as $chart)
-                <div class="bg-surface @if ($chart['id'] === 'follow-up-weight-chart') col-span-2 @endif">
+                <div class="bg-surface @if ($chart['id'] === 'follow-up-weight-chart') xl:col-span-2 @endif">
                     <div class="flex items-start justify-between mb-4 gap-3">
                         <h3 class="text-lg font-semibold text-strong">{{ $chart['titulo'] }}</h3>
                     </div>
@@ -106,10 +106,10 @@
             </div>
         </div>
 
-        <div class="divide-y divide-default">
+        <div class="divide-y divide-0.5 md:divide-default">
             {{-- Agua pura --}}
             <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:flex-1 min-w-0">
+                <div class="flex items-center gap-3 md:flex-1 min-w-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--droplet] w-4 h-4"></span>
                     </span>
@@ -125,8 +125,8 @@
             </div>
 
             {{-- Ejercicio --}}
-            <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+            <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--dumbbell] w-4 h-4"></span>
                     </span>
@@ -152,8 +152,8 @@
             </div>
 
             {{-- Sueño --}}
-            <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+            <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--moon] w-4 h-4"></span>
                     </span>
@@ -179,7 +179,7 @@
 
             {{-- Tiempos de comida --}}
             <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:flex-1 min-w-0">
+                <div class="flex items-center gap-3 md:flex-1 min-w-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--utensils] w-4 h-4"></span>
                     </span>
@@ -197,7 +197,7 @@
 
             {{-- Ocupación --}}
             <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--briefcase] w-4 h-4"></span>
                     </span>
@@ -219,7 +219,7 @@
 
             {{-- Alcohol --}}
             <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--wine] w-4 h-4"></span>
                     </span>
@@ -244,7 +244,7 @@
 
             {{-- Tabaco --}}
             <div class="flex flex-col md:flex-row md:items-start gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--cigarette] w-4 h-4"></span>
                     </span>
@@ -277,7 +277,7 @@
 
             {{-- Adherencia al plan --}}
             <div class="flex flex-col md:flex-row md:items-center gap-3 md:gap-5 px-5 py-4">
-                <div class="flex items-start gap-3 md:w-64 shrink-0">
+                <div class="flex items-center gap-3 md:w-64 shrink-0">
                     <span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                         <span class="icon-[lucide--target] w-4 h-4"></span>
                     </span>
@@ -304,7 +304,7 @@
     </div>
 
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
-        <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
+        <div class="flex items-center gap-2 px-5 py-3 border-b border-default">
             <span class="icon-[lucide--message-square-text] w-5 h-5 text-primary-700 dark:text-primary-300 mr-1 mt-1"></span>
             <div>
                 <h3 class="text-xl font-semibold text-strong">Observaciones</h3>

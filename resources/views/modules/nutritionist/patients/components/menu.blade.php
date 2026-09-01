@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="rounded-default border-card overflow-hidden bg-gray-100 dark:bg-gray-900">
-                    <object data="{{ $pdfUrl }}#view=FitH" type="application/pdf" class="w-full h-200">
+                    <object data="{{ $pdfUrl }}#view=FitH" type="application/pdf" class="w-full h-60 md:h-200">
                         <div class="flex flex-col items-center justify-center gap-2 p-8 text-center">
                             <span class="icon-[lucide--file-warning] w-8 h-8 text-muted"></span>
                             <p class="text-sm text-body">Tu navegador no puede mostrar el PDF integrado.</p>

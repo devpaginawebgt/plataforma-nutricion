@@ -106,9 +106,9 @@
 
         {{-- Gráficas de avance --}}
         <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
-            <div class="p-5 grid grid-cols-1 2xl:grid-cols-2 gap-5">
+            <div class="p-5 grid grid-cols-1 xl:grid-cols-2 gap-5">
                 @foreach ($progresoCharts as $chart)
-                    <div class="bg-surface @if ($chart['id'] === 'dashboard-weight-chart') col-span-2 @endif">
+                    <div class="bg-surface @if ($chart['id'] === 'dashboard-weight-chart') xl:col-span-2 @endif">
                         <div class="flex items-start justify-between mb-4 gap-3">
                             <h3 class="text-lg font-semibold text-strong">{{ $chart['titulo'] }}</h3>
                         </div>
