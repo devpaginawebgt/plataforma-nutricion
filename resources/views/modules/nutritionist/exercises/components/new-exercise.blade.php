@@ -46,6 +46,20 @@
             <p class="mt-1 text-2xs text-muted">Máximo 28 caracteres.</p>
         </div>
 
+        {{-- Categoría --}}
+        <div>
+            <x-input-label for="{{ $id }}-category" value="Categoría" />
+            <x-select id="{{ $id }}-category" name="category" class="mt-1">
+                <option value="" disabled selected>Selecciona una categoría</option>
+                <option value="pierna">Pierna</option>
+                <option value="pecho">Pecho</option>
+                <option value="espalda">Espalda</option>
+                <option value="abdomen">Abdomen</option>
+                <option value="brazos">Brazos</option>
+                <option value="cardio">Cardio</option>
+            </x-select>
+        </div>
+
         {{-- Descripción --}}
         <div>
             <x-input-label for="{{ $id }}-description" value="Descripción" />
