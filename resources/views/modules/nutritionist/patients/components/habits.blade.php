@@ -27,6 +27,28 @@
     'calidadOpciones' => ['Buena', 'Regular', 'Mala'],
     'tiemposOpciones' => [1, 2, 3, 4, 5, 6],
     'frecuenciaOpciones' => ['Diario', 'Semanal', 'Mensual'],
+    'historial' => [
+        [
+            'fecha' => '15 sep 2026',
+            'agua' => 4,
+            'ejercicio' => ['minutos' => 20, 'frecuencia' => '3 veces/sem'],
+            'sueno' => ['horas' => 6, 'calidad' => 'Calidad: Mala'],
+            'tiemposComida' => 3,
+            'alcohol' => 'Sí',
+            'tabaco' => 'No',
+            'adherencia' => 50,
+        ],
+        [
+            'fecha' => '29 sep 2026',
+            'agua' => 6,
+            'ejercicio' => ['minutos' => 45, 'frecuencia' => '4 veces/sem'],
+            'sueno' => ['horas' => 7, 'calidad' => 'Calidad: Regular'],
+            'tiemposComida' => 5,
+            'alcohol' => 'Sí',
+            'tabaco' => 'No',
+            'adherencia' => 75,
+        ],
+    ],
     'recomendaciones' => [
         'Aumentar el consumo de verduras en cada tiempo de comida.',
         'Priorizar alimentos naturales y minimizar los ultraprocesados.',
@@ -256,16 +278,6 @@
                 </div>
             </div>
         </div>
-
-            {{-- <div class="mx-5 mt-2 mb-5 flex items-start gap-3 rounded-default border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-900/20 px-4 py-3">
-                <span class="w-9 h-9 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 flex items-center justify-center shrink-0">
-                    <span class="icon-[lucide--alert-triangle] w-4 h-4"></span>
-                </span>
-                <div class="min-w-0">
-                    <p class="text-sm font-semibold text-rose-700 dark:text-rose-300">Recordatorio</p>
-                    <p class="text-xs text-body">El alcohol y el tabaco son perjudiciales para tu salud. Reduce o evita su consumo para mejorar tu bienestar.</p>
-                </div>
-            </div> --}}
     </div>
 
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
@@ -292,4 +304,91 @@
             <p class="text-xs text-muted italic">Pequeños cambios generan grandes resultados.</p>
         </div>
     </div>
+
+    {{-- Historial de hábitos --}}
+    <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
+        <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
+            <span class="icon-[lucide--history] w-5 h-5 text-primary-700 dark:text-primary-300 mr-1 mt-1"></span>
+            <div>
+                <h3 class="text-xl font-semibold text-strong">Historial de hábitos</h3>
+                <p class="text-xs text-muted">Evolución de los hábitos registrados a lo largo del seguimiento.</p>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table id="habits-history-table" class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-default bg-primary-50 dark:bg-primary-900/20">
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">Fecha</th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--droplet] inline w-3.5 h-3.5 mr-1 align-middle"></span>Agua
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--dumbbell] inline w-3.5 h-3.5 mr-1 align-middle"></span>Ejercicio
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--moon] inline w-3.5 h-3.5 mr-1 align-middle"></span>Sueño
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--utensils] inline w-3.5 h-3.5 mr-1 align-middle"></span>Tiempos de comida
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--wine] inline w-3.5 h-3.5 mr-1 align-middle"></span>Alcohol
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--cigarette] inline w-3.5 h-3.5 mr-1 align-middle"></span>Tabaco
+                        </th>
+                        <th class="px-4 py-3 text-center! text-xs font-semibold text-muted whitespace-nowrap">
+                            <span class="icon-[lucide--target] inline w-3.5 h-3.5 mr-1 align-middle"></span>Adherencia
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-default">
+                    @foreach ($historial as $registro)
+                        <tr class="hover:bg-primary-50/50 dark:hover:bg-primary-900/10 transition-colors">
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <span class="text-xs font-medium text-strong">{{ $registro['fecha'] }}</span>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['agua'] }}</p>
+                                <p class="text-[11px] text-muted">vasos</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['ejercicio']['minutos'] }} min</p>
+                                <p class="text-[11px] text-muted">{{ $registro['ejercicio']['frecuencia'] }}</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['sueno']['horas'] }}h</p>
+                                <p class="text-[11px] text-muted">{{ $registro['sueno']['calidad'] }}</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['tiemposComida'] }}</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['alcohol'] }}</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <p class="text-sm font-semibold text-strong">{{ $registro['tabaco'] }}</p>
+                            </td>
+                            <td class="px-4 py-3 text-center! whitespace-nowrap">
+                                <span class="{{ $valueBadge }}">{{ $registro['adherencia'] }}%</span>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<script type="module">
+    $(function () {
+        initDataTable('#habits-history-table', {
+            paging: false,
+            searching: false,
+            info: false,
+            ordering: false,
+            responsive: true,
+        });
+    });
+</script>
