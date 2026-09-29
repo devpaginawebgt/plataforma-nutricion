@@ -197,15 +197,65 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 </laravel-boost-guidelines>
 
-# Frontend JS Dependencies
+# Frontend
 
-The project uses the following JS packages. Do NOT suggest or install Alpine.js — it is not used.
+## Stack
 
-- **flowbite** v4 — UI components (drawers, modals, dropdowns, tabs, tooltips). Use Flowbite's data-attribute API (`data-drawer-target`, `data-modal-target`, etc.) before writing custom JS. Initialize with `initFlowbite()` if needed after dynamic DOM changes.
-- **jquery** v4 — DOM manipulation and event handling. Available globally as `$`.
-- **apexcharts** v6 — Charts and data visualization.
-- **datatables.net** v2 (+ responsive plugin) — Interactive data tables, integrated with jQuery.
-- **flatpickr** v4 — Date and datetime pickers.
+- **Tailwind CSS v4** via `@tailwindcss/vite`. Config lives in `resources/css/app.css` (no `tailwind.config.js`).
+- **Flowbite v4** — UI components. Theme imported via `@import "flowbite/src/themes/default"` and plugin via `@plugin "flowbite/plugin"`.
+- **Iconify + Lucide** — icons as CSS classes. Plugin: `@plugin "@iconify/tailwind4"`.
+- **NO Alpine.js** — do not suggest or install it.
+
+## Icons (Lucide via Iconify)
+
+Usage in Blade:
+```html
+<span class="icon-[lucide--house] w-5 h-5"></span>
+```
+
+Icons must be **prerendered** in `resources/css/app.css` or Tailwind will not generate them. When using an icon for the first time, add it to the inline source list in `app.css`:
+```css
+@source inline("icon-[lucide--{your-new-icon}]");
+```
+
+Check `app.css` for the existing prerendered list before adding duplicates.
+
+## Flowbite Components
+
+- `initFlowbite()` is called automatically on `DOMContentLoaded`. Call it again after injecting dynamic HTML.
+- Use the **data-attribute API** — avoid writing custom JS for things Flowbite already handles:
+  - Modals: `data-modal-target`, `data-modal-toggle`
+  - Drawers: `data-drawer-target`, `data-drawer-show`, `data-drawer-placement`, `data-drawer-hide`
+  - Dropdowns: `data-dropdown-toggle`
+  - Collapse: `data-collapse-toggle`
+- Drawers must use **`z-50`** on their element so they render above Flowbite's backdrop (`z-40`).
+
+## JavaScript Libraries
+
+All libraries are exposed globally from `resources/js/app.js`. **Prefer jQuery over vanilla JS** for DOM manipulation and event handling — the project will be fully refactored to jQuery later.
+
+### jQuery v4 (`$`, `jQuery`)
+Available globally. Use for DOM queries, event listeners, and AJAX when not using Axios.
+
+### ApexCharts v6 (`window.ApexCharts`)
+Use for all charts and data visualizations. Example:
+```js
+const chart = new ApexCharts(document.querySelector('#chart'), options);
+chart.render();
+```
+
+### DataTables v2 (`window.DataTable`, jQuery plugin)
+Use the project helper instead of instantiating directly:
+```js
+window.initDataTable('#my-table', { /* override options */ });
+```
+Defaults already applied: `pageLength: 10`, `responsive: true`, Spanish i18n. Add class `no-sort` to `<th>` to disable sorting on that column.
+
+### Flatpickr v4 (`window.flatpickr`)
+Auto-initialized on page load for all `input[type="date"]`, `input[type="datetime-local"]`, and `input[type="time"]` elements. Spanish locale applied globally. Uses `altInput: true` — the user sees `d/m/Y` format but the form submits ISO format (`Y-m-d`). No manual initialization needed for standard date inputs.
+
+### Dark Mode
+Toggle via `window.toggleTheme()`. Theme is persisted to `localStorage` and applied as `.dark` class on `<html>`. The app uses `@custom-variant dark (&:where(.dark, .dark *))` — standard Tailwind `dark:` variants work correctly.
 
 # Project conventions
 
@@ -215,16 +265,27 @@ Modules live under `resources/views/modules/{role}/{module}/` and `routes/module
 
 ```
 resources/views/modules/{role}/{module}/
-├── views/                  ← Pages
+├── views/                  ← Full pages rendered by controllers
 │   └── index.blade.php     ← view('modules.{role}.{module}.views.index')
-├── components/             ← Anonymous Blade components
+├── components/             ← Anonymous Blade components (auto-registered)
 │   └── card.blade.php      ← <x-{role}-{module}::card />
-└── partials/               ← @include chunks (optional)
-
-routes/modules/{role}/{module}.php
+└── partials/               ← @include chunks (not components)
 ```
 
-Cross-cutting UI reusable across roles lives at `resources/views/modules/shared/components/` and is used as `<x-shared::name />`.
+Cross-cutting UI reusable across roles lives at `resources/views/modules/shared/components/` → `<x-shared::name />`.
+
+### Existing modules
+
+**Nutritionist** (`role:nutritionist` middleware):
+- `dashboard` · `patients` · `appointments` · `diets` · `exercises` · `recommendations` · `reports` · `settings` · `tracking`
+- Shared nutritionist components (new-appointment, new-patient): `resources/views/modules/nutritionist/components/`
+
+**Patient** (`role:patient` middleware):
+- `dashboard` · `appointments` · `diets` · `recommendations` · `tracking`
+
+**Shared** (used by both roles):
+- `profile` — account settings (edit password, delete account)
+- `components/` — cross-role reusable components: `nutrition-plan`, `history-drawer`
 
 ### Naming
 
@@ -232,18 +293,37 @@ Cross-cutting UI reusable across roles lives at `resources/views/modules/shared/
 - URL prefixes: **Spanish** (`->prefix('pacientes')`, `->prefix('citas')`, …).
 - Route names: **English**, currently **without** role prefix (`dashboard`, `patients.index`, `patient.dashboard`, `profile.edit`). Keep this flat — a role-prefix rename is a separate refactor.
 
-### Auto-registration
+### Auto-registration (how it works)
 
-- `bootstrap/app.php` loads all `routes/modules/*/*.php` files under the `web` middleware. Auth is added per-route inside each file (`Route::middleware(['auth', 'verified', 'role:nutritionist'])`).
-- `AppServiceProvider::boot()` walks `views/modules/*` (role dirs) and registers Blade components:
-  - `{role}/components/` (if present) → namespace `{role}` (used by `shared`).
-  - `{role}/{module}/components/` → namespace `{role}-{module}` (e.g. `nutritionist-dashboard`, `patient-dashboard`, `shared-profile`).
+- **Routes**: `bootstrap/app.php` globs `routes/modules/*/*.php` and loads each under `web` middleware. Auth/role middleware is declared inside each route file.
+- **Blade components**: `AppServiceProvider::boot()` walks `views/modules/*` and registers:
+  - `{role}/components/` → namespace `{role}` (e.g. `<x-nutritionist::new-patient />`)
+  - `{role}/{module}/components/` → namespace `{role}-{module}` (e.g. `<x-nutritionist-patients::portions />`)
+  - `shared/components/` → namespace `shared` (e.g. `<x-shared::history-drawer />`)
+
+Nothing needs to be registered manually — just create the files in the right folder.
 
 ### Adding a new module
 
-1. Decide the role folder (`nutritionist`, `patient`, or `shared` for cross-role modules like `profile`).
-2. Create `resources/views/modules/{role}/{module}/{views,components}/`.
-3. Create `routes/modules/{role}/{module}.php` with the middleware group matching the role.
-4. Reference views as `view('modules.{role}.{module}.views.{page}')` and components as `<x-{role}-{module}::{name} />`.
+1. Pick the role folder (`nutritionist`, `patient`, or `shared`).
+2. Create `resources/views/modules/{role}/{module}/views/` and `components/`.
+3. Create `routes/modules/{role}/{module}.php` with role middleware inside.
+4. Reference: `view('modules.{role}.{module}.views.{page}')` and `<x-{role}-{module}::{name} />`.
 
-If a `shared` module later diverges per-role, split it into `nutritionist/{module}` and `patient/{module}`.
+### Semantic CSS utilities
+
+Prefer semantic utilities over raw Tailwind color pairs. Defined in `resources/css/app.css`:
+
+| Utility | Purpose |
+|---|---|
+| `bg-surface` | Card / panel background |
+| `text-strong` | Primary text |
+| `text-muted` | Secondary / helper text |
+| `text-body` | Body paragraph text |
+| `border-card` | Card border (all 4 sides) |
+| `border-muted` | Separator border (`border-t/b/l/r` only) |
+| `shadow-card` | Card shadow |
+| `rounded-default` | Standard border radius |
+
+### Radius tokens
+`rounded-default`, `rounded-button`, `rounded-input`, `rounded-card`, `rounded-modal` — use these instead of raw `rounded-*` values so the design system stays consistent.
