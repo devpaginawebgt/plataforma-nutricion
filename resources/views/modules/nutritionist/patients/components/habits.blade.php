@@ -74,6 +74,7 @@
 @endphp
 
 <div class="space-y-4">
+    @unlessrole('patient')
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
         <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
             <span class="icon-[lucide--users] w-5 h-5 text-primary-700 dark:text-primary-300 mr-1 mt-1"></span>
@@ -279,6 +280,7 @@
             </div>
         </div>
     </div>
+    @endunlessrole
 
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
         <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
@@ -305,6 +307,7 @@
         </div>
     </div>
 
+    @unlessrole('patient')
     {{-- Historial de hábitos --}}
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
         <div class="flex items-start gap-2 px-5 py-3 border-b border-default">
@@ -379,16 +382,17 @@
             </table>
         </div>
     </div>
-</div>
 
-<script type="module">
-    $(function () {
-        initDataTable('#habits-history-table', {
-            paging: false,
-            searching: false,
-            info: false,
-            ordering: false,
-            responsive: true,
+    <script type="module">
+        $(function () {
+            initDataTable('#habits-history-table', {
+                paging: false,
+                searching: false,
+                info: false,
+                ordering: false,
+                responsive: true,
+            });
         });
-    });
-</script>
+    </script>
+</div>
+@endunlessrole
