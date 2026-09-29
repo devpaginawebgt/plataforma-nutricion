@@ -1,6 +1,9 @@
 @props([
     'kcal' => '1,400',
     'plateImage' => 'images/plato.png',
+    'waterGlasses' => 8,
+    'waterImage' => 'images/agua.png',
+    'healthyFatsImage' => 'images/grasas.png',
     'nutrients' => [
         'proteins'   => ['label' => 'Proteínas',     'portions' => 8, 'icon' => 'lucide--beef',     'bg' => 'bg-primary-100 dark:bg-primary-900/40',    'text' => 'text-primary-700 dark:text-primary-200', 'ring' => 'ring-primary-300 dark:ring-primary-700'],
         'vegetables' => ['label' => 'Vegetales',     'portions' => 5, 'icon' => 'lucide--leaf',     'bg' => 'bg-green-100 dark:bg-green-900/40',        'text' => 'text-green-800 dark:text-green-200',     'ring' => 'ring-green-300 dark:ring-green-700'],
@@ -31,7 +34,8 @@
 @endphp
 
 <div class="space-y-4">
-    <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
+    <div class="flex flex-col xl:flex-row gap-4 xl:items-start flex-wrap">
+    <div class="bg-surface rounded-default shadow-card border-card overflow-hidden w-full flex-1 min-w-0">
         <div class="relative px-5 py-6 text-center">
             <h2 class="text-3xl font-extrabold text-strong">Tu Plato</h2>
             <p class="mt-2 mx-auto max-w-xl text-sm text-muted">
@@ -43,6 +47,15 @@
                 <span class="text-lg font-extrabold leading-none">{{ $kcal }}</span>
                 <span class="text-[9px] font-semibold uppercase tracking-wide mt-0.5">kcal/día</span>
             </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 py-8 px-4 border-t border-white/10">
+            @foreach ([['Proteínas', '25%'], ['Vegetales y frutas', '50%'], ['Carbohidratos', '25%']] as [$label, $pct])
+                <div class="flex flex-col items-center text-white text-center">
+                    <span class="text-xl font-extrabold leading-none">{{ $pct }}</span>
+                    <span class="text-2xs uppercase tracking-widest mt-0.5 opacity-80">{{ $label }}</span>
+                </div>
+            @endforeach
         </div>
 
         <div class="px-5 pb-8 md:pt-12 md:pb-20">
@@ -79,6 +92,56 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="flex flex-col gap-4 w-full xl:w-72 shrink-0">
+        <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
+            <div class="px-5 py-6 text-center">
+                <h2 class="text-3xl font-extrabold text-strong">Hidratación</h2>
+                <p class="mt-2 text-sm text-muted">Tu meta diaria de agua para un óptimo funcionamiento del organismo.</p>
+            </div>
+
+            <div class="flex justify-center py-4 border-t border-white/10">
+                <img src="{{ asset($waterImage) }}" alt="Vaso de agua" class="w-60 xl:w-48 object-contain">
+            </div>
+
+            <div class="flex flex-col items-center gap-4 px-5 py-6 border-t border-white/10">
+                <div class="text-center">
+                    <div class="text-5xl font-extrabold text-strong leading-none">{{ $waterGlasses }}</div>
+                    <div class="text-2xs uppercase tracking-widest text-muted mt-1">vasos / día</div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-3">
+                    @for ($i = 1; $i <= $waterGlasses; $i++)
+                        <span class="icon-[lucide--glass-water] w-7 h-7 text-cyan-500 dark:text-cyan-400"></span>
+                    @endfor
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
+            <div class="px-4 py-4 text-center">
+                <h2 class="text-xl font-extrabold text-strong">Grasas Saludables</h2>
+                <p class="mt-2 text-xs text-muted">Recuerda incluir grasas saludables en tu plato cada día.</p>
+            </div>
+
+            <div class="flex justify-center p-2 border-t border-white/10">
+                <img src="{{ asset($healthyFatsImage) }}" alt="Grasas saludables" class="w-40 xl:w-36 object-contain">
+            </div>
+
+            <div class="px-5 py-5 border-t border-white/10">
+                <p class="text-2xs uppercase tracking-widest text-muted mb-3 text-center">Buenas fuentes</p>
+                <div class="grid grid-cols-2 gap-2">
+                    @foreach ([['lucide--salad', 'Aguacate'], ['lucide--droplets', 'Aceite de oliva'], ['lucide--sprout', 'Nueces'], ['lucide--fish', 'Salmón']] as [$icon, $name])
+                        <div class="flex items-center gap-2">
+                            <span class="icon-[{{ $icon }}] w-4 h-4 text-orange-400 shrink-0"></span>
+                            <span class="text-xs text-body">{{ $name }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="bg-primary-50 dark:bg-primary-900/20 rounded-default shadow-card border border-primary-200 dark:border-primary-800 overflow-hidden">

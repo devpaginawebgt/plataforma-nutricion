@@ -197,6 +197,16 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 </laravel-boost-guidelines>
 
+# Frontend JS Dependencies
+
+The project uses the following JS packages. Do NOT suggest or install Alpine.js — it is not used.
+
+- **flowbite** v4 — UI components (drawers, modals, dropdowns, tabs, tooltips). Use Flowbite's data-attribute API (`data-drawer-target`, `data-modal-target`, etc.) before writing custom JS. Initialize with `initFlowbite()` if needed after dynamic DOM changes.
+- **jquery** v4 — DOM manipulation and event handling. Available globally as `$`.
+- **apexcharts** v6 — Charts and data visualization.
+- **datatables.net** v2 (+ responsive plugin) — Interactive data tables, integrated with jQuery.
+- **flatpickr** v4 — Date and datetime pickers.
+
 # Project conventions
 
 ## Module structure — grouped by role

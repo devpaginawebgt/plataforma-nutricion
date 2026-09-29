@@ -257,15 +257,15 @@
             </div>
         </div>
 
-        <div class="mx-5 mt-2 mb-5 flex items-start gap-3 rounded-default border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-900/20 px-4 py-3">
-            <span class="w-9 h-9 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 flex items-center justify-center shrink-0">
-                <span class="icon-[lucide--alert-triangle] w-4 h-4"></span>
-            </span>
-            <div class="min-w-0">
-                <p class="text-sm font-semibold text-rose-700 dark:text-rose-300">Recordatorio</p>
-                <p class="text-xs text-body">El alcohol y el tabaco son perjudiciales para tu salud. Reduce o evita su consumo para mejorar tu bienestar.</p>
-            </div>
-        </div>
+            {{-- <div class="mx-5 mt-2 mb-5 flex items-start gap-3 rounded-default border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-900/20 px-4 py-3">
+                <span class="w-9 h-9 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 flex items-center justify-center shrink-0">
+                    <span class="icon-[lucide--alert-triangle] w-4 h-4"></span>
+                </span>
+                <div class="min-w-0">
+                    <p class="text-sm font-semibold text-rose-700 dark:text-rose-300">Recordatorio</p>
+                    <p class="text-xs text-body">El alcohol y el tabaco son perjudiciales para tu salud. Reduce o evita su consumo para mejorar tu bienestar.</p>
+                </div>
+            </div> --}}
     </div>
 
     <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">

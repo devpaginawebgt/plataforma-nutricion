@@ -9,25 +9,65 @@
     ],
     'metasCuantitativas' => [
         [
-            'label' => 'Meta de peso',
-            'value' => '175',
-            'unit' => 'lbs',
-            'date' => '31/12/2026',
-            'icon' => 'target',
+            'label'   => 'Meta de peso',
+            'value'   => '175',
+            'unit'    => 'lbs',
+            'date'    => '31/12/2026',
+            'icon'    => 'target',
+            'history' => [
+                ['date' => '03/09/2026', 'value' => '180', 'note' => ''],
+                ['date' => '01/08/2026', 'value' => '185', 'note' => ''],
+                ['date' => '15/07/2026', 'value' => '190', 'note' => 'Meta inicial'],
+            ],
         ],
         [
-            'label' => 'Meta de grasa',
-            'value' => '22',
-            'unit' => '%',
-            'date' => '31/12/2026',
-            'icon' => 'droplet',
+            'label'   => 'Meta de grasa',
+            'value'   => '22',
+            'unit'    => '%',
+            'date'    => '31/12/2026',
+            'icon'    => 'droplet',
+            'history' => [
+                ['date' => '01/08/2026', 'value' => '24', 'note' => ''],
+                ['date' => '15/07/2026', 'value' => '26', 'note' => 'Meta inicial'],
+            ],
         ],
         [
-            'label' => 'Meta de músculo',
-            'value' => '28',
-            'unit' => '%',
-            'date' => '31/12/2026',
-            'icon' => 'dumbbell',
+            'label'   => 'Meta de músculo',
+            'value'   => '28',
+            'unit'    => '%',
+            'date'    => '31/12/2026',
+            'icon'    => 'dumbbell',
+            'history' => [
+                ['date' => '15/07/2026', 'value' => '26', 'note' => 'Meta inicial'],
+            ],
+        ],
+        [
+            'label' => 'Agua',
+            'value' => '8',
+            'unit' => 'vasos al día',
+            'date' => '',
+            'icon' => 'glass-water',
+        ],
+        [
+            'label' => 'Ejercicio',
+            'value' => '45',
+            'unit' => 'mins | 4 días/sem',
+            'date' => '',
+            'icon' => 'activity',
+        ],
+        [
+            'label' => 'Horas de sueño',
+            'value' => '8',
+            'unit' => 'horas',
+            'date' => '',
+            'icon' => 'moon',
+        ],
+        [
+            'label' => 'Tiempos de comida',
+            'value' => '5',
+            'unit' => 'tiempos',
+            'date' => '',
+            'icon' => 'utensils',
         ],
     ],
 ])
@@ -85,13 +125,15 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @foreach ($metasCuantitativas as $meta)
-            <div class="bg-surface rounded-default p-5 shadow-card border-card flex items-center gap-4">
+            @php $drawerId = 'history-drawer-' . Str::slug($meta['label']); @endphp
+
+            <div class="bg-surface rounded-default p-5 shadow-card border-card flex items-start gap-4">
                 <div class="w-12 h-12 rounded-default flex items-center justify-center shrink-0 bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                     <span class="icon-[lucide--{{ $meta['icon'] }}] w-6 h-6"></span>
                 </div>
-                <div class="min-w-0">
+                <div class="min-w-0 flex-1">
                     <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">{{ $meta['label'] }}</p>
                     <p class="text-2xl font-bold text-strong leading-tight">
                         {{ $meta['value'] }} <span class="text-sm font-medium text-muted">{{ $meta['unit'] }}</span>
@@ -103,7 +145,30 @@
                         </p>
                     @endif
                 </div>
+                @if (!empty($meta['history']))
+                    <button type="button"
+                            data-drawer-target="{{ $drawerId }}"
+                            data-drawer-show="{{ $drawerId }}"
+                            data-drawer-placement="right"
+                            aria-controls="{{ $drawerId }}"
+                            class="shrink-0 p-1.5 rounded-default text-muted hover:text-strong hover:bg-primary-100 dark:hover:bg-primary-900/30 transition-colors"
+                            title="Ver historial">
+                        <span class="icon-[lucide--history] w-4 h-4"></span>
+                    </button>
+                @endif
             </div>
         @endforeach
     </div>
+
+    @foreach ($metasCuantitativas as $meta)
+        @if (!empty($meta['history']))
+            @php $drawerId = 'history-drawer-' . Str::slug($meta['label']); @endphp
+            <x-shared::history-drawer
+                :id="$drawerId"
+                :title="$meta['label']"
+                :unit="$meta['unit']"
+                :icon="$meta['icon']"
+                :items="$meta['history']" />
+        @endif
+    @endforeach
 </div>
