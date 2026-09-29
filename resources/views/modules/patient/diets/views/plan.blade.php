@@ -28,7 +28,7 @@
             ['id' => 'diagnosis',      'label' => 'Diagnóstico y metas'],
             ['id' => 'portions',       'label' => 'Porciones'],
             ['id' => 'menu',           'label' => 'Menú nutricional'],
-            ['id' => 'habitos',        'label' => 'Hábitos y recomendaciones'],
+            ['id' => 'recommendations',        'label' => 'Recomendaciones'],
             ['id' => 'ejercicios',     'label' => 'Ejercicios'],
             ['id' => 'transformacion', 'label' => 'Módulo de Transformación'],
         ];
@@ -61,7 +61,7 @@
                     <x-nutritionist-patients::portions />
                 @elseif ($tab['id'] === 'menu')
                     <x-nutritionist-patients::menu />
-                @elseif ($tab['id'] === 'habitos')
+                @elseif ($tab['id'] === 'recommendations')
                     <x-nutritionist-patients::habits />
                 @elseif ($tab['id'] === 'ejercicios')
                     <x-nutritionist-patients::exercises />
