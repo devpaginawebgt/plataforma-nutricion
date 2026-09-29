@@ -18,7 +18,12 @@
     'musloDer' => '54 cm',
     'brazoIzq' => '28 cm',
     'brazoDer' => '28 cm',
-    'kcalObjetivo' => '1,940',
+    'edad' => '45',
+    'formulas' => [
+        ['nombre' => 'Harris y Benedict', 'kcal' => '1,400'],
+        ['nombre' => 'Mifflin-St Jeor', 'kcal' => '1,380'],
+    ],
+    'kcalObjetivo' => '1,400',
     'porciones' => [
         ['label' => 'Proteínas', 'cantidad' => 3, 'dotClass' => 'bg-primary-600'],
         ['label' => 'Carbohidratos', 'cantidad' => 4, 'dotClass' => 'bg-blue-600'],
@@ -255,56 +260,49 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-4 px-5 pt-5">
-        <div class="rounded-default border-card bg-surface p-4">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/40 text-cyan-700 dark:text-cyan-300 flex items-center justify-center">
-                    <span class="icon-[lucide--droplet] w-4 h-4"></span>
-                </span>
-                <div>
-                    <p class="text-sm font-semibold text-strong">¿Cuántas kcal tiene la dieta?</p>
-                    <p class="text-xs text-muted">Ingresa el total de calorías de tu dieta.</p>
-                </div>
-            </div>
-            <div class="mt-3 relative">
-                <x-text-input type="number" placeholder="Ej. 1500" class="pr-14" />
-                <span class="absolute inset-y-0 right-0 flex items-center px-3 rounded-r-input bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 text-xs font-semibold uppercase">kcal</span>
-            </div>
-        </div>
-
-        <div class="rounded-default border-card bg-surface p-4">
-            <div class="flex items-center gap-2 mb-3">
-                <span class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center">
+    <div class="px-5 py-5">
+        <div class="rounded-default border-card bg-surface p-4 space-y-4">
+            <div class="flex items-center gap-2">
+                <span class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center shrink-0">
                     <span class="icon-[lucide--calculator] w-4 h-4"></span>
                 </span>
+                <p class="text-sm font-semibold text-strong">¿Cuántas kcal deberías tener?</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3">
                 <div>
-                    <p class="text-sm font-semibold text-strong">¿Cuántas kcal deberías tener?</p>
-                    <p class="text-xs text-muted">Calculado con la fórmula de Harris y Benedict.</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Peso</p>
+                    <p class="text-sm font-semibold text-primary-700 dark:text-primary-300">{{ $pesoKg }} kg</p>
+                </div>
+                <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Talla</p>
+                    <p class="text-sm font-semibold text-strong">{{ $talla }}</p>
+                </div>
+                <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Edad</p>
+                    <p class="text-sm font-semibold text-strong">{{ $edad }} años</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-3">
-                <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Fórmula</p>
-                    <p class="text-sm font-semibold text-strong">Harris y Benedict</p>
-                </div>
-                <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Gasto energético basal</p>
-                    <p class="text-sm font-semibold text-primary-700 dark:text-primary-300">1385 kcal</p>
-                </div>
-                <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Factor de actividad</p>
-                    <p class="text-sm font-semibold text-strong">1.40 (Moderado)</p>
-                </div>
-                <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Total recomendado</p>
-                    <p class="text-sm font-semibold text-primary-700 dark:text-primary-300">1940 kcal/día</p>
+            <div>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Factor de corrección</p>
+                <p class="text-sm font-semibold text-strong">1.30</p>
+            </div>
+
+            <div>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted mb-2">Fórmula</p>
+                <div class="flex flex-wrap gap-2">
+                    @foreach ($formulas as $i => $formula)
+                        <button class="rounded-default border border-transparent px-3 py-1.5 text-xs font-semibold {{ $i === 0 ? 'bg-primary-700 dark:bg-primary-600 text-white' : 'bg-surface border-card text-body' }}">
+                            {{ $formula['nombre'] }}
+                        </button>
+                    @endforeach
                 </div>
             </div>
 
-            <div class="mt-3 flex items-center gap-2 rounded-default bg-primary-50/60 dark:bg-primary-900/10 border-card px-3 py-2">
-                <span class="icon-[lucide--info] w-4 h-4 text-primary-700 dark:text-primary-300 shrink-0"></span>
-                <p class="text-xs text-body">Este cálculo es una referencia. Ajusta según tus objetivos y condición clínica.</p>
+            <div class="rounded-default bg-primary-100 dark:bg-primary-900/40 px-3 py-2">
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300">Total recomendado</p>
+                <p class="text-base font-bold text-primary-700 dark:text-primary-300">{{ $formulas[0]['kcal'] }} kcal/día</p>
             </div>
         </div>
     </div>

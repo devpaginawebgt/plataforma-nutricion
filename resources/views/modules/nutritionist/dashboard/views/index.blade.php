@@ -21,6 +21,8 @@
                 color="primary"
                 href="{{ route('patients.index') }}"
             />
+
+            {{-- TODO: Pacientes inactivos = 3 meses sin cita --}}
             <x-nutritionist-dashboard::stat-card
                 label="Pacientes Inactivos"
                 value="5"

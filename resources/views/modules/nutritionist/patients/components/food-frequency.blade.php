@@ -53,12 +53,8 @@
             <thead class="bg-primary-50/60 dark:bg-primary-900/10">
                 <tr class="text-muted">
                     <th class="text-left px-3 py-2 font-semibold whitespace-nowrap">Alimento</th>
-                    <th class="text-left px-3 py-2 font-semibold whitespace-nowrap">
-                        Cantidad
-                        <span class="block text-2xs font-normal normal-case text-muted">(por porción)</span>
-                    </th>
                     @foreach ($frecuencias as $freq)
-                        <th class="text-center px-3 py-2 font-semibold whitespace-nowrap">
+                        <th class="text-center! px-3 py-2 font-semibold whitespace-nowrap">
                             {{ $freq['label'] }}
                             <span class="block text-2xs font-normal normal-case text-muted">{{ $freq['sub'] }}</span>
                         </th>
@@ -73,9 +69,6 @@
                                 <span class="icon-[{{ $alimento['icon'] }}] w-4 h-4 text-primary-700 dark:text-primary-300"></span>
                                 <span class="font-medium text-strong">{{ $alimento['label'] }}</span>
                             </div>
-                        </td>
-                        <td class="px-3 py-2">
-                            <x-text-input type="text" class="w-32" />
                         </td>
                         @foreach ($frecuencias as $freq)
                             <td class="px-3 py-2 text-center">
