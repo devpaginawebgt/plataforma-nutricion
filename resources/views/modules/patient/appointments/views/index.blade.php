@@ -168,8 +168,8 @@ $stateBadges = [
                                                 data-modal-toggle="reschedule-appointment-modal"
                                                 data-nutritionist="{{ $cita['nutricionista'] }}"
                                                 data-title="{{ $cita['motivo'] }}"
-                                                data-date="{{ $time->format('Y-m-d') }}"
-                                                data-time="{{ $time->format('H:i') }}"
+                                                data-datetime="{{ $time->locale('es')->isoFormat('dddd, D [de] MMMM · HH:mm') }}"
+                                                data-modalidad="{{ $cita['modalidad'] }}"
                                             />
                                             <x-button variant="soft" color="danger" size="sm" icon="x" iconOnly title="Cancelar cita" />
                                         @endif
