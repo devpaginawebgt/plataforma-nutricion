@@ -46,6 +46,9 @@
                 <x-sidebar-link :href="route('exercises.index')" icon="dumbbell" :active="request()->routeIs('exercises.index')">
                     Ejercicios
                 </x-sidebar-link>
+                <x-sidebar-link :href="route('transformation.index')" icon="heart-handshake" :active="request()->routeIs('transformation.*')">
+                    Transformación
+                </x-sidebar-link>
                 {{-- <x-sidebar-link :href="route('tracking.index')" icon="activity" :active="request()->routeIs('tracking.index')">
                     Seguimiento
                 </x-sidebar-link>

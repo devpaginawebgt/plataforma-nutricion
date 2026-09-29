@@ -78,6 +78,8 @@
                     <x-nutritionist-patients::habits />
                 @elseif ($tab['id'] === 'ejercicios')
                     <x-nutritionist-patients::exercises />
+                @elseif ($tab['id'] === 'transformacion')
+                    <x-nutritionist-patients::transformation />
                 @endif
             </div>
         @endforeach
