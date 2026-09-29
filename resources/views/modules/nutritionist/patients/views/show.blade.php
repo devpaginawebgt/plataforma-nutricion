@@ -42,12 +42,6 @@
             <li class="me-2" role="presentation">
                 <button
                     class="inline-block p-4 border-b border-transparent rounded-t-base"
-                    id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
-                    aria-selected="false">Historial Clinico</button>
-            </li>
-            <li class="me-2" role="presentation">
-                <button
-                    class="inline-block p-4 border-b border-transparent rounded-t-base"
                     id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings"
                     aria-selected="false">Evaluación Nutricional</button>
             </li>
@@ -76,10 +70,7 @@
         <div class="hidden py-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <x-nutritionist-patients::personal-information />
         </div>
-        <div class="hidden py-4" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-            <x-nutritionist-patients::medical-history />
-        </div>
-        <div class="hidden py-4" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+<div class="hidden py-4" id="settings" role="tabpanel" aria-labelledby="settings-tab">
             <x-nutritionist-patients::nutritional-assessment />
         </div>
         <div class="hidden py-4" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">

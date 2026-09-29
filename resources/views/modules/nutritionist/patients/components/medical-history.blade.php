@@ -11,20 +11,6 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-5">
         <div>
             <div class="flex items-center gap-2 mb-3">
-                <span class="icon-[lucide--stethoscope] w-4 h-4 text-primary-700 dark:text-primary-300"></span>
-                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Diagnósticos</p>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                @forelse ($diagnosticos as $item)
-                    <span class="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-3 py-1 text-xs font-medium">{{ $item }}</span>
-                @empty
-                    <span class="text-sm text-muted">Sin registros</span>
-                @endforelse
-            </div>
-        </div>
-
-        <div>
-            <div class="flex items-center gap-2 mb-3">
                 <span class="icon-[lucide--pill] w-4 h-4 text-blue-700 dark:text-blue-300"></span>
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Medicamentos</p>
             </div>
@@ -51,7 +37,7 @@
             </div>
         </div>
 
-        <div class="md:col-span-2 border-b border-default mt-2">
+        {{-- <div class="md:col-span-2 border-b border-default mt-2">
             <div class="flex items-center gap-2 mb-3">
                 <span class="icon-[lucide--flask-conical] w-4 h-4 text-green-700 dark:text-green-300"></span>
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Documento CIE-11</p>
@@ -67,7 +53,7 @@
                     <input id="lab-pdf-upload" type="file" accept="application/pdf" class="hidden">
                 </label>
             </div>
-        </div>
+        </div> --}}
 
         {{-- <div>
             <div class="flex items-center gap-2 mb-3">

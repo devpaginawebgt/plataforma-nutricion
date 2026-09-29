@@ -5,9 +5,10 @@
     'imcCategoria' => 'Sobrepeso',
     'grasa' => '31.2 %',
     'musculo' => '27.8 %',
+    'musculoLb' => '42.1',
     'aguaCorporal' => '48.5 %',
     'grasaVisceral' => '7',
-    'masaOsea' => '2.6 kg',
+    'masaOsea' => '3.5 %',
     'edadMetabolica' => '34 años',
     'cintura' => '84 cm',
     'cadera' => '102 cm',
@@ -90,8 +91,12 @@
             <div class="w-10 h-10 mx-auto rounded-full bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 flex items-center justify-center mb-2">
                 <span class="icon-[lucide--dumbbell] w-5 h-5"></span>
             </div>
-            <p class="text-lg font-bold text-strong">{{ $musculo }}</p>
-            <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">% Músculo</p>
+            <p class="w-full text-lg font-bold flex flex-col sm:flex-row justify-center items-center sm:gap-2">
+                <span>{{ $musculo }}</span>
+                <span class="hidden sm:inline text-muted">&nbsp;|&nbsp;</span>
+                <span>{{ $musculoLb }} lbs</span>
+            </p>
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Músculo</p>
         </div>
 
         <div class="rounded-default border-card bg-surface p-4 text-center">
@@ -115,7 +120,7 @@
                 <span class="icon-[lucide--bone] w-5 h-5"></span>
             </div>
             <p class="text-lg font-bold text-strong">{{ $masaOsea }}</p>
-            <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Masa ósea</p>
+            <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">% Masa ósea</p>
         </div>
 
         <div class="rounded-default border-card bg-surface p-4 text-center">

@@ -9,6 +9,8 @@
     'ocupacion' => 'Contadora',
     'fechaNacimiento' => '15/03/1981',
     'fechaInicio' => '20/05/2026',
+    'medicamentos' => ['Metformina 850mg', 'Losartán 50mg'],
+    'alergias' => ['Penicilina', 'Mariscos'],
 ])
 
 <div class="bg-surface rounded-default shadow-card border-card overflow-hidden">
@@ -111,6 +113,36 @@
             <div class="min-w-0">
                 <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Meses de gestación</p>
                 <p class="text-sm font-medium text-strong truncate">3</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-5 py-4 border-t border-default">
+        <div>
+            <div class="flex items-center gap-2 mb-3">
+                <span class="icon-[lucide--pill] w-4 h-4 text-blue-700 dark:text-blue-300"></span>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Medicamentos</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                @forelse ($medicamentos as $item)
+                    <span class="inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-3 py-1 text-xs font-medium">{{ $item }}</span>
+                @empty
+                    <span class="text-sm text-muted">Sin registros</span>
+                @endforelse
+            </div>
+        </div>
+
+        <div>
+            <div class="flex items-center gap-2 mb-3">
+                <span class="icon-[lucide--shield-alert] w-4 h-4 text-orange-600 dark:text-orange-300"></span>
+                <p class="text-[11px] font-semibold uppercase tracking-wide text-muted">Alergias</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                @forelse ($alergias as $item)
+                    <span class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 px-3 py-1 text-xs font-medium">{{ $item }}</span>
+                @empty
+                    <span class="text-sm text-muted">Sin registros</span>
+                @endforelse
             </div>
         </div>
     </div>
