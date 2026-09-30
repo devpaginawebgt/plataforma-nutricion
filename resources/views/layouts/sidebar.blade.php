@@ -54,10 +54,10 @@
                 </x-sidebar-link>
                 <x-sidebar-link :href="route('reports.index')" icon="file-text" :active="request()->routeIs('reports.index')">
                     Reportes
-                </x-sidebar-link>
-                <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.index')">
-                    Configuración
                 </x-sidebar-link> --}}
+                <x-sidebar-link :href="route('settings.index')" icon="settings" :active="request()->routeIs('settings.*')">
+                    Configuración
+                </x-sidebar-link>
             @endrole
 
             @role('patient')
